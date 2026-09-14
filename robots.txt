@@ -1,0 +1,5 @@
+# Robots.txt para Mentora College
+User-agent: *
+Allow: /
+
+Sitemap: https://mentoracollege.edu/sitemap.xml
