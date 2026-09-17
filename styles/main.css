@@ -232,6 +232,113 @@ h3 {
   box-shadow: var(--shadow-lg);
 }
 
+/* Glassmorphism Benefit Cards & Section */
+.beneficios-section {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eff6ff 100%);
+  overflow: hidden;
+}
+
+.beneficios-section::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.beneficios-section::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(45px);
+  z-index: 0;
+}
+
+.beneficios-container {
+  position: relative;
+  z-index: 1;
+}
+
+.card-glass {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  box-shadow: 
+    0 10px 30px -5px rgba(23, 33, 61, 0.05),
+    0 0 0 1px rgba(226, 232, 240, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-glass:hover {
+  transform: translateY(-8px) scale(1.015);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 
+    0 22px 45px -10px rgba(50, 103, 232, 0.18),
+    0 0 0 1px rgba(99, 102, 241, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+}
+
+.card-glass-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-glass:hover .card-glass-icon {
+  transform: scale(1.12) rotate(4deg);
+}
+
+.card-glass-link {
+  color: var(--mentora-blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.925rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.card-glass-link:hover {
+  color: var(--mentora-purple);
+  gap: 0.65rem;
+}
+
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -1081,6 +1188,15 @@ h3 {
   text-transform: uppercase;
   color: #000000;
   margin-bottom: 1.75rem;
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block;
 }
 
 .hero-impact-subtitle {
