@@ -28,15 +28,15 @@
   <meta property="twitter:description"
     content="Optimiza la gestión escolar y potencia a tus docentes con IA pedagógica.">
 
-  <!-- Google Fonts: Sora (Titles & Metrics) + Inter (Body & Controls) -->
+  <!-- Google Fonts: Anton (Impact Headlines) + Sora (Titles) + Inter (Body & Controls) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/main.css?v=4">
 
   <!-- JSON-LD Structured Data for SEO -->
   <script type="application/ld+json">
@@ -59,106 +59,128 @@
 <body>
 
   <!-- ==========================================================================
-       1. HEADER & NAVIGATION
+       1. HERO WRAPPER (Background Radial Glow & Navigation Header)
        ========================================================================== -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="./index.html" class="logo-brand" aria-label="Mentora College - Inicio">
-        <div class="logo-icon">M</div>
-        <span>Mentora <span style="color: var(--mentora-purple);">College</span></span>
+  <div class="hero-background">
+    <!-- Header Navigation matching the Reference UI -->
+    <header class="header-v2 w-full py-4 px-8 flex items-center justify-between bg-transparent">
+      <!-- Logo -->
+      <a href="./index.html" class="logo-brand-v2 flex items-center gap-2" aria-label="Mentora College - Inicio">
+        <svg class="brand-icon-svg w-8 h-8 text-purple-600" viewBox="0 0 32 32" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <!-- Birrete estilizado -->
+          <path d="M16 4L4 10.5L16 17L26 11.5V17H28V10.5L16 4Z" fill="#7C3AED" />
+          <!-- Tassel / Borla -->
+          <path d="M7 12.5V18.5C7 19.3 7.7 20 8.5 20C9.3 20 10 19.3 10 18.5V13.8" stroke="#7C3AED" stroke-width="1.8"
+            stroke-linecap="round" />
+          <!-- Escudo / corazón estilizado -->
+          <path d="M10 15C7 17.5 7 21.5 9.5 24C12 26.5 15.5 29 16 29.5C16.5 29 20 26.5 22.5 24C25 21.5 25 17.5 22 15"
+            stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="text-2xl font-bold text-slate-900 tracking-tight">
+          Mentora College
+        </span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="nav-desktop" aria-label="Navegación principal">
-        <a href="#hero" class="nav-link">Inicio</a>
-        <a href="#problema" class="nav-link">Solución</a>
-        <a href="#beneficios" class="nav-link">Beneficios</a>
-        <a href="#ecosistema" class="nav-link">Cómo funciona</a>
-        <a href="#ia" class="nav-link">Inteligencia Artificial</a>
-        <a href="#casos" class="nav-link">Casos / Resultados</a>
-        <a href="#porque-mentora" class="nav-link">Nosotros</a>
-        <a href="#contacto" class="nav-link">Contáctanos</a>
+      <!-- Enlaces de navegación Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 nav-desktop-v2">
+        <a href="#problema"
+          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
+          Soluciones
+          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <a href="#beneficios"
+          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
+          Recursos
+          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <a href="#porque-mentora" class="hover:text-purple-700 transition-colors nav-link-v2">Nosotros</a>
+        <a href="#ecosistema" class="hover:text-purple-700 transition-colors nav-link-v2">Plataforma</a>
       </nav>
 
-      <!-- Desktop CTA -->
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <button class="btn btn-primary js-open-lead-modal">
-          Quiero conocer Mentora College
-        </button>
+      <!-- Botón CTA & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#contacto"
+          class="cta-btn-v2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md transition-all js-open-lead-modal">
+          Más información
+          <span class="cta-arrow-circle">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
+        </a>
 
+        <!-- Botón menú hamburguesa móvil -->
         <button class="mobile-drawer-toggle" id="mobileDrawerToggle" aria-label="Abrir menú" aria-expanded="false">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Mobile Drawer Nav -->
-  <div class="mobile-drawer" id="mobileDrawerNav">
-    <a href="#hero" class="nav-link">Inicio</a>
-    <a href="#problema" class="nav-link">Solución</a>
-    <a href="#beneficios" class="nav-link">Beneficios</a>
-    <a href="#ecosistema" class="nav-link">Cómo funciona</a>
-    <a href="#ia" class="nav-link">Inteligencia Artificial</a>
-    <a href="#casos" class="nav-link">Casos / Resultados</a>
-    <a href="#porque-mentora" class="nav-link">Nosotros</a>
-    <a href="#contacto" class="nav-link">Contáctanos</a>
-    <div style="margin-top: 1rem;">
-      <button class="btn btn-primary js-open-lead-modal" style="width: 100%;">
-        Quiero conocer Mentora College
-      </button>
+    <!-- Mobile Drawer Nav -->
+    <div class="mobile-drawer" id="mobileDrawerNav">
+      <a href="#problema" class="nav-link">Soluciones</a>
+      <a href="#beneficios" class="nav-link">Beneficios</a>
+      <a href="#porque-mentora" class="nav-link">Nosotros</a>
+      <a href="#ecosistema" class="nav-link">Plataforma</a>
+      <div style="margin-top: 1rem;">
+        <button class="btn btn-primary js-open-lead-modal" style="width: 100%;">
+          Contáctanos
+        </button>
+      </div>
     </div>
-  </div>
 
-  <main>
     <!-- ==========================================================================
          2. HERO SECTION
          ========================================================================== -->
-    <section id="hero" class="hero-section bg-hero-gradient">
-      <div class="container">
-        <div class="hero-content">
-          <div>
-            <div style="margin-bottom: 1rem;">
-              <span class="badge badge-purple"
-                style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3);">
-                ✨ Ecosistema Educativo 360° con IA
+    <section id="hero" class="hero-v2-section">
+      <div class="hero-v2-container">
+        <!-- Columna Izquierda: Copywriting Impactante -->
+        <div class="hero-v2-left">
+          <h1 class="hero-impact-title">
+            UN ALIADO PARA<br>
+            LA GESTIÓN<br>
+            EDUCATIVA.
+          </h1>
+
+          <p class="hero-impact-subtitle">
+            Tecnología que acompaña a tu institución antes, durante y después de la implementación.
+          </p>
+
+          <div class="hero-impact-actions">
+            <a href="#contacto" class="btn-hero-start js-open-lead-modal">
+              <span>Empezar ahora</span>
+              <span class="cta-arrow-circle">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </span>
-            </div>
-
-            <h1 class="hero-title">
-              La plataforma de gestión educativa que conecta a tu colegio con el aprendizaje.
-            </h1>
-
-            <p class="hero-subtitle">
-              Mentora College integra planificación, evaluación, seguimiento del aprendizaje, gestión académica y
-              comunicación con las familias, incorporando Inteligencia Artificial para agilizar el trabajo docente y
-              ayudar a los directivos a tomar mejores decisiones.
-            </p>
-
-            <div class="hero-microbenefits">
-              <span class="hero-badge">✓ Gestión por competencias</span>
-              <span class="hero-badge">✓ Inteligencia Artificial</span>
-              <span class="hero-badge">✓ Monitoreo del aprendizaje</span>
-              <span class="hero-badge">✓ Familias conectadas</span>
-            </div>
-
-            <div class="hero-ctas">
-              <button class="btn btn-primary js-open-lead-modal" style="font-size: 1.05rem; padding: 1rem 1.85rem;">
-                Quiero conocer Mentora College →
-              </button>
-              <a href="#ecosistema" class="btn btn-white" style="font-size: 1.05rem; padding: 1rem 1.85rem;">
-                Ver cómo funciona
-              </a>
-            </div>
+            </a>
           </div>
+        </div>
 
-          <!-- Laptop UI Mockup Slot -->
-          <div id="heroMockupSlot"></div>
+        <!-- Columna Derecha: Robot 3D Flotante con Sombra -->
+        <div class="hero-v2-right">
+          <div class="hero-robot-wrapper">
+            <img src="./public/assets/robot_transparent.png?v=2" alt="Asistente de IA Mentora College"
+              class="hero-robot-avatar" loading="eager"
+              onerror="if(!this.tried){this.tried=true;this.src='./assets/robot_transparent.png?v=2';}" />
+            <div class="hero-robot-shadow"></div>
+          </div>
         </div>
       </div>
     </section>
+  </div>
+
+  <main>
 
     <!-- ==========================================================================
          3. LOGOS DE CONFIANZA & METRICAS
@@ -170,16 +192,45 @@
           Respaldado por instituciones educativas comprometidas con la innovación
         </div>
 
-        <div
-          style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: center; justify-items: center; margin-bottom: 2.5rem; opacity: 0.85;">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: #475569;">COLEGIO
-            SAN AGUSTÍN</div>
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: #475569;">SANTA
-            MARIA SCHOOL</div>
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: #475569;">INSTITUTO
-            ALFA & OMEGA</div>
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: #475569;">RED
-            EDUCATIVA INNOVACIÓN</div>
+        <!-- Carousel Infinito de Logos de Colegios -->
+        <div class="logos-carousel-container" aria-label="Colegios que confían en Mentora College">
+          <div class="logos-marquee-track">
+            <!-- Set 1 -->
+            <div class="school-logo-card">
+              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
+              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
+            </div>
+            <div class="school-logo-card">
+              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
+              <span class="school-logo-name">Colegio Luz y Ciencia</span>
+            </div>
+            <div class="school-logo-card">
+              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
+              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
+            </div>
+            <div class="school-logo-card">
+              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
+              <span class="school-logo-name">Colegio Luz y Ciencia</span>
+            </div>
+
+            <!-- Set 2 (Duplicado idéntico para loop continuo sin salto) -->
+            <div class="school-logo-card" aria-hidden="true">
+              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
+              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
+            </div>
+            <div class="school-logo-card" aria-hidden="true">
+              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
+              <span class="school-logo-name">Colegio Luz y Ciencia</span>
+            </div>
+            <div class="school-logo-card" aria-hidden="true">
+              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
+              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
+            </div>
+            <div class="school-logo-card" aria-hidden="true">
+              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy" onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
+              <span class="school-logo-name">Colegio Luz y Ciencia</span>
+            </div>
+          </div>
         </div>
 
         <div
