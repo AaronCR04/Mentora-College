@@ -5,6 +5,7 @@
 
 import { renderHeroMockup, renderActorPreview } from './mockups.js';
 import { initLeadForm } from './lead-form.js';
+import { initEcosistemaScrolly } from './ecosistema-scrolly.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Render Hero Mockup
@@ -56,62 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Ecosystem Step Visualizer
-  const flowSteps = document.querySelectorAll('.flow-step');
-  const ecosystemDetailSlot = document.getElementById('ecosystemDetailSlot');
-
-  const stepDetails = {
-    planifica: {
-      title: '1. PLANIFICA',
-      subtitle: 'Conecta competencias, capacidades, criterios y evidencias',
-      desc: 'El docente estructura unidades y sesiones alineadas al currículo institucional (CNEB o internacional) asegurando la trazabilidad de cada aprendizaje.'
-    },
-    ensena: {
-      title: '2. ENSEÑA',
-      subtitle: 'Recursos dinámicos y apoyo constante en el aula',
-      desc: 'Acceso a materiales pedagógicos organizados, herramientas interactivas e Inteligencia Artificial como asistente docente para diversificar la enseñanza.'
-    },
-    evalua: {
-      title: '3. EVALÚA',
-      subtitle: 'Organiza evidencias y criterios con IA de apoyo',
-      desc: 'Registra evaluaciones formativas y sumativas relacionando actividades con niveles de logro y optimizando el tiempo de revisión.'
-    },
-    retroalimenta: {
-      title: '4. RETROALIMENTA',
-      subtitle: 'Orientaciones claras para el crecimiento del estudiante',
-      desc: 'Genera comentarios oportunos que ayudan al alumno a comprender qué ha logrado y cómo superar sus brechas académicas.'
-    },
-    monitorea: {
-      title: '5. MONITOREA',
-      subtitle: 'Analítica en tiempo real para coordinadores y directivos',
-      desc: 'Convierte los resultados individuales y grupales en indicadores de logro para identificar alertas tempranas y tomar decisiones.'
-    },
-    mejora: {
-      title: '6. MEJORA',
-      subtitle: 'Ciclo continuo de fortalecimiento institucional',
-      desc: 'Las decisiones basadas en datos permiten ajustar las planificaciones futuras, capacitar docentes y garantizar la calidad educativa.'
-    }
-  };
-
-  if (flowSteps.length > 0 && ecosystemDetailSlot) {
-    flowSteps.forEach(step => {
-      step.addEventListener('click', () => {
-        flowSteps.forEach(s => s.classList.remove('is-active'));
-        step.classList.add('is-active');
-
-        const stepKey = step.getAttribute('data-step');
-        const detail = stepDetails[stepKey] || stepDetails.planifica;
-
-        ecosystemDetailSlot.innerHTML = `
-          <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.5rem; color: #FFFFFF;">
-            <div style="font-size: 0.85rem; font-weight: 700; color: #16BDEB; text-transform: uppercase; margin-bottom: 0.25rem;">${detail.title}</div>
-            <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">${detail.subtitle}</h4>
-            <p style="font-size: 0.95rem; color: #CBD5E1; line-height: 1.6;">${detail.desc}</p>
-          </div>
-        `;
-      });
-    });
-  }
+  // 4. Ecosystem Scrollytelling Experience (GSAP + ScrollTrigger)
+  initEcosistemaScrolly();
 
   // 5. FAQ Accordion Handler
   const faqQuestions = document.querySelectorAll('.faq-question');
@@ -132,4 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. Initialize Lead Modal & Forms
   initLeadForm();
+
+  // 7. Sticky Header Scroll Effect (Smooth White Glass on Scroll)
+  const mainHeader = document.getElementById('mainHeader');
+  if (mainHeader) {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        mainHeader.classList.add('scrolled');
+      } else {
+        mainHeader.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
 });

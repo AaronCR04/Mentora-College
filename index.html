@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
   <!-- Primary SEO Meta Tags -->
   <title>Mentora College</title>
   <meta name="title" content="Mentora College | Plataforma de Gestión Educativa para Colegios">
@@ -35,8 +39,13 @@
     href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
     rel="stylesheet">
 
+  <!-- GSAP & ScrollTrigger Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="./styles/main.css?v=5">
+  <link rel="stylesheet" href="./styles/main.css?v=13">
 
   <!-- JSON-LD Structured Data for SEO -->
   <script type="application/ld+json">
@@ -63,63 +72,53 @@
        ========================================================================== -->
   <div class="hero-background">
     <!-- Header Navigation matching the Reference UI -->
-    <header class="header-v2 w-full py-4 px-8 flex items-center justify-between bg-transparent">
-      <!-- Logo -->
-      <a href="./index.html" class="logo-brand-v2 flex items-center gap-2" aria-label="Mentora College - Inicio">
-        <svg class="brand-icon-svg w-8 h-8 text-purple-600" viewBox="0 0 32 32" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <!-- Birrete estilizado -->
-          <path d="M16 4L4 10.5L16 17L26 11.5V17H28V10.5L16 4Z" fill="#7C3AED" />
-          <!-- Tassel / Borla -->
-          <path d="M7 12.5V18.5C7 19.3 7.7 20 8.5 20C9.3 20 10 19.3 10 18.5V13.8" stroke="#7C3AED" stroke-width="1.8"
-            stroke-linecap="round" />
-          <!-- Escudo / corazón estilizado -->
-          <path d="M10 15C7 17.5 7 21.5 9.5 24C12 26.5 15.5 29 16 29.5C16.5 29 20 26.5 22.5 24C25 21.5 25 17.5 22 15"
-            stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <span class="text-2xl font-bold text-slate-900 tracking-tight">
-          Mentora College
-        </span>
-      </a>
-
-      <!-- Enlaces de navegación Desktop -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 nav-desktop-v2">
-        <a href="#problema"
-          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
-          Soluciones
-          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
+    <header class="header-v2-wrapper" id="mainHeader">
+      <div class="header-v2">
+        <!-- Logo -->
+        <a href="./index.html" class="logo-brand-v2 flex items-center" aria-label="Mentora College - Inicio">
+          <img src="./assets/logo.png" alt="Mentora College" class="brand-logo-img" height="40"
+            style="height: 42px; width: auto; max-height: 44px; display: block; object-fit: contain;">
         </a>
-        <a href="#beneficios"
-          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
-          Recursos
-          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <a href="#porque-mentora" class="hover:text-purple-700 transition-colors nav-link-v2">Nosotros</a>
-        <a href="#ecosistema" class="hover:text-purple-700 transition-colors nav-link-v2">Plataforma</a>
-      </nav>
 
-      <!-- Botón CTA & Mobile Toggle -->
-      <div class="flex items-center gap-3">
-        <a href="#contacto"
-          class="cta-btn-v2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md transition-all js-open-lead-modal">
-          Más información
-          <span class="cta-arrow-circle">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        <!-- Enlaces de navegación Desktop -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 nav-desktop-v2">
+          <a href="#problema"
+            class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
+            Soluciones
+            <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
-          </span>
-        </a>
+          </a>
+          <a href="#beneficios"
+            class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
+            Recursos
+            <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="#porque-mentora" class="hover:text-purple-700 transition-colors nav-link-v2">Nosotros</a>
+          <a href="#ecosistema" class="hover:text-purple-700 transition-colors nav-link-v2">Plataforma</a>
+        </nav>
 
-        <!-- Botón menú hamburguesa móvil -->
-        <button class="mobile-drawer-toggle" id="mobileDrawerToggle" aria-label="Abrir menú" aria-expanded="false">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <!-- Botón CTA & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="#contacto"
+            class="cta-btn-v2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md transition-all js-open-lead-modal">
+            Más información
+            <span class="cta-arrow-circle">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- Botón menú hamburguesa móvil -->
+          <button class="mobile-drawer-toggle" id="mobileDrawerToggle" aria-label="Abrir menú" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -170,9 +169,8 @@
         <!-- Columna Derecha: Robot 3D Flotante con Sombra -->
         <div class="hero-v2-right">
           <div class="hero-robot-wrapper">
-            <img src="./public/assets/robot_transparent.png?v=2" alt="Asistente de IA Mentora College"
-              class="hero-robot-avatar" loading="eager"
-              onerror="if(!this.tried){this.tried=true;this.src='./assets/robot_transparent.png?v=2';}" />
+            <img src="./assets/robot_transparent.svg" alt="Asistente de IA Mentora College" class="hero-robot-avatar"
+              loading="eager" />
             <div class="hero-robot-shadow"></div>
           </div>
         </div>
@@ -274,52 +272,47 @@
     <!-- ==========================================================================
          4 & 5. SECCIÓN PROBLEMA Y TRANSICIÓN A LA SOLUCIÓN
          ========================================================================== -->
-    <section id="problema" class="bg-soft" style="padding: 5rem 0;">
+    <section id="problema" class="seccion-dolores">
       <div class="container">
-        <div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
-          <span class="badge badge-blue" style="margin-bottom: 0.75rem;">Desafíos Reales del Colegio</span>
-          <h2 style="margin-bottom: 1rem;">¿Reconoces estos dolores en la gestión de tu institución?</h2>
-          <p class="text-intro">Las instituciones educativas enfrentan desafíos diarios cuando sus procesos operan en
-            silos aislados.</p>
+        <div style="max-width: 720px; margin: 0 auto; text-align: center;">
+          <h2 class="titulo-dolores">¿Reconoces estos dolores en la gestión de tu institución?</h2>
+          <p class="subtitulo-dolores">Las instituciones educativas enfrentan desafíos diarios cuando sus procesos
+            operan en silos aislados.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3.5rem;">
-          <div class="card card-hover-lift">
-            <div
-              style="width: 48px; height: 48px; background: rgba(239, 68, 68, 0.1); color: #EF4444; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
-              📂</div>
-            <h3 style="margin-bottom: 0.75rem;">Información dispersa</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Planificación, evaluaciones, evidencias, asistencia
-              y comunicaciones suelen operar en espacios diferentes sin conexión.</p>
+        <div class="grid-dolores">
+          <!-- Card 1: Información dispersa -->
+          <div class="card-glass">
+            <img src="./assets/icon_archivo.svg" alt="Información dispersa" class="card-dolor-icon" loading="lazy" />
+            <h3 class="card-dolor-title">Información dispersa</h3>
+            <p class="card-dolor-text">Planificación, evaluaciones, evidencias, asistencia y comunicaciones suelen
+              operar en espacios diferentes sin conexión.</p>
           </div>
 
-          <div class="card card-hover-lift">
-            <div
-              style="width: 48px; height: 48px; background: rgba(245, 158, 11, 0.1); color: #F59E0B; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
-              ⏳</div>
-            <h3 style="margin-bottom: 0.75rem;">Demasiado trabajo operativo</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Docentes y equipos académicos destinan horas
-              valiosas a tareas manuales que pueden organizarse y agilizarse digitalmente.</p>
+          <!-- Card 2: Demasiado trabajo operativo -->
+          <div class="card-glass">
+            <img src="./assets/icon_reloj.svg" alt="Demasiado trabajo operativo" class="card-dolor-icon"
+              loading="lazy" />
+            <h3 class="card-dolor-title">Demasiado trabajo operativo</h3>
+            <p class="card-dolor-text">Docentes y equipos académicos destinan horas valiosas a tareas manuales que
+              pueden organizarse y agilizarse digitalmente.</p>
           </div>
 
-          <div class="card card-hover-lift">
-            <div
-              style="width: 48px; height: 48px; background: rgba(86, 50, 232, 0.1); color: var(--mentora-purple); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem;">
-              📊</div>
-            <h3 style="margin-bottom: 0.75rem;">Decisiones que llegan tarde</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Cuando la información no está integrada, detectar
-              brechas de aprendizaje y actuar oportunamente se vuelve muy difícil.</p>
+          <!-- Card 3: Decisiones que llegan tarde -->
+          <div class="card-glass">
+            <img src="./assets/icon_metrica.svg" alt="Decisiones que llegan tarde" class="card-dolor-icon"
+              loading="lazy" />
+            <h3 class="card-dolor-title">Decisiones que llegan tarde</h3>
+            <p class="card-dolor-text">Cuando la información no está integrada, detectar brechas de aprendizaje y actuar
+              oportunamente se vuelve muy difícil.</p>
           </div>
         </div>
 
         <!-- Section 5: Transition Banner -->
-        <div
-          style="background: var(--gradient-button); border-radius: var(--radius-lg); padding: 2.25rem; color: white; text-align: center; box-shadow: var(--shadow-glow);">
-          <div
-            style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; margin-bottom: 0.5rem;">
-            Respuesta Integrada</div>
-          <h3 style="font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-family: var(--font-heading); font-weight: 700;">
-            Mentora College conecta estos procesos en un solo ecosistema educativo.</h3>
+        <div class="banner-transicion-solucion">
+          <h3 class="banner-solucion-title">
+            Mentora College conecta estos procesos en un solo ecosistema educativo.
+          </h3>
         </div>
       </div>
     </section>
@@ -329,112 +322,92 @@
          ========================================================================== -->
     <section id="beneficios" class="beneficios-section">
       <div class="container beneficios-container">
-        <div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
-          <span class="badge badge-purple" style="margin-bottom: 0.75rem;">Propuesta de Valor</span>
-          <h2 style="margin-bottom: 1rem;">Beneficios pensados para el crecimiento de tu colegio</h2>
-          <p class="text-intro">Descubre cómo cada módulo fortalece una dimensión clave de la comunidad educativa.</p>
+        <div class="beneficios-header">
+          <h2 class="beneficios-title">
+            Beneficios pensados para el<br>crecimiento de tu colegio
+          </h2>
+          <p class="beneficios-subtitle">
+            Descubre cómo cada módulo fortalece una dimensión clave de la conectividad de la comunidad educativa.
+          </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem;">
-          <!-- Beneficio 1 -->
-          <div class="card-glass">
-            <div>
-              <div class="card-glass-icon" style="background: rgba(50, 103, 232, 0.12); color: var(--mentora-blue);">
-                📋
-              </div>
-              <h3 style="margin-bottom: 0.6rem;">Control de asistencia</h3>
-              <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.55;">
-                Registra ingresos, salidas e inasistencias en tiempo real y facilita la comunicación directa con las familias.
-              </p>
-            </div>
-            <a href="./asistencia-escolar/index.html" class="card-glass-link">
-              <span>Conoce el control de asistencia</span>
-              <span style="font-size: 1.1rem; line-height: 1;">→</span>
+        <div class="beneficios-grid">
+          <!-- Beneficio 1: Control de asistencia -->
+          <div class="beneficio-card">
+            <img src="./assets/control-de-asistencia.svg" alt="Control de asistencia" class="beneficio-card-icon"
+              loading="lazy">
+            <h3 class="beneficio-card-title">Control de asistencia</h3>
+            <p class="beneficio-card-text">
+              Registra ingresos, salidas e inasistencias en tiempo real y facilita la comunicación directa con las
+              familias.
+            </p>
+            <a href="./asistencia-escolar/index.html" class="beneficio-pill-btn pill-purple">
+              Conoce el control de asistencia <span>→</span>
             </a>
           </div>
 
-          <!-- Beneficio 2 -->
-          <div class="card-glass">
-            <div>
-              <div class="card-glass-icon" style="background: rgba(179, 19, 184, 0.12); color: var(--accent-magenta);">
-                💬
-              </div>
-              <h3 style="margin-bottom: 0.6rem;">Familias conectadas</h3>
-              <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.55;">
-                Centraliza comunicados, alertas institucionales e información académica relevante del estudiante.
-              </p>
-            </div>
-            <a href="./comunicacion-familias/index.html" class="card-glass-link">
-              <span>Explora la comunicación con familias</span>
-              <span style="font-size: 1.1rem; line-height: 1;">→</span>
+          <!-- Beneficio 2: Familias conectadas -->
+          <div class="beneficio-card">
+            <img src="./assets/familias-conectadas.svg" alt="Familias conectadas" class="beneficio-card-icon"
+              loading="lazy">
+            <h3 class="beneficio-card-title">Familias conectadas</h3>
+            <p class="beneficio-card-text">
+              Centraliza comunicados, alertas institucionales e información académica relevante del estudiante.
+            </p>
+            <a href="./comunicacion-familias/index.html" class="beneficio-pill-btn pill-cyan">
+              Explora la comunicación con familias <span>→</span>
             </a>
           </div>
 
-          <!-- Beneficio 3 -->
-          <div class="card-glass">
-            <div>
-              <div class="card-glass-icon" style="background: rgba(22, 189, 235, 0.12); color: #0284C7;">
-                📄
-              </div>
-              <h3 style="margin-bottom: 0.6rem;">Gestión académica</h3>
-              <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.55;">
-                Digitaliza notas, boletas e informes cualitativos reduciendo errores y tareas manuales.
-              </p>
-            </div>
-            <a href="./boletas-digitales/index.html" class="card-glass-link">
-              <span>Descubre las boletas digitales</span>
-              <span style="font-size: 1.1rem; line-height: 1;">→</span>
+          <!-- Beneficio 3: Gestión académica -->
+          <div class="beneficio-card">
+            <img src="./assets/gestion-academica.svg" alt="Gestión académica" class="beneficio-card-icon"
+              loading="lazy">
+            <h3 class="beneficio-card-title">Gestión académica</h3>
+            <p class="beneficio-card-text">
+              Digitaliza notas, boletas e informes cualitativos reduciendo errores y tareas manuales.
+            </p>
+            <a href="./boletas-digitales/index.html" class="beneficio-pill-btn pill-slate">
+              Descubre las boletas digitales <span>→</span>
             </a>
           </div>
 
-          <!-- Beneficio 4 -->
-          <div class="card-glass">
-            <div>
-              <div class="card-glass-icon" style="background: rgba(86, 50, 232, 0.12); color: var(--mentora-purple);">
-                🎯
-              </div>
-              <h3 style="margin-bottom: 0.6rem;">Planificación alineada</h3>
-              <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.55;">
-                Conecta competencias, capacidades, criterios, sesiones, recursos y evidencias educativas.
-              </p>
-            </div>
-            <a href="./planificacion-evaluacion-competencias/index.html" class="card-glass-link">
-              <span>Ver planificación por competencias</span>
-              <span style="font-size: 1.1rem; line-height: 1;">→</span>
+          <!-- Beneficio 4: Planificación alineada -->
+          <div class="beneficio-card">
+            <img src="./assets/planificacion-alineada.svg" alt="Planificación alineada" class="beneficio-card-icon"
+              loading="lazy">
+            <h3 class="beneficio-card-title">Planificación alineada</h3>
+            <p class="beneficio-card-text">
+              Conecta competencias, capacidades, criterios, sesiones, recursos y evidencias educativas.
+            </p>
+            <a href="./planificacion-evaluacion-competencias/index.html" class="beneficio-pill-btn pill-indigo">
+              Ver planificación por competencias <span>→</span>
             </a>
           </div>
 
-          <!-- Beneficio 5 -->
-          <div class="card-glass">
-            <div>
-              <div class="card-glass-icon" style="background: rgba(16, 185, 129, 0.12); color: #059669;">
-                🤖
-              </div>
-              <h3 style="margin-bottom: 0.6rem;">Enseñanza y evaluación</h3>
-              <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.55;">
-                Organiza evidencias y rúbricas incorporando Inteligencia Artificial como asistente docente.
-              </p>
-            </div>
-            <a href="./evaluacion-con-ia/index.html" class="card-glass-link">
-              <span>Conoce la evaluación apoyada por IA</span>
-              <span style="font-size: 1.1rem; line-height: 1;">→</span>
+          <!-- Beneficio 5: Enseñanza y evaluación (Destacada) -->
+          <div class="beneficio-card card-highlight">
+            <img src="./assets/ensenanza-y-evaluacion.svg" alt="Enseñanza y evaluación" class="beneficio-card-icon"
+              loading="lazy">
+            <h3 class="beneficio-card-title">Enseñanza y evaluación</h3>
+            <p class="beneficio-card-text">
+              Organiza evidencias y rúbricas incorporando Inteligencia Artificial como asistente docente.
+            </p>
+            <a href="./evaluacion-con-ia/index.html" class="beneficio-pill-btn pill-amber">
+              Conoce la evaluación apoyada por IA <span>→</span>
             </a>
           </div>
 
-          <!-- Beneficio 6 -->
-          <div class="card-glass">
-            <div>
-              <div class="card-glass-icon" style="background: rgba(245, 158, 11, 0.12); color: #D97706;">
-                📈
-              </div>
-              <h3 style="margin-bottom: 0.6rem;">Monitoreo del aprendizaje</h3>
-              <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.55;">
-                Convierte resultados e indicadores de logro en información estratégica para actuar a tiempo.
-              </p>
-            </div>
-            <a href="./monitoreo-aprendizaje/index.html" class="card-glass-link">
-              <span>Conoce el monitoreo del aprendizaje</span>
-              <span style="font-size: 1.1rem; line-height: 1;">→</span>
+          <!-- Beneficio 6: Monitoreo del aprendizaje -->
+          <div class="beneficio-card">
+            <img src="./assets/monitoreo-del-aprendizaje.svg" alt="Monitoreo del aprendizaje"
+              class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">Monitoreo del aprendizaje</h3>
+            <p class="beneficio-card-text">
+              Convierte resultados e indicadores de logro en información estratégica para actuar a tiempo.
+            </p>
+            <a href="./monitoreo-aprendizaje/index.html" class="beneficio-pill-btn pill-neutral">
+              Conoce el monitoreo del aprendizaje <span>→</span>
             </a>
           </div>
         </div>
@@ -444,72 +417,200 @@
     <!-- ==========================================================================
          7. ECOSISTEMA INTEGRADO: BLOQUE VISUAL CENTRAL (AZUL NOCHE)
          ========================================================================== -->
-    <section id="ecosistema" class="bg-night-surface" style="padding: 5.5rem 0;">
-      <div class="container">
-        <div style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
-          <span class="badge badge-cyan"
-            style="background: rgba(22, 189, 235, 0.15); color: var(--tech-cyan); margin-bottom: 0.75rem;">Ecosistema
-            Continuo</span>
-          <h2 style="color: white; margin-bottom: 1rem;">Todo el proceso educativo conectado</h2>
-          <p style="color: #CBD5E1; font-size: 1.05rem; line-height: 1.6;">
-            La planificación no termina en un documento. Mentora College conecta lo que el docente planifica con lo que
-            enseña, evalúa y retroalimenta. Los resultados alimentan el monitoreo y permiten orientar nuevas acciones de
-            mejora.
-          </p>
+    <!-- ==========================================================================
+         7. ECOSISTEMA INTEGRADO: PROCESO EDUCATIVO CONECTADO (GSAP SCROLLYTELLING)
+         ========================================================================== -->
+    <section id="ecosistema" class="ecosistema-scrolly-section">
+      <div class="ecosistema-scrolly-container">
+        <!-- Header -->
+        <div class="ecosistema-header">
+          <div class="ecosistema-badge">Ecosistema Continuo</div>
+          <h2 class="ecosistema-title">
+            Todo el proceso educativo<br>conectado
+          </h2>
         </div>
 
-        <!-- Interactive 6-step flow visualizer -->
-        <div class="ecosystem-flow">
-          <div class="flow-step is-active" data-step="planifica">
-            <div class="flow-step-num">Paso 1</div>
-            <div class="flow-step-title">PLANIFICA</div>
+        <!-- 2-Column Scrollytelling Grid -->
+        <div class="ecosistema-layout">
+          <!-- Columna Izquierda: Stepper Interactivo con borde neón morado -->
+          <div class="ecosistema-stepper" id="ecosistemaStepper">
+
+            <!-- Paso 01: PLANIFICA (Activo por defecto) -->
+            <div class="ecosistema-step-item is-active" data-step="0">
+              <div class="step-header-row">
+                <div class="step-num-box">01</div>
+                <div class="step-title-bar">
+                  <span>PLANIFICA</span>
+                  <span class="step-active-pill">Active</span>
+                </div>
+              </div>
+              <div class="step-details-expand">
+                <div class="step-detail-subtitle">Conecta competencias, capacidades, criterios y evidencias</div>
+                <p class="step-detail-desc">
+                  El docente estructura unidades y sesiones alineadas al currículo institucional (CNEB o internacional)
+                  asegurando la trazabilidad de cada aprendizaje.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 02: ENSEÑA -->
+            <div class="ecosistema-step-item" data-step="1">
+              <div class="step-header-row">
+                <div class="step-num-box">02</div>
+                <div class="step-title-bar">
+                  <span>ENSEÑA</span>
+                  <span class="step-active-pill">Active</span>
+                </div>
+              </div>
+              <div class="step-details-expand">
+                <div class="step-detail-subtitle">Recursos dinámicos y apoyo constante en el aula</div>
+                <p class="step-detail-desc">
+                  Acceso a materiales pedagógicos organizados, herramientas interactivas e Inteligencia Artificial como
+                  asistente docente para diversificar la enseñanza.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 03: EVALÚA -->
+            <div class="ecosistema-step-item" data-step="2">
+              <div class="step-header-row">
+                <div class="step-num-box">03</div>
+                <div class="step-title-bar">
+                  <span>EVALÚA</span>
+                  <span class="step-active-pill">Active</span>
+                </div>
+              </div>
+              <div class="step-details-expand">
+                <div class="step-detail-subtitle">Organiza evidencias y criterios con IA de apoyo</div>
+                <p class="step-detail-desc">
+                  Registra evaluaciones formativas y sumativas relacionando actividades con niveles de logro y
+                  optimizando el tiempo de revisión.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 04: RETROALIMENTA -->
+            <div class="ecosistema-step-item" data-step="3">
+              <div class="step-header-row">
+                <div class="step-num-box">04</div>
+                <div class="step-title-bar">
+                  <span>RETROALIMENTA</span>
+                  <span class="step-active-pill">Active</span>
+                </div>
+              </div>
+              <div class="step-details-expand">
+                <div class="step-detail-subtitle">Orientaciones claras para el crecimiento del estudiante</div>
+                <p class="step-detail-desc">
+                  Genera comentarios oportunos que ayudan al alumno a comprender qué ha logrado y cómo superar sus
+                  brechas académicas.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 05: MONITOREA -->
+            <div class="ecosistema-step-item" data-step="4">
+              <div class="step-header-row">
+                <div class="step-num-box">05</div>
+                <div class="step-title-bar">
+                  <span>MONITOREA</span>
+                  <span class="step-active-pill">Active</span>
+                </div>
+              </div>
+              <div class="step-details-expand">
+                <div class="step-detail-subtitle">Analítica en tiempo real para coordinadores y directivos</div>
+                <p class="step-detail-desc">
+                  Convierte los resultados individuales y grupales en indicadores de logro para identificar alertas
+                  tempranas y tomar decisiones.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 06: MEJORA -->
+            <div class="ecosistema-step-item" data-step="5">
+              <div class="step-header-row">
+                <div class="step-num-box">06</div>
+                <div class="step-title-bar">
+                  <span>MEJORA</span>
+                  <span class="step-active-pill">Active</span>
+                </div>
+              </div>
+              <div class="step-details-expand">
+                <div class="step-detail-subtitle">Ciclo continuo de fortalecimiento institucional</div>
+                <p class="step-detail-desc">
+                  Las decisiones basadas en datos permiten ajustar las planificaciones futuras, capacitar docentes y
+                  garantizar la calidad educativa.
+                </p>
+              </div>
+            </div>
+
           </div>
-          <div class="flow-step" data-step="ensena">
-            <div class="flow-step-num">Paso 2</div>
-            <div class="flow-step-title">ENSEÑA</div>
-          </div>
-          <div class="flow-step" data-step="evalua">
-            <div class="flow-step-num">Paso 3</div>
-            <div class="flow-step-title">EVALÚA</div>
-          </div>
-          <div class="flow-step" data-step="retroalimenta">
-            <div class="flow-step-num">Paso 4</div>
-            <div class="flow-step-title">RETROALIMENTA</div>
-          </div>
-          <div class="flow-step" data-step="monitorea">
-            <div class="flow-step-num">Paso 5</div>
-            <div class="flow-step-title">MONITOREA</div>
-          </div>
-          <div class="flow-step" data-step="mejora">
-            <div class="flow-step-num">Paso 6</div>
-            <div class="flow-step-title">MEJORA</div>
+
+          <!-- Columna Derecha: Glassmorphic Preview Frame Sticky -->
+          <div class="ecosistema-preview-frame">
+
+            <!-- Viewport de Slides del Preview Dinámico -->
+            <div class="ecosistema-slides-viewport" id="ecosistemaSlides">
+
+              <!-- SLIDE 0: PLANIFICA -->
+              <div class="ecosistema-slide is-active" data-slide="0">
+                <div class="ecosistema-image-card">
+                  <img src="./assets/ecosistema-01-planifica.png" alt="Plataforma Mentora College - Planifica"
+                    class="ecosistema-slide-img" loading="eager">
+                </div>
+              </div>
+
+              <!-- SLIDE 1: ENSEÑA -->
+              <div class="ecosistema-slide" data-slide="1">
+                <div class="ecosistema-image-card">
+                  <img src="./assets/ecosistema-02-ensena.png" alt="Plataforma Mentora College - Enseña"
+                    class="ecosistema-slide-img" loading="lazy">
+                </div>
+              </div>
+
+              <!-- SLIDE 2: EVALÚA -->
+              <div class="ecosistema-slide" data-slide="2">
+                <div class="ecosistema-image-card">
+                  <img src="./assets/ecosistema-03-evalua.png" alt="Plataforma Mentora College - Evalúa"
+                    class="ecosistema-slide-img" loading="lazy">
+                </div>
+              </div>
+
+              <!-- SLIDE 3: RETROALIMENTA -->
+              <div class="ecosistema-slide" data-slide="3">
+                <div class="ecosistema-image-card">
+                  <img src="./assets/ecosistema-04-retroalimenta.png" alt="Plataforma Mentora College - Retroalimenta"
+                    class="ecosistema-slide-img" loading="lazy">
+                </div>
+              </div>
+
+              <!-- SLIDE 4: MONITOREA -->
+              <div class="ecosistema-slide" data-slide="4">
+                <div class="ecosistema-image-card">
+                  <img src="./assets/ecosistema-05-monitorea.png" alt="Plataforma Mentora College - Monitorea"
+                    class="ecosistema-slide-img" loading="lazy">
+                </div>
+              </div>
+
+              <!-- SLIDE 5: MEJORA -->
+              <div class="ecosistema-slide" data-slide="5">
+                <div class="ecosistema-image-card">
+                  <img src="./assets/ecosistema-06-mejora.png" alt="Plataforma Mentora College - Mejora Continua"
+                    class="ecosistema-slide-img" loading="lazy">
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
-        <!-- Detail slot for selected step -->
-        <div id="ecosystemDetailSlot" style="max-width: 800px; margin: 0 auto 3rem auto;">
-          <div
-            style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.5rem; color: #FFFFFF;">
-            <div
-              style="font-size: 0.85rem; font-weight: 700; color: #16BDEB; text-transform: uppercase; margin-bottom: 0.25rem;">
-              1. PLANIFICA</div>
-            <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">Conecta competencias,
-              capacidades, criterios y evidencias</h4>
-            <p style="font-size: 0.95rem; color: #CBD5E1; line-height: 1.6;">El docente estructura unidades y sesiones
-              alineadas al currículo institucional (CNEB o internacional) asegurando la trazabilidad de cada
-              aprendizaje.</p>
-          </div>
-        </div>
-
-        <!-- Complementos Institucionales -->
-        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-          <div style="font-size: 0.875rem; color: #94A3B8; margin-bottom: 1rem;">Complementos institucionales
-            integrados:</div>
-          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem;">
-            <span class="hero-badge">✔ Control de Asistencia</span>
-            <span class="hero-badge">✔ Comunicación con familias</span>
-            <span class="hero-badge">✔ Boletas digitales</span>
-            <span class="hero-badge">✔ Analítica e indicadores</span>
+        <!-- Complementos Institucionales integrados al pie -->
+        <div class="ecosistema-bottom-bar">
+          <div class="ecosistema-bottom-title">Complementos Institucionales integrados:</div>
+          <div class="ecosistema-pills-list">
+            <span class="ecosistema-pill-tag">✓ Control de Asistencia</span>
+            <span class="ecosistema-pill-tag">✓ Comunicación con familias</span>
+            <span class="ecosistema-pill-tag">✓ Boletas digitales</span>
+            <span class="ecosistema-pill-tag">✓ Analítica e indicadores</span>
           </div>
         </div>
       </div>
@@ -522,7 +623,7 @@
       <div class="container">
         <div style="max-width: 760px; margin: 0 auto 3.5rem auto; text-align: center;">
           <span class="badge badge-purple" style="margin-bottom: 0.75rem;">Diferenciador Estratégico</span>
-          <h2 style="margin-bottom: 1rem;">Inteligencia Artificial que potencia al docente, no lo reemplaza.</h2>
+          <h2 style="margin-bottom: 1rem;">Inteligencia Artificial que potencia al docente.</h2>
           <p class="text-intro">Diseñada como un asistente pedagógico continuo que optimiza tiempos y proporciona
             análisis profundos bajo el control absoluto del equipo educativo.</p>
         </div>
@@ -1020,9 +1121,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="./index.html" class="logo-brand" style="color: white; margin-bottom: 1rem;">
-            <div class="logo-icon">M</div>
-            <span>Mentora <span style="color: var(--tech-cyan);">College</span></span>
+          <a href="./index.html" class="footer-logo-brand" aria-label="Mentora College - Inicio">
+            <img src="./assets/mentora-logo-blanco.svg" alt="Mentora College" class="footer-logo-img" height="42">
           </a>
           <p
             style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
