@@ -45,7 +45,90 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="./styles/main.css?v=13">
+  <link rel="stylesheet" href="./styles/main.css?v=30">
+  <style>
+    .ia-beneficios-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 4.5rem 1.25rem !important;
+      margin-top: 5rem !important;
+      margin-bottom: 2rem !important;
+      align-items: stretch !important;
+    }
+    .ia-beneficios-grid .beneficio-card {
+      padding: 3.15rem 1.4rem 2rem 1.4rem !important;
+      height: 100% !important;
+      cursor: pointer !important;
+      position: relative !important;
+    }
+    .ia-beneficios-grid .beneficio-card-icon {
+      width: 78px !important;
+      height: 78px !important;
+      top: -39px !important;
+      right: 16px !important;
+    }
+    .ia-beneficios-grid .beneficio-card-title {
+      color: #0f172a !important;
+    }
+    .ia-card-plus-btn {
+      position: absolute !important;
+      right: -22px !important;
+      top: 55% !important;
+      transform: translateY(-50%) !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      background: #f3e8ff !important;
+      color: #7c3aed !important;
+      border: 3px solid #ffffff !important;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.65rem !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      cursor: pointer !important;
+      transition: transform 0.25s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+      z-index: 10 !important;
+      padding: 0 !important;
+    }
+    .beneficio-card:hover .ia-card-plus-btn,
+    .ia-card-plus-btn:hover {
+      transform: translateY(-50%) scale(1.15) !important;
+      background: #e9d5ff !important;
+      color: #6d28d9 !important;
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38) !important;
+    }
+    .ia-card-evalua .ia-card-plus-btn {
+      background: #ede9fe !important;
+      color: #4f46e5 !important;
+    }
+    .ia-card-retro .ia-card-plus-btn {
+      background: #e0f2fe !important;
+      color: #0284c7 !important;
+    }
+    .ia-card-analiza .ia-card-plus-btn {
+      background: #fdf2f8 !important;
+      color: #c026d3 !important;
+    }
+    @media (max-width: 880px) {
+      .ia-beneficios-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 4.25rem 1.5rem !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .ia-beneficios-grid {
+        grid-template-columns: 1fr !important;
+        gap: 4.25rem 1.25rem !important;
+      }
+      .ia-card-plus-btn {
+        right: 14px !important;
+        top: 50% !important;
+      }
+    }
+  </style>
 
   <!-- JSON-LD Structured Data for SEO -->
   <script type="application/ld+json">
@@ -424,7 +507,6 @@
       <div class="ecosistema-scrolly-container">
         <!-- Header -->
         <div class="ecosistema-header">
-          <div class="ecosistema-badge">Ecosistema Continuo</div>
           <h2 class="ecosistema-title">
             Todo el proceso educativo<br>conectado
           </h2>
@@ -441,7 +523,6 @@
                 <div class="step-num-box">01</div>
                 <div class="step-title-bar">
                   <span>PLANIFICA</span>
-                  <span class="step-active-pill">Active</span>
                 </div>
               </div>
               <div class="step-details-expand">
@@ -459,7 +540,6 @@
                 <div class="step-num-box">02</div>
                 <div class="step-title-bar">
                   <span>ENSEÑA</span>
-                  <span class="step-active-pill">Active</span>
                 </div>
               </div>
               <div class="step-details-expand">
@@ -477,7 +557,6 @@
                 <div class="step-num-box">03</div>
                 <div class="step-title-bar">
                   <span>EVALÚA</span>
-                  <span class="step-active-pill">Active</span>
                 </div>
               </div>
               <div class="step-details-expand">
@@ -495,7 +574,6 @@
                 <div class="step-num-box">04</div>
                 <div class="step-title-bar">
                   <span>RETROALIMENTA</span>
-                  <span class="step-active-pill">Active</span>
                 </div>
               </div>
               <div class="step-details-expand">
@@ -513,7 +591,6 @@
                 <div class="step-num-box">05</div>
                 <div class="step-title-bar">
                   <span>MONITOREA</span>
-                  <span class="step-active-pill">Active</span>
                 </div>
               </div>
               <div class="step-details-expand">
@@ -531,7 +608,6 @@
                 <div class="step-num-box">06</div>
                 <div class="step-title-bar">
                   <span>MEJORA</span>
-                  <span class="step-active-pill">Active</span>
                 </div>
               </div>
               <div class="step-details-expand">
@@ -602,104 +678,98 @@
             </div>
           </div>
         </div>
-
-        <!-- Complementos Institucionales integrados al pie -->
-        <div class="ecosistema-bottom-bar">
-          <div class="ecosistema-bottom-title">Complementos Institucionales integrados:</div>
-          <div class="ecosistema-pills-list">
-            <span class="ecosistema-pill-tag">✓ Control de Asistencia</span>
-            <span class="ecosistema-pill-tag">✓ Comunicación con familias</span>
-            <span class="ecosistema-pill-tag">✓ Boletas digitales</span>
-            <span class="ecosistema-pill-tag">✓ Analítica e indicadores</span>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ==========================================================================
          8. INTELIGENCIA ARTIFICIAL QUE POTENCIA AL DOCENTE
          ========================================================================== -->
-    <section id="ia" class="bg-soft" style="padding: 5rem 0;">
-      <div class="container">
-        <div style="max-width: 760px; margin: 0 auto 3.5rem auto; text-align: center;">
-          <span class="badge badge-purple" style="margin-bottom: 0.75rem;">Diferenciador Estratégico</span>
-          <h2 style="margin-bottom: 1rem;">Inteligencia Artificial que potencia al docente.</h2>
-          <p class="text-intro">Diseñada como un asistente pedagógico continuo que optimiza tiempos y proporciona
-            análisis profundos bajo el control absoluto del equipo educativo.</p>
+    <section id="ia" class="beneficios-section ia-beneficios-section">
+      <div class="container beneficios-container">
+        <div class="beneficios-header">
+          <h2 class="beneficios-title">
+            Inteligencia Artificial que potencia al docente
+          </h2>
+          <p class="beneficios-subtitle">
+            Diseñada como un asistente pedagógico continuo que optimiza tiempos y proporciona análisis profundos bajo el
+            control absoluto del equipo educativo.
+          </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 3.5rem;">
-          <!-- Accion CREA -->
-          <div class="card" style="border-top: 4px solid var(--mentora-purple);">
-            <div
-              style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--mentora-purple); margin-bottom: 0.5rem;">
-              CREA</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Recursos e instrumentos de evaluación a partir del
-              contexto y parámetros del docente.</p>
+        <div class="ia-beneficios-grid">
+          <!-- Tarjeta 1: CREA -->
+          <div class="beneficio-card ia-card-crea" data-ia-modal="crea">
+            <img src="./assets/11.svg" alt="CREA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">CREA</h3>
+            <p class="beneficio-card-text">
+              Recursos e instrumentos de evaluación a partir del contexto y parámetros del docente.
+            </p>
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="crea" aria-label="Ver demo de CREA" title="Ver herramienta interactiva">
+              <span>+</span>
+            </button>
           </div>
 
-          <!-- Accion EVALUA -->
-          <div class="card" style="border-top: 4px solid var(--mentora-blue);">
-            <div
-              style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--mentora-blue); margin-bottom: 0.5rem;">
-              EVALÚA</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Apoya la revisión de tareas y participaciones según
-              criterios definidos pedagógiamente.</p>
+          <!-- Tarjeta 2: EVALÚA -->
+          <div class="beneficio-card ia-card-evalua" data-ia-modal="evalua">
+            <img src="./assets/12.svg" alt="EVALÚA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">EVALÚA</h3>
+            <p class="beneficio-card-text">
+              Apoya la revisión de tareas y participaciones según criterios definidos pedagógicamente.
+            </p>
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="evalua" aria-label="Ver demo de EVALÚA" title="Ver herramienta interactiva">
+              <span>+</span>
+            </button>
           </div>
 
-          <!-- Accion RETROALIMENTA -->
-          <div class="card" style="border-top: 4px solid var(--tech-cyan);">
-            <div
-              style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: #0284C7; margin-bottom: 0.5rem;">
-              RETROALIMENTA</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Genera orientaciones que ayudan al estudiante a
-              comprender cómo mejorar.</p>
+          <!-- Tarjeta 3: RETROALIMENTA -->
+          <div class="beneficio-card ia-card-retro" data-ia-modal="retroalimenta">
+            <img src="./assets/13.svg" alt="RETROALIMENTA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">RETROALIMENTA</h3>
+            <p class="beneficio-card-text">
+              Genera orientaciones que ayudan al estudiante a comprender cómo mejorar.
+            </p>
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="retroalimenta" aria-label="Ver demo de RETROALIMENTA" title="Ver herramienta interactiva">
+              <span>+</span>
+            </button>
           </div>
 
-          <!-- Accion ANALIZA -->
-          <div class="card" style="border-top: 4px solid var(--accent-magenta);">
-            <div
-              style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--accent-magenta); margin-bottom: 0.5rem;">
-              ANALIZA</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Interpreta resultados, niveles de logro y desempeño
-              para apoyar decisiones.</p>
+          <!-- Tarjeta 4: ANALIZA -->
+          <div class="beneficio-card ia-card-analiza" data-ia-modal="analiza">
+            <img src="./assets/14.svg" alt="ANALIZA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">ANALIZA</h3>
+            <p class="beneficio-card-text">
+              Interpreta resultados, niveles de logro y desempeño para apoyar decisiones.
+            </p>
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="analiza" aria-label="Ver demo de ANALIZA" title="Ver herramienta interactiva">
+              <span>+</span>
+            </button>
           </div>
         </div>
 
-        <!-- Diagram visual IA <-> Docente -->
-        <div
-          style="background: var(--bg-card); border: var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem; max-width: 900px; margin: 0 auto; box-shadow: var(--shadow-sm);">
-          <div
-            style="text-align: center; font-weight: 700; font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-main);">
-            Relación de Co-pilotaje Pedagógico: IA ↔ Docente
-          </div>
-
-          <div
-            style="display: grid; grid-template-columns: 1fr 60px 1fr; gap: 1rem; align-items: center; text-align: center;">
-            <div
-              style="background: rgba(86, 50, 232, 0.05); border: 1px dashed var(--mentora-purple); padding: 1.25rem; border-radius: 12px;">
-              <div style="font-weight: 700; color: var(--mentora-purple); margin-bottom: 0.5rem;">🤖 Asistente IA
-                Mentora</div>
-              <ul
-                style="list-style: none; font-size: 0.85rem; color: var(--text-muted); text-align: left; display: flex; flex-direction: column; gap: 0.35rem;">
-                <li>• Genera borradores de sesiones</li>
-                <li>• Analiza brechas de aprendizaje</li>
-                <li>• Propone rúbricas e instrumentos</li>
-              </ul>
+        <!-- Modal Overlay para Demostración Interactiva de IA -->
+        <div id="iaModalOverlay" class="ia-modal-overlay" aria-hidden="true">
+          <div class="ia-modal-backdrop" data-close-ia-modal onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';"></div>
+          <div class="ia-modal-window" role="dialog" aria-modal="true" aria-labelledby="iaModalTitle">
+            <div class="ia-modal-header">
+              <div class="ia-modal-header-left">
+                <span class="ia-modal-badge" id="iaModalBadge">CREA</span>
+                <h4 class="ia-modal-title" id="iaModalTitle">Generar recursos con IA</h4>
+              </div>
+              <button type="button" class="ia-modal-close-btn" data-close-ia-modal onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';" aria-label="Cerrar modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
             </div>
-
-            <div style="font-weight: 800; font-size: 1.5rem; color: var(--mentora-blue);">⇆</div>
-
-            <div
-              style="background: rgba(50, 103, 232, 0.05); border: 1px solid var(--mentora-blue); padding: 1.25rem; border-radius: 12px;">
-              <div style="font-weight: 700; color: var(--mentora-blue); margin-bottom: 0.5rem;">👩‍🏫 Docente / Equipo
-                Académico</div>
-              <ul
-                style="list-style: none; font-size: 0.85rem; color: var(--text-muted); text-align: left; display: flex; flex-direction: column; gap: 0.35rem;">
-                <li>• Define parámetros y contexto</li>
-                <li>• Revisa y adapta el contenido</li>
-                <li>• Toma la decisión pedagógica final</li>
-              </ul>
+            <div class="ia-modal-body">
+              <img id="iaModalImg" src="./assets/ia-modal-crea.png" alt="Vista previa de IA" class="ia-modal-img" loading="lazy">
+            </div>
+            <div class="ia-modal-footer">
+              <p class="ia-modal-desc" id="iaModalDesc">
+                Genera recursos e instrumentos de evaluación a partir del contexto y parámetros del docente.
+              </p>
+              <button type="button" class="ia-modal-footer-btn" data-close-ia-modal onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';">Cerrar</button>
             </div>
           </div>
         </div>

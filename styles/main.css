@@ -554,6 +554,16 @@ h3 {
   color: #0f172a;
 }
 
+.pill-magenta {
+  background: rgba(253, 242, 248, 0.92);
+  color: #c026d3;
+  border: 1px solid rgba(244, 114, 182, 0.55);
+}
+.pill-magenta:hover {
+  background: #fdf2f8;
+  color: #a21caf;
+}
+
 @media (max-width: 1024px) {
   .beneficios-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2805,3 +2815,330 @@ body>main {
     display: none;
   }
 }
+
+/* ==========================================================================
+   8. INTELIGENCIA ARTIFICIAL QUE POTENCIA AL DOCENTE (ESTILO BENEFICIOS)
+   4 Tarjetas Glassmorphism con iconos flotantes 3D (11.svg, 12.svg, 13.svg, 14.svg)
+   ========================================================================== */
+
+.ia-beneficios-section {
+  position: relative;
+  padding: 6.5rem 0 7rem 0;
+  background-color: #f7fafe;
+  background-image: 
+    radial-gradient(at 8% 18%, rgba(219, 234, 254, 0.85) 0px, transparent 48%),
+    radial-gradient(at 92% 22%, rgba(237, 233, 254, 0.9) 0px, transparent 45%),
+    radial-gradient(at 95% 80%, rgba(238, 232, 255, 0.75) 0px, transparent 45%),
+    radial-gradient(at 5% 75%, rgba(219, 234, 254, 0.7) 0px, transparent 45%),
+    radial-gradient(at 50% 50%, rgba(243, 248, 255, 0.6) 0px, transparent 60%);
+  overflow: hidden;
+}
+
+.ia-beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4.5rem 1.25rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  align-items: stretch;
+}
+
+.ia-beneficios-grid .beneficio-card {
+  padding: 3.15rem 1.4rem 2rem 1.4rem;
+  height: 100%;
+}
+
+.ia-beneficios-grid .beneficio-card-icon {
+  width: 78px;
+  height: 78px;
+  top: -39px;
+  right: 16px;
+}
+
+.ia-beneficios-grid .beneficio-card-title {
+  color: #0f172a;
+}
+
+/* Acentos de color en el borde superior de cada pilar de IA */
+.ia-card-crea {
+  border-top: 3px solid var(--mentora-purple);
+}
+
+.ia-card-evalua {
+  border-top: 3px solid var(--mentora-blue);
+}
+
+.ia-card-retro {
+  border-top: 3px solid var(--tech-cyan);
+}
+
+.ia-card-analiza {
+  border-top: 3px solid var(--accent-magenta);
+}
+
+/* Botón circular "+" interactivo en el lateral de cada card */
+.ia-beneficios-grid .beneficio-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.ia-card-plus-btn {
+  position: absolute;
+  right: -22px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f3e8ff;
+  color: #7c3aed;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.beneficio-card:hover .ia-card-plus-btn,
+.ia-card-plus-btn:hover {
+  transform: translateY(-50%) scale(1.15);
+  background: #e9d5ff;
+  color: #6d28d9;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38);
+}
+
+.ia-card-evalua .ia-card-plus-btn {
+  background: #ede9fe;
+  color: #4f46e5;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.22);
+}
+.ia-card-evalua:hover .ia-card-plus-btn,
+.ia-card-evalua .ia-card-plus-btn:hover {
+  background: #e0e7ff;
+  color: #4338ca;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.38);
+}
+
+.ia-card-retro .ia-card-plus-btn {
+  background: #e0f2fe;
+  color: #0284c7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22);
+}
+.ia-card-retro:hover .ia-card-plus-btn,
+.ia-card-retro .ia-card-plus-btn:hover {
+  background: #bae6fd;
+  color: #0369a1;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.38);
+}
+
+.ia-card-analiza .ia-card-plus-btn {
+  background: #fdf2f8;
+  color: #c026d3;
+  box-shadow: 0 4px 14px rgba(192, 38, 211, 0.22);
+}
+.ia-card-analiza:hover .ia-card-plus-btn,
+.ia-card-analiza .ia-card-plus-btn:hover {
+  background: #fce7f3;
+  color: #a21caf;
+  box-shadow: 0 6px 20px rgba(192, 38, 211, 0.38);
+}
+
+/* ==========================================================================
+   MODAL INTERACTIVO DE DEMOSTRACIÓN DE IA
+   ========================================================================== */
+.ia-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+
+.ia-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.ia-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ia-modal-window {
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(124, 58, 237, 0.15);
+  overflow: hidden;
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ia-modal-overlay.is-active .ia-modal-window {
+  transform: scale(1) translateY(0);
+}
+
+.ia-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fafbfc;
+}
+
+.ia-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ia-modal-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: #f3e8ff;
+  color: #7c3aed;
+  text-transform: uppercase;
+}
+
+.ia-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.ia-modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.ia-modal-close-btn:hover {
+  background: #fee2e2;
+  color: #ef4444;
+  border-color: #fca5a5;
+  transform: rotate(90deg);
+}
+
+.ia-modal-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ia-modal-img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  display: block;
+}
+
+.ia-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid #f1f5f9;
+  background: #ffffff;
+  gap: 1.5rem;
+}
+
+.ia-modal-desc {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.ia-modal-footer-btn {
+  padding: 0.5rem 1.35rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ia-modal-footer-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Responsividad: 4 columnas en 1 fila hasta 880px */
+@media (max-width: 880px) {
+  .ia-beneficios-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .ia-beneficios-section {
+    padding: 4.5rem 0 5rem 0;
+  }
+  .ia-beneficios-grid {
+    grid-template-columns: 1fr;
+    gap: 4.25rem 1.25rem;
+    margin-top: 4.25rem;
+  }
+  .ia-card-plus-btn {
+    right: 14px;
+    top: 50%;
+  }
+  .ia-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ia-modal-footer-btn {
+    text-align: center;
+  }
+}

@@ -3,9 +3,11 @@
    Gestión de componentes interactivos, tabs, acordiones y drawer móvil
    ========================================================================== */
 
+import '../styles/main.css';
 import { renderHeroMockup, renderActorPreview } from './mockups.js';
 import { initLeadForm } from './lead-form.js';
 import { initEcosistemaScrolly } from './ecosistema-scrolly.js';
+import { initIaModal } from './ia-modal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Render Hero Mockup
@@ -79,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. Initialize Lead Modal & Forms
   initLeadForm();
+
+  // 7. Initialize IA Module Interactive Modal
+  initIaModal();
 
   // 7. Sticky Header Scroll Effect (Smooth White Glass on Scroll)
   const mainHeader = document.getElementById('mainHeader');
