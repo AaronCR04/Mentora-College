@@ -26,7 +26,6 @@ export function initEcosistemaScrolly() {
   if (totalSteps === 0 || slides.length === 0) return;
 
   let currentActiveIndex = 0;
-  let isTransitioning = false;
 
   // Function to switch active step
   function setActiveStep(index, animateScroll = false) {

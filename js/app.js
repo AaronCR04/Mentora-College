@@ -8,6 +8,7 @@ import { renderHeroMockup, renderActorPreview } from './mockups.js';
 import { initLeadForm } from './lead-form.js';
 import { initEcosistemaScrolly } from './ecosistema-scrolly.js';
 import { initIaModal } from './ia-modal.js';
+import { initMockupSlider } from './mockup-slider.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Render Hero Mockup
@@ -84,6 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Initialize IA Module Interactive Modal
   initIaModal();
+
+  // 8. Initialize Mockup Slider (for pages like Asistencia Escolar)
+  initMockupSlider();
 
   // 7. Sticky Header Scroll Effect (Smooth White Glass on Scroll)
   const mainHeader = document.getElementById('mainHeader');

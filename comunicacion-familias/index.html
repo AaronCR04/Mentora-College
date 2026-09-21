@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -7,15 +8,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comunicación Colegio-Familias | Mentora College</title>
-  <meta name="description" content="Centraliza comunicados, alertas de asistencia y progreso académico manteniendo a los padres informados y conectados.">
+  <meta name="description"
+    content="Centraliza comunicados, alertas de asistencia y progreso académico manteniendo a los padres informados y conectados.">
   <link rel="canonical" href="https://mentoracollege.edu/comunicacion-familias/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css?v=8">
 </head>
+
 <body>
-    <!-- Header Navigation matching index.html -->
+  <!-- Header Navigation matching index.html -->
   <header class="header-v2-wrapper" id="mainHeader">
     <div class="header-v2">
       <!-- Logo -->
@@ -81,24 +86,362 @@
   <main>
     <section class="bg-hero-gradient" style="padding: 4rem 0;">
       <div class="container">
-        <div style="font-size: 0.85rem; color: #93C5FD; margin-bottom: 0.75rem;"><a href="../index.html" style="color: #93C5FD; text-decoration: none;">Inicio</a> / Comunicación Colegio-Familias</div>
+        <div style="font-size: 0.85rem; color: #93C5FD; margin-bottom: 0.75rem;"><a href="../index.html"
+            style="color: #93C5FD; text-decoration: none;">Inicio</a> / Comunicación Colegio-Familias</div>
         <h1 style="color: white; margin-bottom: 1rem; max-width: 800px;">Comunicación Colegio - Familias</h1>
-        <p style="color: rgba(255,255,255,0.9); font-size: 1.15rem; max-width: 700px; margin-bottom: 2rem;">Fortalece el vínculo entre la institución y la comunidad escolar con información oportuna y transparente.</p>
-        <button class="btn btn-white js-open-lead-modal">Conoce la App para Familias</button>
+        <p style="color: rgba(255,255,255,0.9); font-size: 1.15rem; max-width: 700px; margin-bottom: 2rem;">Fortalece el
+          vínculo entre la institución y la comunidad escolar con información oportuna y transparente.</p>
       </div>
     </section>
-    <section class="bg-white-surface" style="padding: 4rem 0;">
-      <div class="container" style="max-width: 900px;">
-        <h2>Canal Oficial e Integrado de Comunicación</h2>
-        <p class="text-intro" style="margin-top: 1rem; margin-bottom: 2rem;">Evita mensajes dispersos en redes no oficiales. Mentora College ofrece un canal seguro para comunicados institucionales, avisos de docentes y confirmaciones de recepción.</p>
-        <div class="card">
-          <h3>Alertas Instantáneas de Asistencia y Avance</h3>
-          <p style="color: var(--text-muted); margin-top: 0.5rem;">Los padres reciben notificaciones inmediatas en sus dispositivos móviles sobre ingresos, inasistencias y publicación de reportes académicos.</p>
+    <!-- SECCIÓN INTERACTIVA: VISTAS DOCENTE Y ALUMNO / PADRE -->
+    <section class="bg-soft" style="padding: 4.5rem 0 5.5rem 0; border-top: 1px solid rgba(226, 232, 240, 0.8);">
+      <div class="container">
+
+        <!-- Header con selector de vistas -->
+        <div style="text-align: center; max-width: 820px; margin: 0 auto 1.5rem auto;">
+          <div class="pill-ia-label" style="display: inline-flex; margin-bottom: 1.25rem;">
+          </div>
+          <h2
+            style="font-size: clamp(2rem, 3.2vw, 2.6rem); font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); line-height: 1.25; margin-bottom: 1.15rem;">
+            Canal Oficial y Personalizado para Colegio y Familias
+          </h2>
+          <p style="color: #64748b; font-size: 1.08rem; line-height: 1.6; margin-bottom: 0.5rem;">
+            Conoce cómo cada miembro de la comunidad educativa interactúa en la plataforma: selecciona entre la
+            perspectiva del <strong>Docente</strong> para emitir y segmentar, o la del <strong>Alumno / Padre</strong>
+            para
+            recibir y confirmar.
+          </p>
         </div>
+
+        <!-- Botones Selectores de Rol (Docente vs Alumno / Padre) -->
+        <div class="comunicacion-role-tabs-container">
+          <div class="comunicacion-role-tabs" role="tablist" aria-label="Selector de Vista">
+            <button class="role-tab-btn active" id="tabBtnDocente" role="tab" aria-selected="true"
+              aria-controls="viewDocente" type="button">
+              <span>Vista Docente</span>
+            </button>
+            <button class="role-tab-btn" id="tabBtnFamilia" role="tab" aria-selected="false" aria-controls="viewFamilia"
+              type="button">
+              <span>Vista Alumno / Padre</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor de Vistas -->
+        <div class="comunicacion-views-wrapper">
+
+          <!-- ==========================================
+               PANEL 1: VISTA DOCENTE
+               ========================================== -->
+          <div class="comunicacion-view-panel" id="viewDocente" role="tabpanel" aria-labelledby="tabBtnDocente">
+
+            <!-- Columna Izquierda: Capacidades Docente -->
+            <div>
+              <div style="margin-bottom: 1.75rem;">
+                <span
+                  style="font-size: 0.85rem; font-weight: 700; color: var(--mentora-blue); text-transform: uppercase; letter-spacing: 0.5px;">
+                  Gestión para Profesores y Tutores
+                </span>
+                <h3
+                  style="font-size: 1.65rem; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); margin-top: 0.35rem; margin-bottom: 0.75rem;">
+                  Crea y edita comunicados segmentados con total libertad
+                </h3>
+                <p style="color: #475569; font-size: 0.98rem; line-height: 1.6;">
+                  Emite avisos formales dirigidas a la audiencia exacta. El docente ahorra tiempo y
+                  mantiene registro digital de cada interacción.
+                </p>
+              </div>
+
+              <!-- Feature 1: Creación y Edición Ágil -->
+              <div class="comunicacion-feature-card accent-blue is-clickable is-active js-docente-card"
+                data-panel="creacion"
+                data-caption="<strong style='color: var(--text-main);'>Creación y Edición:</strong> Redacción ágil con editor intuitivo, adjuntos y opciones de programación en computadora o desde el celular."
+                role="button" tabindex="0" aria-pressed="true">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon">
+                    <img src="/assets/correo.svg" alt="Creación" width="22" height="22"
+                      style="filter: brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(1478%) hue-rotate(210deg) brightness(97%) contrast(92%);">
+                  </div>
+                  <h4 class="comunicacion-card-title">Creación y Edición Rápida</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Redacta comunicados con editor enriquecido, programa fecha y hora de publicación, y edita avisos
+                  vigentes al instante si necesitas actualizar indicaciones o adjuntos.
+                </p>
+              </div>
+
+              <!-- Feature 2: Segmentación Personalizada -->
+              <div class="comunicacion-feature-card accent-purple is-clickable js-docente-card"
+                data-panel="segmentacion"
+                data-caption="<strong style='color: var(--text-main);'>Segmentación Precisa:</strong> Filtra el envío a cursos completos, grupos o alumnos y padres específicos con total privacidad."
+                role="button" tabindex="0" aria-pressed="false">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon purple">
+                    <img src="/assets/familias-conectadas.svg" alt="Segmentación" width="22" height="22">
+                  </div>
+                  <h4 class="comunicacion-card-title">Segmentación de secciones, grados, alumnos y padres</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Elige a quién dirigir cada mensaje: sección, un grupo
+                  específico, estudiantes individuales o únicamente a los padres de familia.
+                </p>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Mockups y Sliders Dinámicos Docente (Sin Marcos) -->
+            <div class="docente-slider-wrapper">
+              <div class="docente-slider-container" id="docenteSliderContainer">
+
+                <!-- Viewport de Paneles Solapados Fluidos -->
+                <div class="docente-panels-viewport">
+
+                  <!-- PANEL 1: Creación y Edición Rápida (Slider Computadora / Celular) -->
+                  <div class="docente-media-panel is-active" id="panelDocenteCreacion">
+                    <!-- Viewport del Slider -->
+                    <div class="docente-slider-viewport">
+                      <div class="docente-slider-track" id="docenteSliderTrack">
+
+                        <!-- Slide 1: Creación en Computadora -->
+                        <div class="docente-slide" data-index="0" aria-hidden="false">
+                          <img src="/assets/crear%20anuncio%20comp.svg"
+                            alt="Creación y edición de comunicados en Computadora - Mentora College"
+                            class="docente-slide-comp-img">
+                        </div>
+
+                        <!-- Slide 2: Creación en Celular -->
+                        <div class="docente-slide" data-index="1" aria-hidden="true">
+                          <img src="/assets/crear%20anuncio%20cel.svg"
+                            alt="Creación y edición de comunicados en Móvil / Celular - Mentora College"
+                            class="docente-slide-cel-img">
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <!-- Flechas Flotantes -->
+                    <button type="button" class="docente-slider-arrow prev" id="docenteSliderPrev"
+                      aria-label="Pantalla anterior">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                    </button>
+                    <button type="button" class="docente-slider-arrow next" id="docenteSliderNext"
+                      aria-label="Siguiente pantalla">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </button>
+
+                    <!-- Controles e Indicadores de Dispositivo -->
+                    <div class="docente-slider-controls">
+                      <div class="docente-slider-pills" id="docenteSliderDots" role="tablist"
+                        aria-label="Dispositivo del comunicado">
+                        <button type="button" class="docente-slider-pill is-active" data-slide="0" role="tab"
+                          aria-selected="true" aria-label="Ver en Computadora">
+                          Computadora
+                        </button>
+                        <button type="button" class="docente-slider-pill" data-slide="1" role="tab"
+                          aria-selected="false" aria-label="Ver en Celular">
+                          Celular
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 2: Segmentación a Cursos, Alumnos y Padres -->
+                  <div class="docente-media-panel" id="panelDocenteSegmentacion">
+                    <div class="docente-single-mockup">
+                      <img src="/assets/segmentar.svg"
+                        alt="Segmentación de comunicados a cursos, alumnos y padres - Mentora College"
+                        class="docente-slide-cel-img">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Leyenda / Caption Informativo Compartido -->
+                <div id="docenteMockupCaption" class="docente-slider-caption">
+                  <strong style="color: var(--text-main);">Creación y Edición:</strong> Redacción ágil con editor
+                  intuitivo, adjuntos y opciones de programación en computadora o desde el celular.
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==========================================
+               PANEL 2: VISTA ALUMNO / PADRE
+               ========================================== -->
+          <div class="comunicacion-view-panel" id="viewFamilia" role="tabpanel" aria-labelledby="tabBtnFamilia"
+            style="display: none; opacity: 0;">
+
+            <!-- Columna Izquierda: Capacidades Familia / Alumno -->
+            <div>
+              <div style="margin-bottom: 1.75rem;">
+                <span
+                  style="font-size: 0.85rem; font-weight: 700; color: #ca8a04; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Experiencia para Familias y Estudiantes
+                </span>
+                <h3
+                  style="font-size: 1.65rem; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); margin-top: 0.35rem; margin-bottom: 0.75rem;">
+                  Observa todos los comunicados de docentes y autoridades
+                </h3>
+                <p style="color: #475569; font-size: 0.98rem; line-height: 1.6;">
+                  Una sola bandeja oficial donde padres y alumnos leen avisos de profesores, circulares de dirección y
+                  confirmaciones de eventos, sin pérdidas en redes sociales.
+                </p>
+              </div>
+
+              <!-- Feature 1: Bandeja Centralizada -->
+              <div class="comunicacion-feature-card accent-yellow">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon yellow">
+                    <img src="/assets/correo.svg" alt="Bandeja" width="22" height="22"
+                      style="filter: brightness(0) saturate(100%) invert(58%) sepia(85%) saturate(830%) hue-rotate(5deg) brightness(97%) contrast(93%);">
+                  </div>
+                  <h4 class="comunicacion-card-title">Bandeja Centralizada de Avisos</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Encuentra los comunicados organizados por materia, docente emisor y fecha. Cada mensaje incluye
+                  detalles claros, enlaces y archivos descargables.
+                </p>
+              </div>
+
+              <!-- Feature 2: Comunicados Oficiales de Autoridades -->
+              <div class="comunicacion-feature-card accent-blue">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon">
+                    <img src="/assets/control-de-asistencia.svg" alt="Autoridades" width="22" height="22">
+                  </div>
+                  <h4 class="comunicacion-card-title">Avisos de Dirección y Coordinación</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Recibe circulares institucionales, cronogramas de exámenes, citaciones a escuela de padres y anuncios
+                  de feriados con validez oficial del colegio.
+                </p>
+              </div>
+
+              <!-- Feature 3: Confirmación en 1 Clic -->
+              <div class="comunicacion-feature-card accent-emerald">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon emerald">
+                    <img src="/assets/reloj.svg" alt="Confirmación" width="22" height="22">
+                  </div>
+                  <h4 class="comunicacion-card-title">Confirmación y Acuse de Recibo Inmediato</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Con un solo toque, el padre confirma la lectura del comunicado, generando constancia automática para
+                  el profesor y la coordinación escolar.
+                </p>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Mockup Feed Alumno / Padre -->
+            <div class="comunicacion-mockup-frame">
+              <div class="mockup-frame-header">
+                <div class="mockup-window-controls">
+                  <span class="mockup-dot red"></span>
+                  <span class="mockup-dot yellow"></span>
+                  <span class="mockup-dot green"></span>
+                </div>
+                <div class="mockup-frame-title">
+                  <span>📬</span> Bandeja de Comunicados • Alumno y Familia
+                </div>
+                <span
+                  style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 9999px;">
+                  3 Mensajes
+                </span>
+              </div>
+
+              <div class="mockup-frame-body">
+                <!-- Chips de filtro -->
+                <div class="feed-filter-bar">
+                  <button type="button" class="feed-filter-chip active">Todos (3)</button>
+                  <button type="button" class="feed-filter-chip">Dirección</button>
+                  <button type="button" class="feed-filter-chip">Ciencias</button>
+                  <button type="button" class="feed-filter-chip">Tutoría</button>
+                </div>
+
+                <!-- Comunicado 1: Autoridad (Dirección) -->
+                <div class="comunicado-feed-item urgent">
+                  <div class="feed-item-top">
+                    <div class="feed-item-author">
+                      <span>🏫</span> Dirección General del Colegio
+                    </div>
+                    <span class="feed-item-date">Hoy, 08:30 AM</span>
+                  </div>
+                  <h5 class="feed-item-title">Convocatoria: Primera Asamblea General y Escuela de Familias</h5>
+                  <p class="feed-item-snippet">
+                    Se convoca a todos los padres de familia a la primera sesión virtual de integración y lineamientos
+                    del año escolar este viernes a las 19:00 hrs.
+                  </p>
+                  <div class="feed-item-footer">
+                    <button type="button" class="feed-confirm-btn" id="btnConfirmRead">
+                      <span>✍️</span> Confirmar Lectura
+                    </button>
+                    <span class="feed-confirmed-badge" id="confirmStatusBadge" style="display: none;">
+                      ✓ Confirmado por la Familia
+                    </span>
+                    <span style="font-size: 0.75rem; color: #ef4444; font-weight: 700;">⚠️ Requiere firma</span>
+                  </div>
+                </div>
+
+                <!-- Comunicado 2: Docente de Curso -->
+                <div class="comunicado-feed-item normal">
+                  <div class="feed-item-top">
+                    <div class="feed-item-author">
+                      <span>👩‍🏫</span> Prof. Carlos Méndez • Ciencias y Tecnología
+                    </div>
+                    <span class="feed-item-date">Ayer, 15:40 PM</span>
+                  </div>
+                  <h5 class="feed-item-title">Materiales para Proyecto de Laboratorio</h5>
+                  <p class="feed-item-snippet">
+                    Favor de revisar la guía adjunta para la sesión práctica de la Unidad 2. No olvidar su cuaderno de
+                    campo.
+                  </p>
+                  <div class="feed-item-footer">
+                    <div
+                      style="font-size: 0.8rem; color: var(--mentora-blue); font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+                      <span>📎</span> Guia_Laboratorio.pdf
+                    </div>
+                    <span class="feed-confirmed-badge">
+                      ✓ Leído
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Comunicado 3: Tutoría -->
+                <div class="comunicado-feed-item normal" style="margin-bottom: 0;">
+                  <div class="feed-item-top">
+                    <div class="feed-item-author">
+                      <span>👨‍🏫</span> Prof. Roberto Silva • Tutor 4to "B"
+                    </div>
+                    <span class="feed-item-date">18 Sep, 11:20 AM</span>
+                  </div>
+                  <h5 class="feed-item-title">Recordatorio: Salida Pedagógica al Museo</h5>
+                  <p class="feed-item-snippet">
+                    Se recuerda a las familias enviar la autorización de salida firmada antes del miércoles.
+                  </p>
+                  <div class="feed-item-footer">
+                    <span style="font-size: 0.78rem; color: #64748b;">Autorización entregada</span>
+                    <span class="feed-confirmed-badge">✓ Confirmado</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
   </main>
-    <!-- ==========================================================================
+  <!-- ==========================================================================
        FOOTER INSTITUCIONAL
        ========================================================================== -->
   <footer class="footer">
@@ -150,7 +493,8 @@
             <li>📍 Av. Javier Prado Este 2450, Lima, Perú</li>
             <li>✉️ contacto@mentoracollege.edu</li>
             <li>📞 +51 (1) 700-8800</li>
-            <li><a href="/index.html#contacto" class="footer-link js-open-lead-modal" style="color: var(--tech-cyan);">Solicitar Demostración</a></li>
+            <li><a href="/index.html#contacto" class="footer-link js-open-lead-modal"
+                style="color: var(--tech-cyan);">Solicitar Demostración</a></li>
           </ul>
         </div>
       </div>
@@ -232,5 +576,7 @@
 
   <!-- Main JavaScript App -->
   <script type="module" src="/js/app.js"></script>
+  <script type="module" src="/js/comunicacion-tabs.js"></script>
 </body>
+
 </html>

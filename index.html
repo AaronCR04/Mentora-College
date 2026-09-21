@@ -45,7 +45,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="./styles/main.css?v=30">
+  <link rel="stylesheet" href="/styles/main.css">
   <style>
     .ia-beneficios-grid {
       display: grid !important;
@@ -440,7 +440,7 @@
     <!-- ==========================================================================
          4 & 5. SECCIÓN PROBLEMA Y TRANSICIÓN A LA SOLUCIÓN
          ========================================================================== -->
-    <section id="problema" class="seccion-dolores">
+    <section id="problema" class="seccion-dolores bg-soft">
       <div class="container">
         <div style="max-width: 720px; margin: 0 auto; text-align: center;">
           <h2 class="titulo-dolores">¿Reconoces estos dolores en la gestión de tu institución?</h2>
@@ -488,7 +488,7 @@
     <!-- ==========================================================================
          6. SEIS BENEFICIOS EN FORMATO TARJETA (GLASSMORPHISM)
          ========================================================================== -->
-    <section id="beneficios" class="beneficios-section">
+    <section id="beneficios" class="beneficios-section bg-soft">
       <div class="container beneficios-container">
         <div class="beneficios-header">
           <h2 class="beneficios-title">
@@ -878,7 +878,6 @@
     <section id="actores" class="bg-white-surface" style="padding: 5rem 0;">
       <div class="container">
         <div style="max-width: 720px; margin: 0 auto 3rem auto; text-align: center;">
-          <span class="badge badge-blue" style="margin-bottom: 0.75rem;">Segmentación de Valor</span>
           <h2 style="margin-bottom: 1rem;">Una solución diseñada para toda la comunidad escolar</h2>
           <p class="text-intro">Selecciona un actor para explorar cómo Mentora College transforma su experiencia diaria.
           </p>
@@ -1175,10 +1174,6 @@
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5rem; align-items: center;">
           <div>
-            <span class="badge badge-purple"
-              style="background: rgba(255,255,255,0.15); color: white; margin-bottom: 1rem;">
-              Contacto Institucional
-            </span>
             <h2 style="color: white; margin-bottom: 1.25rem;">
               Conversemos sobre cómo fortalecer la gestión educativa de tu colegio.
             </h2>
@@ -1190,14 +1185,16 @@
             <div style="display: flex; flex-direction: column; gap: 1rem; color: white; font-size: 0.95rem;">
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <div
-                  style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                  📞</div>
+                  style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <img src="./assets/tel.svg" alt="Teléfono" style="width: 20px; height: 20px; object-fit: contain;">
+                </div>
                 <span>Atención Comercial: +51 (1) 700-8800</span>
               </div>
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <div
-                  style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                  ✉️</div>
+                  style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <img src="./assets/correo.svg" alt="Correo" style="width: 20px; height: 20px; object-fit: contain;">
+                </div>
                 <span>contacto@mentoracollege.edu</span>
               </div>
             </div>
@@ -1206,7 +1203,7 @@
           <!-- Lead Form Card -->
           <div
             style="background: var(--bg-card); border-radius: var(--radius-xl); padding: 2.25rem; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-            <h3 style="margin-bottom: 0.5rem; font-size: 1.35rem;">Iniciar conversación comercial</h3>
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.35rem;">Contáctanos</h3>
             <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Completa este breve
               formulario y un asesor educativo te responderá en menos de 24 horas.</p>
 
@@ -1224,7 +1221,6 @@
                     <option value="">Selecciona cargo...</option>
                     <option value="Director / Promotor">Director / Promotor</option>
                     <option value="Coordinador Académico">Coordinador Académico</option>
-                    <option value="TI / Transformación Digital">TI / Transformación Digital</option>
                     <option value="Docente">Docente</option>
                     <option value="Otro">Otro</option>
                   </select>
@@ -1250,22 +1246,8 @@
                     required>
                 </div>
               </div>
-
               <div class="form-group">
-                <label class="form-label" for="interes">Principal necesidad o interés *</label>
-                <select class="form-select" id="interes" name="interes" required>
-                  <option value="">Selecciona interés principal...</option>
-                  <option value="Solución integral">Solución integral 360°</option>
-                  <option value="Gestión académica">Gestión académica y Boletas</option>
-                  <option value="Planificación y evaluación">Planificación y evaluación por competencias</option>
-                  <option value="Monitoreo del aprendizaje">Monitoreo del aprendizaje</option>
-                  <option value="Comunicación con familias">Comunicación con familias y Asistencia</option>
-                  <option value="Inteligencia Artificial">Inteligencia Artificial Educativa</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="mensaje">Mensaje opcional</label>
+                <label class="form-label" for="mensaje">Mensaje</label>
                 <textarea class="form-textarea" id="mensaje" name="mensaje" rows="3"
                   placeholder="Detalla algún aspecto relevante sobre tu institución..."></textarea>
               </div>
@@ -1339,11 +1321,6 @@
 
       <div class="footer-bottom">
         <div>© 2026 Mentora College. Todos los derechos reservados. Ecosistema de Gestión Educativa.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" class="footer-link">Política de Privacidad</a>
-          <a href="#" class="footer-link">Términos de Servicio</a>
-          <a href="#" class="footer-link">Seguridad y Datos</a>
-        </div>
       </div>
     </div>
   </footer>
@@ -1392,17 +1369,6 @@
           <label class="form-label" for="modal_telefono">Teléfono / WhatsApp *</label>
           <input class="form-input" type="tel" id="modal_telefono" name="telefono" placeholder="+51 987 654 321"
             required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="modal_interes">Interés principal *</label>
-          <select class="form-select" id="modal_interes" name="interes" required>
-            <option value="Solución integral">Solución integral 360°</option>
-            <option value="Gestión académica">Gestión académica y Boletas</option>
-            <option value="Planificación y evaluación">Planificación y evaluación por competencias</option>
-            <option value="Monitoreo del aprendizaje">Monitoreo del aprendizaje</option>
-            <option value="Inteligencia Artificial">Inteligencia Artificial Educativa</option>
-          </select>
         </div>
 
         <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: 0.5rem;">

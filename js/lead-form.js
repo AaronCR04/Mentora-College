@@ -70,9 +70,10 @@ export function initLeadForm() {
             <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎉</div>
             <h3 style="font-size: 1.35rem; color: #065F46; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">¡Solicitud Recibida con Éxito!</h3>
             <p style="font-size: 0.95rem; color: #047857;">Gracias <strong>${leadPayload.nombre}</strong>. Un especialista pedagógico de Mentora College se pondrá en contacto con el colegio <strong>${leadPayload.colegio}</strong> a la brevedad para coordinar una presentación personalizada.</p>
+            ${leadPayload.interes ? `
             <div style="margin-top: 1.25rem; font-size: 0.85rem; color: #065F46; background: rgba(16, 185, 129, 0.15); padding: 0.75rem; border-radius: 8px;">
               📌 Hemos registrado tu preferencia en: <strong>${leadPayload.interes}</strong>
-            </div>
+            </div>` : ''}
           </div>
         `;
 
