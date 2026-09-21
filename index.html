@@ -55,33 +55,38 @@
       margin-bottom: 2rem !important;
       align-items: stretch !important;
     }
+
     .ia-beneficios-grid .beneficio-card {
       padding: 3.15rem 1.4rem 2rem 1.4rem !important;
       height: 100% !important;
       cursor: pointer !important;
       position: relative !important;
+      border-top: 3px solid transparent !important;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease !important;
     }
+
     .ia-beneficios-grid .beneficio-card-icon {
       width: 78px !important;
       height: 78px !important;
       top: -39px !important;
       right: 16px !important;
     }
+
     .ia-beneficios-grid .beneficio-card-title {
       color: #0f172a !important;
     }
+
     .ia-card-plus-btn {
       position: absolute !important;
-      right: -22px !important;
-      top: 55% !important;
-      transform: translateY(-50%) !important;
+      left: 50% !important;
+      bottom: -22px !important;
+      top: auto !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
       width: 44px !important;
       height: 44px !important;
       border-radius: 50% !important;
-      background: #f3e8ff !important;
-      color: #7c3aed !important;
       border: 3px solid #ffffff !important;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22) !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
@@ -89,43 +94,123 @@
       font-weight: 700 !important;
       line-height: 1 !important;
       cursor: pointer !important;
-      transition: transform 0.25s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+      transition: transform 0.3s ease, background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease !important;
       z-index: 10 !important;
       padding: 0 !important;
     }
+
+    .ia-card-plus-btn span {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      height: 100% !important;
+      transform-origin: center center !important;
+    }
+
     .beneficio-card:hover .ia-card-plus-btn,
     .ia-card-plus-btn:hover {
-      transform: translateY(-50%) scale(1.15) !important;
+      transform: translateX(-50%) scale(1.15) !important;
+    }
+
+    .beneficio-card:hover .ia-card-plus-btn span,
+    .ia-card-plus-btn:hover span {
+      animation: spinPlus 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    }
+
+    @keyframes spinPlus {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 1. CREA (Morado) */
+    .ia-card-crea .ia-card-plus-btn {
+      background: #f3e8ff !important;
+      color: #7c3aed !important;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22) !important;
+    }
+
+    .ia-card-crea:hover .ia-card-plus-btn,
+    .ia-card-crea .ia-card-plus-btn:hover {
       background: #e9d5ff !important;
       color: #6d28d9 !important;
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38) !important;
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.42) !important;
     }
+
+    .ia-card-crea:hover {
+      border-top-color: #7c3aed !important;
+    }
+
+    /* 2. EVALÚA (Azul índigo) */
     .ia-card-evalua .ia-card-plus-btn {
       background: #ede9fe !important;
       color: #4f46e5 !important;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.22) !important;
     }
+
+    .ia-card-evalua:hover .ia-card-plus-btn,
+    .ia-card-evalua .ia-card-plus-btn:hover {
+      background: #ddd6fe !important;
+      color: #3730a3 !important;
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.42) !important;
+    }
+
+    .ia-card-evalua:hover {
+      border-top-color: #4f46e5 !important;
+    }
+
+    /* 3. RETROALIMENTA (Azul celeste) */
     .ia-card-retro .ia-card-plus-btn {
       background: #e0f2fe !important;
       color: #0284c7 !important;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22) !important;
     }
+
+    .ia-card-retro:hover .ia-card-plus-btn,
+    .ia-card-retro .ia-card-plus-btn:hover {
+      background: #bae6fd !important;
+      color: #0369a1 !important;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.42) !important;
+    }
+
+    .ia-card-retro:hover {
+      border-top-color: #0284c7 !important;
+    }
+
+    /* 4. ANALIZA (Magenta / Rosa) */
     .ia-card-analiza .ia-card-plus-btn {
       background: #fdf2f8 !important;
       color: #c026d3 !important;
+      box-shadow: 0 4px 14px rgba(192, 38, 211, 0.22) !important;
     }
+
+    .ia-card-analiza:hover .ia-card-plus-btn,
+    .ia-card-analiza .ia-card-plus-btn:hover {
+      background: #fce7f3 !important;
+      color: #a21caf !important;
+      box-shadow: 0 6px 20px rgba(192, 38, 211, 0.42) !important;
+    }
+
+    .ia-card-analiza:hover {
+      border-top-color: #c026d3 !important;
+    }
+
     @media (max-width: 880px) {
       .ia-beneficios-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 4.25rem 1.5rem !important;
       }
     }
+
     @media (max-width: 580px) {
       .ia-beneficios-grid {
         grid-template-columns: 1fr !important;
         gap: 4.25rem 1.25rem !important;
-      }
-      .ia-card-plus-btn {
-        right: 14px !important;
-        top: 50% !important;
       }
     }
   </style>
@@ -560,7 +645,7 @@
                 </div>
               </div>
               <div class="step-details-expand">
-                <div class="step-detail-subtitle">Organiza evidencias y criterios con IA de apoyo</div>
+                <div class="step-detail-subtitle">Organiza evidencias y criterios</div>
                 <p class="step-detail-desc">
                   Registra evaluaciones formativas y sumativas relacionando actividades con niveles de logro y
                   optimizando el tiempo de revisión.
@@ -704,7 +789,8 @@
             <p class="beneficio-card-text">
               Recursos e instrumentos de evaluación a partir del contexto y parámetros del docente.
             </p>
-            <button type="button" class="ia-card-plus-btn" data-ia-modal="crea" aria-label="Ver demo de CREA" title="Ver herramienta interactiva">
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="crea" aria-label="Ver demo de CREA"
+              title="Ver herramienta interactiva">
               <span>+</span>
             </button>
           </div>
@@ -716,7 +802,8 @@
             <p class="beneficio-card-text">
               Apoya la revisión de tareas y participaciones según criterios definidos pedagógicamente.
             </p>
-            <button type="button" class="ia-card-plus-btn" data-ia-modal="evalua" aria-label="Ver demo de EVALÚA" title="Ver herramienta interactiva">
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="evalua" aria-label="Ver demo de EVALÚA"
+              title="Ver herramienta interactiva">
               <span>+</span>
             </button>
           </div>
@@ -728,7 +815,8 @@
             <p class="beneficio-card-text">
               Genera orientaciones que ayudan al estudiante a comprender cómo mejorar.
             </p>
-            <button type="button" class="ia-card-plus-btn" data-ia-modal="retroalimenta" aria-label="Ver demo de RETROALIMENTA" title="Ver herramienta interactiva">
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="retroalimenta"
+              aria-label="Ver demo de RETROALIMENTA" title="Ver herramienta interactiva">
               <span>+</span>
             </button>
           </div>
@@ -740,7 +828,8 @@
             <p class="beneficio-card-text">
               Interpreta resultados, niveles de logro y desempeño para apoyar decisiones.
             </p>
-            <button type="button" class="ia-card-plus-btn" data-ia-modal="analiza" aria-label="Ver demo de ANALIZA" title="Ver herramienta interactiva">
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="analiza" aria-label="Ver demo de ANALIZA"
+              title="Ver herramienta interactiva">
               <span>+</span>
             </button>
           </div>
@@ -748,28 +837,35 @@
 
         <!-- Modal Overlay para Demostración Interactiva de IA -->
         <div id="iaModalOverlay" class="ia-modal-overlay" aria-hidden="true">
-          <div class="ia-modal-backdrop" data-close-ia-modal onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';"></div>
+          <div class="ia-modal-backdrop" data-close-ia-modal
+            onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';">
+          </div>
           <div class="ia-modal-window" role="dialog" aria-modal="true" aria-labelledby="iaModalTitle">
             <div class="ia-modal-header">
               <div class="ia-modal-header-left">
                 <span class="ia-modal-badge" id="iaModalBadge">CREA</span>
                 <h4 class="ia-modal-title" id="iaModalTitle">Generar recursos con IA</h4>
               </div>
-              <button type="button" class="ia-modal-close-btn" data-close-ia-modal onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';" aria-label="Cerrar modal">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;">
+              <button type="button" class="ia-modal-close-btn" data-close-ia-modal
+                onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';"
+                aria-label="Cerrar modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
               </button>
             </div>
             <div class="ia-modal-body">
-              <img id="iaModalImg" src="./assets/ia-modal-crea.png" alt="Vista previa de IA" class="ia-modal-img" loading="lazy">
+              <img id="iaModalImg" src="./assets/ia-modal-crea.png" alt="Vista previa de IA" class="ia-modal-img"
+                loading="lazy">
             </div>
             <div class="ia-modal-footer">
               <p class="ia-modal-desc" id="iaModalDesc">
                 Genera recursos e instrumentos de evaluación a partir del contexto y parámetros del docente.
               </p>
-              <button type="button" class="ia-modal-footer-btn" data-close-ia-modal onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';">Cerrar</button>
+              <button type="button" class="ia-modal-footer-btn" data-close-ia-modal
+                onclick="document.getElementById('iaModalOverlay').classList.remove('is-active'); document.body.style.overflow='';">Cerrar</button>
             </div>
           </div>
         </div>

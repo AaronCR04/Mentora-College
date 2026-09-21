@@ -394,10 +394,11 @@ h3 {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.85);
+  border-top: 3px solid transparent;
   border-radius: 20px;
   padding: 3.25rem 2rem 2.25rem 2rem;
   box-shadow: 0 10px 30px -5px rgba(86, 50, 232, 0.06);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -409,6 +410,33 @@ h3 {
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 20px 35px -8px rgba(86, 50, 232, 0.12);
+}
+
+/* Efectos de línea superior en hover para la cuadrícula de 6 beneficios */
+.beneficios-grid .beneficio-card:nth-child(1):hover,
+.beneficios-grid .beneficio-card:has(.pill-purple):hover {
+  border-top-color: #7e22ce;
+}
+.beneficios-grid .beneficio-card:nth-child(2):hover,
+.beneficios-grid .beneficio-card:has(.pill-cyan):hover {
+  border-top-color: #0284c7;
+}
+.beneficios-grid .beneficio-card:nth-child(3):hover,
+.beneficios-grid .beneficio-card:has(.pill-slate):hover {
+  border-top-color: #475569;
+}
+.beneficios-grid .beneficio-card:nth-child(4):hover,
+.beneficios-grid .beneficio-card:has(.pill-indigo):hover {
+  border-top-color: #4338ca;
+}
+.beneficios-grid .beneficio-card:nth-child(5):hover,
+.beneficios-grid .beneficio-card:has(.pill-amber):hover,
+.beneficio-card.card-highlight:hover {
+  border-top-color: #f59e0b;
+}
+.beneficios-grid .beneficio-card:nth-child(6):hover,
+.beneficios-grid .beneficio-card:has(.pill-neutral):hover {
+  border-top-color: #64748b;
 }
 
 /* Tarjeta destacada: Enseñanza y evaluación con IA */
@@ -2859,41 +2887,23 @@ body>main {
   color: #0f172a;
 }
 
-/* Acentos de color en el borde superior de cada pilar de IA */
-.ia-card-crea {
-  border-top: 3px solid var(--mentora-purple);
-}
-
-.ia-card-evalua {
-  border-top: 3px solid var(--mentora-blue);
-}
-
-.ia-card-retro {
-  border-top: 3px solid var(--tech-cyan);
-}
-
-.ia-card-analiza {
-  border-top: 3px solid var(--accent-magenta);
-}
-
-/* Botón circular "+" interactivo en el lateral de cada card */
+/* Acentos de color en el borde superior de cada pilar de IA (solo en hover) */
 .ia-beneficios-grid .beneficio-card {
-  cursor: pointer;
-  position: relative;
+  border-top: 3px solid transparent;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .ia-card-plus-btn {
   position: absolute;
-  right: -22px;
-  top: 55%;
-  transform: translateY(-50%);
+  left: 50%;
+  bottom: -22px;
+  top: auto;
+  right: auto;
+  transform: translateX(-50%);
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #f3e8ff;
-  color: #7c3aed;
   border: 3px solid #ffffff;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2902,19 +2912,56 @@ body>main {
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
   z-index: 10;
   padding: 0;
 }
 
-.beneficio-card:hover .ia-card-plus-btn,
-.ia-card-plus-btn:hover {
-  transform: translateY(-50%) scale(1.15);
-  background: #e9d5ff;
-  color: #6d28d9;
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38);
+.ia-card-plus-btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
 }
 
+.beneficio-card:hover .ia-card-plus-btn,
+.ia-card-plus-btn:hover {
+  transform: translateX(-50%) scale(1.15);
+}
+
+.beneficio-card:hover .ia-card-plus-btn span,
+.ia-card-plus-btn:hover span {
+  animation: spinPlus 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes spinPlus {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 1. CREA (Morado) */
+.ia-card-crea .ia-card-plus-btn {
+  background: #f3e8ff;
+  color: #7c3aed;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22);
+}
+.ia-card-crea:hover .ia-card-plus-btn,
+.ia-card-crea .ia-card-plus-btn:hover {
+  background: #e9d5ff;
+  color: #6d28d9;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.42);
+}
+.ia-card-crea:hover {
+  border-top-color: var(--mentora-purple, #7c3aed);
+}
+
+/* 2. EVALÚA (Azul índigo) */
 .ia-card-evalua .ia-card-plus-btn {
   background: #ede9fe;
   color: #4f46e5;
@@ -2922,11 +2969,15 @@ body>main {
 }
 .ia-card-evalua:hover .ia-card-plus-btn,
 .ia-card-evalua .ia-card-plus-btn:hover {
-  background: #e0e7ff;
-  color: #4338ca;
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.38);
+  background: #ddd6fe;
+  color: #3730a3;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.42);
+}
+.ia-card-evalua:hover {
+  border-top-color: var(--mentora-blue, #4f46e5);
 }
 
+/* 3. RETROALIMENTA (Azul celeste) */
 .ia-card-retro .ia-card-plus-btn {
   background: #e0f2fe;
   color: #0284c7;
@@ -2936,9 +2987,13 @@ body>main {
 .ia-card-retro .ia-card-plus-btn:hover {
   background: #bae6fd;
   color: #0369a1;
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.38);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.42);
+}
+.ia-card-retro:hover {
+  border-top-color: var(--tech-cyan, #0284c7);
 }
 
+/* 4. ANALIZA (Magenta / Rosa) */
 .ia-card-analiza .ia-card-plus-btn {
   background: #fdf2f8;
   color: #c026d3;
@@ -2948,7 +3003,10 @@ body>main {
 .ia-card-analiza .ia-card-plus-btn:hover {
   background: #fce7f3;
   color: #a21caf;
-  box-shadow: 0 6px 20px rgba(192, 38, 211, 0.38);
+  box-shadow: 0 6px 20px rgba(192, 38, 211, 0.42);
+}
+.ia-card-analiza:hover {
+  border-top-color: var(--accent-magenta, #c026d3);
 }
 
 /* ==========================================================================
@@ -3129,10 +3187,6 @@ body>main {
     grid-template-columns: 1fr;
     gap: 4.25rem 1.25rem;
     margin-top: 4.25rem;
-  }
-  .ia-card-plus-btn {
-    right: 14px;
-    top: 50%;
   }
   .ia-modal-footer {
     flex-direction: column;
