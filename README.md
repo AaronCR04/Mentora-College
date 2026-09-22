@@ -36,7 +36,7 @@ mentora-college/
     ├── monitoreo-aprendizaje/index.html
     ├── comunicacion-familias/index.html
     ├── asistencia-escolar/index.html
-    ├── boletas-digitales/index.html
+    ├── gestion-evaluaciones/index.html
     ├── evaluacion-con-ia/index.html
     ├── casos-de-exito/index.html
     └── recursos/index.html

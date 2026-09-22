@@ -1,38 +1,32 @@
 /**
  * planificacion-tabs.js
- * Control interactivo para paneles solapados y sliders independientes de:
- * 1. Planificación y creación de unidades y sesiones (2 slides)
- * 2. Planificación y creación de criterios para la sesión (3 slides)
+ * Control interactivo para el slider de Planificación por Competencias (2 slides)
+ * Sincronizado con las tarjetas interactivas de la izquierda y controles del slider.
  */
 
 export function initPlanificacionTabs() {
   const container = document.getElementById('planSliderContainer');
+  const track = document.getElementById('planSliderTrack');
+  const slides = document.querySelectorAll('.plan-slide');
+  const pills = document.querySelectorAll('#planSliderDots .docente-slider-pill');
+  const btnPrev = document.getElementById('planSliderPrev');
+  const btnNext = document.getElementById('planSliderNext');
   const captionEl = document.getElementById('planMockupCaption');
   const cards = document.querySelectorAll('.js-plan-card');
 
-  const panelUnidades = document.getElementById('panelPlanUnidades');
-  const panelCriterios = document.getElementById('panelPlanCriterios');
-
-  if (!container || !panelUnidades || !panelCriterios) {
+  if (!container || !track || slides.length === 0) {
     return;
   }
 
-  // ============================================================
-  // ESTADO Y CAPTIONS
-  // ============================================================
-  let activePanelKey = 'unidades'; // 'unidades' | 'criterios'
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoplayTimer = null;
+  const autoplayInterval = 6000;
 
-  const captions = {
-    unidades: [
-      "<strong style='color: var(--text-main);'>Planificación de Unidades y Sesiones:</strong> Estructura unidades didácticas y sesiones relacionando directamente al currículo institucional.",
-      "<strong style='color: var(--text-main);'>Asignación de Fechas:</strong> Asigna fechas y cronogramas para cada sesión de las unidades del curso con total flexibilidad."
-    ],
-    criterios: [
-      "<strong style='color: var(--text-main);'>Asignar Competencias:</strong> Vincula las competencias y capacidades oficiales del currículo institucional a cada sesión.",
-      "<strong style='color: var(--text-main);'>Crear Criterios de Evaluación:</strong> Redacta y gestiona criterios claros e indicadores precisos para evaluar el aprendizaje.",
-      "<strong style='color: var(--text-main);'>Agregar Criterios a la Sesión:</strong> Asocia los criterios directamente a las actividades y evidencias de la sesión de clase."
-    ]
-  };
+  const captions = [
+    "<strong style='color: var(--text-main);'>Planificación de Unidades y Sesiones:</strong> Estructura unidades didácticas y sesiones relacionando directamente al currículo institucional.",
+    "<strong style='color: var(--text-main);'>Asignar Competencias:</strong> Vincula las competencias y capacidades oficiales del currículo institucional a cada sesión."
+  ];
 
   function updateCaption(text) {
     if (!captionEl || !text) return;
@@ -43,202 +37,105 @@ export function initPlanificacionTabs() {
     }, 150);
   }
 
-  // ============================================================
-  // CONTROLADOR DE SLIDER GENÉRICO
-  // ============================================================
-  function createSliderController({ panelEl, trackId, slideClass, dotsContainerId, btnPrevId, btnNextId, panelKey }) {
-    const track = document.getElementById(trackId);
-    const slides = panelEl.querySelectorAll(`.${slideClass}`);
-    const pills = document.querySelectorAll(`#${dotsContainerId} .docente-slider-pill`);
-    const btnPrev = document.getElementById(btnPrevId);
-    const btnNext = document.getElementById(btnNextId);
+  function goToSlide(index, _fromUser = false) {
+    if (totalSlides === 0 || !track) return;
 
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let autoplayTimer = null;
-    const autoplayInterval = 6000;
-
-    function goToSlide(index, _fromUser = false) {
-      if (totalSlides === 0 || !track) return;
-
-      if (index < 0) {
-        currentIndex = totalSlides - 1;
-      } else if (index >= totalSlides) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
-
-      // Desplazamiento horizontal fluido
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-      // Actualizar pills
-      pills.forEach((pill, i) => {
-        const isActive = i === currentIndex;
-        pill.classList.toggle('is-active', isActive);
-        pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-
-      // Actualizar visibilidad de slides
-      slides.forEach((slide, i) => {
-        const isActive = i === currentIndex;
-        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-        slide.style.opacity = isActive ? '1' : '0.35';
-        slide.style.transform = isActive ? 'scale(1)' : 'scale(0.96)';
-      });
-
-      // Actualizar caption si este panel está activo actualmente
-      if (activePanelKey === panelKey && captions[panelKey] && captions[panelKey][currentIndex]) {
-        updateCaption(captions[panelKey][currentIndex]);
-      }
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
     }
 
-    function nextSlide(fromUser = false) {
-      goToSlide(currentIndex + 1, fromUser);
-    }
+    // Desplazamiento horizontal fluido
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    function prevSlide(fromUser = false) {
-      goToSlide(currentIndex - 1, fromUser);
-    }
-
-    function startAutoplay() {
-      stopAutoplay();
-      // Solo correr autoplay si este panel es el actualmente activo en pantalla
-      if (activePanelKey !== panelKey) return;
-
-      autoplayTimer = setInterval(() => {
-        nextSlide(false);
-      }, autoplayInterval);
-    }
-
-    function stopAutoplay() {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
-      }
-    }
-
-    if (btnNext) {
-      btnNext.addEventListener('click', (e) => {
-        e.preventDefault();
-        nextSlide(true);
-        startAutoplay();
-      });
-    }
-
-    if (btnPrev) {
-      btnPrev.addEventListener('click', (e) => {
-        e.preventDefault();
-        prevSlide(true);
-        startAutoplay();
-      });
-    }
-
-    pills.forEach((pill, idx) => {
-      pill.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToSlide(idx, true);
-        startAutoplay();
-      });
+    // Actualizar pills
+    pills.forEach((pill, i) => {
+      const isActive = i === currentIndex;
+      pill.classList.toggle('is-active', isActive);
+      pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
 
-    // Touch Swipe en el viewport del panel
-    const viewport = panelEl.querySelector('.docente-slider-viewport');
-    if (viewport) {
-      let touchStartX = 0;
-      viewport.addEventListener('touchstart', (e) => {
-        stopAutoplay();
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
+    // Actualizar visibilidad de slides
+    slides.forEach((slide, i) => {
+      const isActive = i === currentIndex;
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      slide.style.opacity = isActive ? '1' : '0.35';
+      slide.style.transform = isActive ? 'scale(1)' : 'scale(0.96)';
+    });
 
-      viewport.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40) {
-          if (diff > 0) {
-            nextSlide(true);
-          } else {
-            prevSlide(true);
-          }
-        }
-        startAutoplay();
-      }, { passive: true });
-    }
-
-    // Inicializar estado de este slider
-    goToSlide(0);
-
-    return {
-      goToSlide,
-      nextSlide,
-      prevSlide,
-      startAutoplay,
-      stopAutoplay,
-      getCurrentIndex: () => currentIndex
-    };
-  }
-
-  // ============================================================
-  // INSTANCIAS DE LOS DOS SLIDERS
-  // ============================================================
-  const sliderUnidades = createSliderController({
-    panelEl: panelUnidades,
-    trackId: 'unidadesSliderTrack',
-    slideClass: 'unidades-slide',
-    dotsContainerId: 'unidadesSliderDots',
-    btnPrevId: 'unidadesSliderPrev',
-    btnNextId: 'unidadesSliderNext',
-    panelKey: 'unidades'
-  });
-
-  const sliderCriterios = createSliderController({
-    panelEl: panelCriterios,
-    trackId: 'criteriosSliderTrack',
-    slideClass: 'criterios-slide',
-    dotsContainerId: 'criteriosSliderDots',
-    btnPrevId: 'criteriosSliderPrev',
-    btnNextId: 'criteriosSliderNext',
-    panelKey: 'criterios'
-  });
-
-  // ============================================================
-  // CAMBIO DE PANELES (TARJETAS IZQUIERDAS)
-  // ============================================================
-  function switchPanel(panelKey) {
-    if (activePanelKey === panelKey) return;
-    activePanelKey = panelKey;
-
-    if (panelKey === 'unidades') {
-      sliderCriterios.stopAutoplay();
-      panelCriterios.classList.remove('is-active');
-      panelUnidades.classList.add('is-active');
-
-      sliderUnidades.goToSlide(0, false);
-      sliderUnidades.startAutoplay();
-    } else {
-      sliderUnidades.stopAutoplay();
-      panelUnidades.classList.remove('is-active');
-      panelCriterios.classList.add('is-active');
-
-      sliderCriterios.goToSlide(0, false);
-      sliderCriterios.startAutoplay();
-    }
-
-    // Sincronizar clases activas en las tarjetas de la izquierda
+    // Sincronizar tarjetas de la columna izquierda
     cards.forEach((card) => {
-      const cardPanel = card.getAttribute('data-panel');
-      const isCardActive = cardPanel === panelKey;
+      const cardSlide = parseInt(card.getAttribute('data-slide'), 10);
+      const isCardActive = cardSlide === currentIndex;
       card.classList.toggle('is-active', isCardActive);
       card.setAttribute('aria-pressed', isCardActive ? 'true' : 'false');
     });
+
+    // Actualizar caption descriptivo
+    if (captions[currentIndex]) {
+      updateCaption(captions[currentIndex]);
+    }
   }
+
+  function nextSlide(fromUser = false) {
+    goToSlide(currentIndex + 1, fromUser);
+  }
+
+  function prevSlide(fromUser = false) {
+    goToSlide(currentIndex - 1, fromUser);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(() => {
+      nextSlide(false);
+    }, autoplayInterval);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextSlide(true);
+      startAutoplay();
+    });
+  }
+
+  if (btnPrev) {
+    btnPrev.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevSlide(true);
+      startAutoplay();
+    });
+  }
+
+  pills.forEach((pill) => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const slideIdx = parseInt(pill.getAttribute('data-slide'), 10);
+      if (!isNaN(slideIdx)) {
+        goToSlide(slideIdx, true);
+        startAutoplay();
+      }
+    });
+  });
 
   // Event Listeners en las tarjetas de la izquierda
   cards.forEach((card) => {
     card.addEventListener('click', () => {
-      const targetPanel = card.getAttribute('data-panel');
-      if (targetPanel) {
-        switchPanel(targetPanel);
+      const slideIdx = parseInt(card.getAttribute('data-slide'), 10);
+      if (!isNaN(slideIdx)) {
+        goToSlide(slideIdx, true);
+        startAutoplay();
       }
     });
 
@@ -250,22 +147,36 @@ export function initPlanificacionTabs() {
     });
   });
 
-  // Hover en contenedor compartido para pausar / reanudar autoplay
-  container.addEventListener('mouseenter', () => {
-    sliderUnidades.stopAutoplay();
-    sliderCriterios.stopAutoplay();
-  });
+  // Touch Swipe en el viewport del slider
+  const viewport = container.querySelector('.docente-slider-viewport');
+  if (viewport) {
+    let touchStartX = 0;
+    viewport.addEventListener('touchstart', (e) => {
+      stopAutoplay();
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
 
-  container.addEventListener('mouseleave', () => {
-    if (activePanelKey === 'unidades') {
-      sliderUnidades.startAutoplay();
-    } else {
-      sliderCriterios.startAutoplay();
-    }
-  });
+    viewport.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          nextSlide(true);
+        } else {
+          prevSlide(true);
+        }
+      }
+      startAutoplay();
+    }, { passive: true });
+  }
 
-  // Inicio por defecto: Panel Unidades activo con autoplay
-  sliderUnidades.startAutoplay();
+  // Hover en contenedor para pausar / reanudar autoplay
+  container.addEventListener('mouseenter', stopAutoplay);
+  container.addEventListener('mouseleave', startAutoplay);
+
+  // Inicializar en slide 0 con autoplay
+  goToSlide(0);
+  startAutoplay();
 }
 
 if (document.readyState === 'loading') {

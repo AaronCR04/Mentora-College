@@ -74,8 +74,9 @@ export function initEvaluacionesTabs() {
   // ============================================================
   const docenteContainer = document.getElementById('docenteSliderContainer');
   const docenteTrack = document.getElementById('docenteSliderTrack');
-  const docenteSlides = document.querySelectorAll('#panelDocenteCreacion .docente-slide');
+  const docenteSlides = document.querySelectorAll('#docenteSliderContainer .docente-slide');
   const docentePills = document.querySelectorAll('#docenteSliderDots .docente-slider-pill');
+  const docenteCards = document.querySelectorAll('.js-docente-card');
   const docenteBtnPrev = document.getElementById('docenteSliderPrev');
   const docenteBtnNext = document.getElementById('docenteSliderNext');
   const docenteCaption = document.getElementById('docenteMockupCaption');
@@ -86,8 +87,8 @@ export function initEvaluacionesTabs() {
   const autoplayInterval = 6000;
 
   const docenteSlideCaptions = [
-    "<strong style='color: var(--text-main);'>Configuración de Evaluaciones:</strong> Crea tareas y exámenes vinculando competencias, criterios de evaluación y fechas clave.",
-    "<strong style='color: var(--text-main);'>Calificación y Rúbricas:</strong> Evalúa evidencias de forma ágil con rúbricas cualitativas y sugerencias descriptivas con IA."
+    "<strong style='color: var(--text-main);'>Instrumentos de evaluación:</strong> Define el tipo de instrumento: Rubro de evaluación, Escala de Valoración, Lista de Cotejo y Rúbrica de aprendizaje.",
+    "<strong style='color: var(--text-main);'>Evaluaciones del curso:</strong> Gestiona cuestionarios, tareas, foros y rutas de aprendizaje para evaluar el progreso formativo."
   ];
 
   function updateDocenteCaption(text) {
@@ -116,6 +117,12 @@ export function initEvaluacionesTabs() {
       const isActive = i === docenteCurrentIndex;
       pill.classList.toggle('is-active', isActive);
       pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    docenteCards.forEach((card, i) => {
+      const isActive = i === docenteCurrentIndex;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
     docenteSlides.forEach((slide, i) => {
@@ -201,7 +208,6 @@ export function initEvaluacionesTabs() {
   }
 
   // Cards dinámicas en Docente
-  const docenteCards = document.querySelectorAll('.js-docente-card');
   docenteCards.forEach((card) => {
     card.addEventListener('click', () => {
       docenteCards.forEach((c) => {

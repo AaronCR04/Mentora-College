@@ -17,7 +17,7 @@ export function initIaModal() {
     crea: {
       badge: 'CREA',
       title: 'Generar recursos con IA',
-      img: './assets/ia-modal-crea.png',
+      img: '/assets/ia/ia-modal-crea.png',
       desc: 'Genera recursos pedagógicos e instrumentos de evaluación a partir del contexto y parámetros del docente.',
       color: '#7c3aed',
       bg: '#f3e8ff'
@@ -25,7 +25,7 @@ export function initIaModal() {
     evalua: {
       badge: 'EVALÚA',
       title: 'Evaluación y revisión criterial con IA',
-      img: './assets/ecosistema-03-evalua.png',
+      img: '/assets/ecosistema/ecosistema-03-evalua.png',
       desc: 'Apoya la revisión ágil de tareas, cuestionarios y evidencias según criterios pedagógicos curriculares.',
       color: '#4f46e5',
       bg: '#ede9fe'
@@ -33,7 +33,7 @@ export function initIaModal() {
     retroalimenta: {
       badge: 'RETROALIMENTA',
       title: 'Análisis cualitativo y retroalimentación formativa',
-      img: './assets/ecosistema-04-retroalimenta.png',
+      img: '/assets/ecosistema/ecosistema-04-retroalimenta.png',
       desc: 'Genera orientaciones personalizadas que ayudan al estudiante a comprender cómo mejorar su aprendizaje.',
       color: '#0284c7',
       bg: '#e0f2fe'
@@ -41,7 +41,7 @@ export function initIaModal() {
     analiza: {
       badge: 'ANALIZA',
       title: 'Ficha de analítica y logro pedagógico con IA',
-      img: './assets/ecosistema-06-mejora.png',
+      img: '/assets/ecosistema/ecosistema-06-mejora.png',
       desc: 'Interpreta resultados grupales e individuales, niveles de logro y predicción de refuerzo educativo.',
       color: '#c026d3',
       bg: '#fdf2f8'

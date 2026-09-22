@@ -35,20 +35,6 @@
           Seguridad, trazabilidad diaria de ingresos, salidas en tiempo real y gestión ágil de justificaciones para toda
           la comunidad escolar.
         </p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <span
-            style="background: rgba(255,255,255,0.15); color: #fff; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25);">
-            Marcación en Segundos
-          </span>
-          <span
-            style="background: rgba(255,255,255,0.15); color: #fff; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25);">
-            Notificaciones a Familias
-          </span>
-          <span
-            style="background: rgba(255,255,255,0.15); color: #fff; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25);">
-            Justificaciones 100% Digitales
-          </span>
-        </div>
       </div>
     </section>
     <!-- Sección de Funcionalidades Complementarias: Cards estilo Beneficios -->
@@ -68,7 +54,8 @@
 
           <!-- Beneficio 1: Registro en Aula y Puerta -->
           <div class="beneficio-card card-hover-blue">
-            <img src="/assets/reloj.svg" alt="Registro en Aula y Puerta" class="beneficio-card-icon" loading="lazy">
+            <img src="/assets/beneficios/asistencia/reloj.svg" alt="Registro en Aula y Puerta"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Registro en Aula y Puerta</h3>
             <p class="beneficio-card-text" style="margin-bottom: 0;">
               El docente registra asistencia en segundos desde su laptop o tablet, o bien mediante lectores de carnet
@@ -78,8 +65,8 @@
 
           <!-- Beneficio 2: Alertas Inmediatas a Familias -->
           <div class="beneficio-card card-hover-yellow">
-            <img src="/assets/alerta.svg" alt="Alertas Inmediatas a Familias" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/asistencia/alerta.svg" alt="Alertas Inmediatas a Familias"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Alertas Inmediatas a Familias</h3>
             <p class="beneficio-card-text" style="margin-bottom: 0;">
               Notificaciones push automáticas cuando el estudiante ingresa al plantel o ante cualquier tardanza o
@@ -89,8 +76,8 @@
 
           <!-- Beneficio 3: Reportes y Alertas de Deserción -->
           <div class="beneficio-card card-hover-emerald">
-            <img src="/assets/reporte.svg" alt="Reportes y Alertas de Deserción" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/asistencia/reporte.svg" alt="Reportes y Alertas de Deserción"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Reportes y Alertas de Deserción</h3>
             <p class="beneficio-card-text" style="margin-bottom: 0;">
               Identifica a tiempo casos de ausentismo reiterado con indicadores automáticos para intervenir junto a
@@ -170,56 +157,12 @@
 
           </div>
 
-          <!-- Columna Derecha: Mockup Slider Interactivo con ambas pantallas -->
+          <!-- Columna Derecha: Mockup Justificar Asistencia -->
           <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-            <div class="mockup-slider-container" id="mockupSliderContainer">
-
-              <!-- Viewport del Slider -->
-              <div class="mockup-slider-viewport">
-                <div class="mockup-slider-track" id="mockupSliderTrack">
-
-                  <!-- Slide 1: Justificar Asistencia 1 -->
-                  <div class="mockup-slide" data-index="0" aria-hidden="false">
-                    <img src="/assets/justificar%20asistencia.svg"
-                      alt="Mockup Plataforma - Justificar Asistencia Mentora College">
-                  </div>
-
-                  <!-- Slide 2: Justificar Asistencia 2 -->
-                  <div class="mockup-slide" data-index="1" aria-hidden="true">
-                    <img src="/assets/justificar%20asistencia%202.svg"
-                      alt="Mockup Plataforma - Registro y Validación Mentora College">
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- Flechas Flotantes -->
-              <button type="button" class="mockup-slider-arrow prev" id="mockupSliderPrev"
-                aria-label="Pantalla anterior">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-              <button type="button" class="mockup-slider-arrow next" id="mockupSliderNext"
-                aria-label="Siguiente pantalla">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-
-              <!-- Controles e Indicadores de Navegación -->
-              <div class="mockup-slider-controls">
-                <div class="mockup-slider-dots" id="mockupSliderDots" role="tablist"
-                  aria-label="Navegación de pantallas">
-                  <button type="button" class="mockup-slider-dot is-active" data-slide="0" role="tab"
-                    aria-selected="true" aria-label="Ver pantalla 1"></button>
-                  <button type="button" class="mockup-slider-dot" data-slide="1" role="tab" aria-selected="false"
-                    aria-label="Ver pantalla 2"></button>
-                </div>
-              </div>
-
+            <div style="max-width: 460px; width: 100%; display: flex; justify-content: center;">
+              <img src="/assets/beneficios/asistencia/justificar-asistencia.svg"
+                alt="Mockup Plataforma - Justificar Asistencia Mentora College"
+                style="width: 100%; height: auto; display: block; object-fit: contain; filter: drop-shadow(0 15px 35px rgba(86, 50, 232, 0.12));">
             </div>
           </div>
 

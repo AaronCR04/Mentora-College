@@ -148,6 +148,7 @@ export function initComunicacionTabs() {
 
   startDocenteAutoplay = function() {
     stopDocenteAutoplay();
+    if (docenteTotalSlides <= 1) return;
     // Solo reproducir si estamos en la pestaña docente y el panel de creación está activo
     const panelCreacion = document.getElementById('panelDocenteCreacion');
     if (tabBtnDocente.classList.contains('active') && panelCreacion && panelCreacion.classList.contains('is-active')) {

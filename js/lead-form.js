@@ -3,43 +3,47 @@
    Gestión de la conversión comercial, validación de formularios y eventos
    ========================================================================== */
 
+function closeModal(targetModal) {
+  const modal = targetModal || document.getElementById('leadModalOverlay') || document.querySelector('.modal-overlay.is-open');
+  if (modal) {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+}
+
+function openModal() {
+  const modalOverlay = document.getElementById('leadModalOverlay');
+  if (modalOverlay) {
+    modalOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 export function initLeadForm() {
   const leadForms = document.querySelectorAll('.lead-form-element');
-  const modalOverlay = document.getElementById('leadModalOverlay');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const openModalBtns = document.querySelectorAll('.js-open-lead-modal');
 
-  // Open modal handler
-  openModalBtns.forEach(btn => {
+  // Open modal buttons - direct listeners
+  document.querySelectorAll('.js-open-lead-modal').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (modalOverlay) {
-        modalOverlay.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
+      openModal();
     });
   });
 
-  // Close modal handler
-  if (modalCloseBtn && modalOverlay) {
-    modalCloseBtn.addEventListener('click', () => {
-      modalOverlay.classList.remove('is-open');
-      document.body.style.overflow = '';
+  // Close modal buttons - direct listeners
+  document.querySelectorAll('.modal-close, #modalCloseBtn, [data-modal-close]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeModal(btn.closest('.modal-overlay'));
     });
-
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
-        modalOverlay.classList.remove('is-open');
-        document.body.style.overflow = '';
-      }
-    });
-  }
+  });
 
   // Handle lead form submission
   leadForms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : 'Enviar';
 
@@ -63,7 +67,7 @@ export function initLeadForm() {
       // Simulate tracking event & network request
       setTimeout(() => {
         console.log('✅ Lead comercial capturado con éxito:', leadPayload);
-        
+
         // Render success state
         form.innerHTML = `
           <div class="success-banner">
@@ -84,4 +88,42 @@ export function initLeadForm() {
       }, 1200);
     });
   });
+}
+
+// Global Delegated Listeners (always active regardless of DOM loading timing)
+document.addEventListener('click', (e) => {
+  // Delegate click for opening modal
+  const openTrigger = e.target.closest('.js-open-lead-modal');
+  if (openTrigger) {
+    e.preventDefault();
+    openModal();
+    return;
+  }
+
+  // Delegate click for closing modal
+  const closeTrigger = e.target.closest('.modal-close, #modalCloseBtn, [data-modal-close]');
+  if (closeTrigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    closeModal(closeTrigger.closest('.modal-overlay'));
+    return;
+  }
+
+  // Click on modal overlay backdrop
+  if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) {
+    closeModal(e.target);
+  }
+});
+
+// Close with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLeadForm);
+} else {
+  initLeadForm();
 }

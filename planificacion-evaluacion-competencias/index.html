@@ -46,7 +46,7 @@
     <section class="bg-white-surface" style="padding: 5rem 0;">
       <div class="container" style="max-width: 1240px;">
 
-        <div class="comunicacion-view-panel">
+        <div class="comunicacion-view-panel" style="align-items: center;">
           <!-- Columna Izquierda: Capacidades de Planificación y Evaluación -->
           <div>
             <div style="margin-bottom: 1.85rem;">
@@ -65,14 +65,14 @@
             </div>
 
             <!-- Tarjeta 1: Planificación y creación de unidades y sesiones -->
-            <div class="comunicacion-feature-card accent-blue is-clickable js-plan-card is-active" data-panel="unidades"
+            <div class="comunicacion-feature-card accent-blue is-clickable js-plan-card is-active" data-slide="0"
               role="button" tabindex="0" aria-pressed="true">
               <div class="comunicacion-card-header">
                 <div class="comunicacion-card-icon">
-                  <img src="/assets/icon_archivo.svg" alt="Planificación" width="22" height="22"
+                  <img src="/assets/beneficios/cards/icon_archivo.svg" alt="Planificación" width="22" height="22"
                     style="filter: brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(1478%) hue-rotate(210deg) brightness(97%) contrast(92%);">
                 </div>
-                <h3 class="comunicacion-card-title">Planificación y creación de unidades y sesiones.</h3>
+                <h3 class="comunicacion-card-title">Planifica tus unidades y sesiones para el curso.</h3>
               </div>
               <p class="comunicacion-card-text">
                 Estructura unidades didácticas y sesiones relacionando directamente al currículo institucional. Asigna
@@ -81,13 +81,13 @@
             </div>
 
             <!-- Tarjeta 2: Planificación y creación de criterios para la sesión -->
-            <div class="comunicacion-feature-card accent-purple is-clickable js-plan-card" data-panel="criterios"
-              role="button" tabindex="0" aria-pressed="false">
+            <div class="comunicacion-feature-card accent-purple is-clickable js-plan-card" data-slide="1" role="button"
+              tabindex="0" aria-pressed="false">
               <div class="comunicacion-card-header">
                 <div class="comunicacion-card-icon purple">
-                  <img src="/assets/icon_metrica.svg" alt="Criterios para la sesión" width="22" height="22">
+                  <img src="/assets/general/criterios.svg" alt="Criterios para la sesión" width="22" height="22">
                 </div>
-                <h3 class="comunicacion-card-title">Planificación y creación de criterios para la sesión</h3>
+                <h3 class="comunicacion-card-title">Asigna criterios para las evaluaciones de la sesión</h3>
               </div>
               <p class="comunicacion-card-text">
                 Crea los criterios de evaluación alineados a las competencias y capacidades del sílabo.
@@ -95,139 +95,45 @@
             </div>
           </div>
 
-          <!-- Columna Derecha: Mockups y Sliders Dinámicos (Sin Marcos) -->
-          <div class="docente-slider-wrapper">
+          <!-- Columna Derecha: Mockups y Slider Único (Centrado en Medio) -->
+          <div class="docente-slider-wrapper" style="position: relative; top: 0; align-self: center;">
             <div class="docente-slider-container" id="planSliderContainer">
 
-              <!-- Viewport de Paneles Solapados Fluidos -->
-              <div class="docente-panels-viewport">
+              <!-- Viewport del Slider Único -->
+              <div class="docente-slider-viewport">
+                <div class="docente-slider-track" id="planSliderTrack">
 
-                <!-- PANEL 1: Planificación y creación de unidades y sesiones (Slider de 2 imágenes) -->
-                <div class="docente-media-panel is-active" id="panelPlanUnidades">
-                  <!-- Viewport del Slider Unidades -->
-                  <div class="docente-slider-viewport">
-                    <div class="docente-slider-track" id="unidadesSliderTrack">
-
-                      <!-- Slide 1: Planificación y creación de unidades y sesiones -->
-                      <div class="docente-slide unidades-slide" data-index="0" aria-hidden="false">
-                        <img src="/assets/planifica%20unidad%20y%20sesion.svg"
-                          alt="Planificación y creación de unidades y sesiones - Mentora College"
-                          class="docente-slide-comp-img">
-                      </div>
-
-                      <!-- Slide 2: Asignación de fechas para sesiones del curso -->
-                      <div class="docente-slide unidades-slide" data-index="1" aria-hidden="true">
-                        <img src="/assets/asignar%20fechas%20sesion.svg"
-                          alt="Asignar fechas para cada sesión de las unidades del curso - Mentora College"
-                          class="docente-slide-comp-img">
-                      </div>
-
-                    </div>
+                  <!-- Slide 1: Planificación y creación de unidades y sesiones -->
+                  <div class="docente-slide plan-slide" data-index="0" aria-hidden="false">
+                    <img src="/assets/beneficios/planificacion/planifica-unidad-y-sesion.svg"
+                      alt="Planifica tus unidades y sesiones para el curso - Mentora College"
+                      class="docente-slide-comp-img">
                   </div>
 
-                  <!-- Flechas Flotantes Unidades -->
-                  <button type="button" class="docente-slider-arrow prev" id="unidadesSliderPrev"
-                    aria-label="Pantalla anterior">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                  </button>
-                  <button type="button" class="docente-slider-arrow next" id="unidadesSliderNext"
-                    aria-label="Siguiente pantalla">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-
-                  <!-- Controles e Indicadores de Unidades -->
-                  <div class="docente-slider-controls">
-                    <div class="docente-slider-pills" id="unidadesSliderDots" role="tablist"
-                      aria-label="Vistas de unidades y sesiones">
-                      <button type="button" class="docente-slider-pill is-active" data-slide="0" role="tab"
-                        aria-selected="true" aria-label="Ver Planificación y creación de unidades y sesiones">
-                        Unidades y Sesiones
-                      </button>
-                      <button type="button" class="docente-slider-pill" data-slide="1" role="tab" aria-selected="false"
-                        aria-label="Ver Asignación de fechas a sesiones">
-                        Asignar Fechas
-                      </button>
-                    </div>
+                  <!-- Slide 2: Asignar competencias -->
+                  <div class="docente-slide plan-slide" data-index="1" aria-hidden="true">
+                    <img src="/assets/beneficios/planificacion/asignar-competencias.svg"
+                      alt="Asignar competencias a la sesión - Mentora College" class="docente-slide-comp-img">
                   </div>
+
                 </div>
-
-                <!-- PANEL 2: Planificación y creación de criterios para la sesión (Slider de 3 imágenes) -->
-                <div class="docente-media-panel" id="panelPlanCriterios">
-                  <!-- Viewport del Slider Criterios -->
-                  <div class="docente-slider-viewport">
-                    <div class="docente-slider-track" id="criteriosSliderTrack">
-
-                      <!-- Slide 1: Asignar competencias -->
-                      <div class="docente-slide criterios-slide" data-index="0" aria-hidden="false">
-                        <img src="/assets/asignar%20competencias.svg"
-                          alt="Asignar competencias a la sesión - Mentora College" class="docente-slide-comp-img">
-                      </div>
-
-                      <!-- Slide 2: Crear criterios -->
-                      <div class="docente-slide criterios-slide" data-index="1" aria-hidden="true">
-                        <img src="/assets/crear%20criterios.svg" alt="Crear criterios de evaluación - Mentora College"
-                          class="docente-slide-comp-img">
-                      </div>
-
-                      <!-- Slide 3: Agregar criterios a la sesión -->
-                      <div class="docente-slide criterios-slide" data-index="2" aria-hidden="true">
-                        <img src="/assets/agregar%20criterios%20a%20la%20sesion.svg"
-                          alt="Agregar criterios a la sesión - Mentora College" class="docente-slide-comp-img">
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <!-- Flechas Flotantes Criterios -->
-                  <button type="button" class="docente-slider-arrow prev" id="criteriosSliderPrev"
-                    aria-label="Pantalla anterior">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                  </button>
-                  <button type="button" class="docente-slider-arrow next" id="criteriosSliderNext"
-                    aria-label="Siguiente pantalla">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-
-                  <!-- Controles e Indicadores de Criterios -->
-                  <div class="docente-slider-controls">
-                    <div class="docente-slider-pills" id="criteriosSliderDots" role="tablist"
-                      aria-label="Vistas de criterios de evaluación">
-                      <button type="button" class="docente-slider-pill is-active" data-slide="0" role="tab"
-                        aria-selected="true" aria-label="Ver Asignar competencias">
-                        Asignar Competencias
-                      </button>
-                      <button type="button" class="docente-slider-pill" data-slide="1" role="tab" aria-selected="false"
-                        aria-label="Ver Crear criterios">
-                        Crear Criterios
-                      </button>
-                      <button type="button" class="docente-slider-pill" data-slide="2" role="tab" aria-selected="false"
-                        aria-label="Ver Agregar criterios a la sesión">
-                        Agregar a Sesión
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
               </div>
 
-              <!-- Leyenda / Caption Informativo Compartido -->
-              <div id="planMockupCaption" class="docente-slider-caption">
-                <strong style="color: var(--text-main);">Planificación de Unidades y Sesiones:</strong> Estructura
-                unidades didácticas y sesiones relacionando directamente al currículo institucional.
-              </div>
-
+              <!-- Flechas Flotantes centradas -->
+              <button type="button" class="docente-slider-arrow prev" id="planSliderPrev" style="top: 50%;"
+                aria-label="Pantalla anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button type="button" class="docente-slider-arrow next" id="planSliderNext" style="top: 50%;"
+                aria-label="Siguiente pantalla">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         </div>

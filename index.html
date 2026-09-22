@@ -49,15 +49,15 @@
   <style>
     .ia-beneficios-grid {
       display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 4.5rem 1.25rem !important;
-      margin-top: 5rem !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 2.5rem !important;
+      margin-top: 3.25rem !important;
       margin-bottom: 2rem !important;
       align-items: stretch !important;
     }
 
     .ia-beneficios-grid .beneficio-card {
-      padding: 3.15rem 1.4rem 2rem 1.4rem !important;
+      padding: 2.85rem 1.75rem 2rem 1.75rem !important;
       height: 100% !important;
       cursor: pointer !important;
       position: relative !important;
@@ -66,10 +66,10 @@
     }
 
     .ia-beneficios-grid .beneficio-card-icon {
-      width: 78px !important;
-      height: 78px !important;
-      top: -39px !important;
-      right: 16px !important;
+      width: 76px !important;
+      height: 76px !important;
+      top: -26px !important;
+      right: 20px !important;
     }
 
     .ia-beneficios-grid .beneficio-card-title {
@@ -200,14 +200,14 @@
       border-top-color: #c026d3 !important;
     }
 
-    @media (max-width: 880px) {
+    @media (max-width: 992px) {
       .ia-beneficios-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 4.25rem 1.5rem !important;
       }
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 640px) {
       .ia-beneficios-grid {
         grid-template-columns: 1fr !important;
         gap: 4.25rem 1.25rem !important;
@@ -276,8 +276,8 @@
         <!-- Columna Derecha: Robot 3D Flotante con Sombra -->
         <div class="hero-v2-right">
           <div class="hero-robot-wrapper">
-            <img src="./assets/robot_transparent.svg" alt="Asistente de IA Mentora College" class="hero-robot-avatar"
-              loading="eager" />
+            <img src="/assets/hero/robot_transparent.svg" alt="Asistente de IA Mentora College"
+              class="hero-robot-avatar" loading="eager" />
             <div class="hero-robot-shadow"></div>
           </div>
         </div>
@@ -290,7 +290,7 @@
     <!-- ==========================================================================
          3. LOGOS DE CONFIANZA & METRICAS
          ========================================================================== -->
-    <section class="bg-white-surface" style="padding: 3rem 0; border-bottom: var(--border-subtle);">
+    <section class="bg-white-surface section-py" style="border-bottom: var(--border-subtle);">
       <div class="container">
         <div
           style="text-align: center; font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.75rem;">
@@ -300,52 +300,102 @@
         <!-- Carousel Infinito de Logos de Colegios -->
         <div class="logos-carousel-container" aria-label="Colegios que confían en Mentora College">
           <div class="logos-marquee-track">
-            <!-- Set 1 -->
-            <div class="school-logo-card">
-              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl"
-                loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
-              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
-            </div>
-            <div class="school-logo-card">
-              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
-              <span class="school-logo-name">Colegio Luz y Ciencia</span>
-            </div>
-            <div class="school-logo-card">
-              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl"
-                loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
-              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
-            </div>
-            <div class="school-logo-card">
-              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
-              <span class="school-logo-name">Colegio Luz y Ciencia</span>
+            <!-- Grupo 1 -->
+            <div class="logos-marquee-group">
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
             </div>
 
-            <!-- Set 2 (Duplicado idéntico para loop continuo sin salto) -->
-            <div class="school-logo-card" aria-hidden="true">
-              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl"
-                loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
-              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
-            </div>
-            <div class="school-logo-card" aria-hidden="true">
-              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
-              <span class="school-logo-name">Colegio Luz y Ciencia</span>
-            </div>
-            <div class="school-logo-card" aria-hidden="true">
-              <img src="./public/assets/colegio-fernando-stahl.png" alt="Colegio Adventista Fernando Stahl"
-                loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-fernando-stahl.png';}">
-              <span class="school-logo-name">Colegio Adventista Fernando Stahl</span>
-            </div>
-            <div class="school-logo-card" aria-hidden="true">
-              <img src="./public/assets/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy"
-                onerror="if(!this.tried){this.tried=true;this.src='./assets/colegio-luz-y-ciencia.png';}">
-              <span class="school-logo-name">Colegio Luz y Ciencia</span>
+            <!-- Grupo 2 (Duplicado idéntico para loop continuo sin salto) -->
+            <div class="logos-marquee-group" aria-hidden="true">
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/fs.svg" alt="Colegio Adventista Fernando Stahl" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/colegio-luz-y-ciencia.png" alt="Colegio Luz y Ciencia" loading="lazy">
+              </div>
+              <div class="school-logo-card">
+                <img src="/assets/logos/educacion-adventista.svg" alt="Educación Adventista" loading="lazy">
+              </div>
             </div>
           </div>
         </div>
@@ -389,28 +439,30 @@
 
         <div class="grid-dolores">
           <!-- Card 1: Información dispersa -->
-          <div class="card-glass">
-            <img src="./assets/icon_archivo.svg" alt="Información dispersa" class="card-dolor-icon" loading="lazy" />
-            <h3 class="card-dolor-title">Información dispersa</h3>
-            <p class="card-dolor-text">Planificación, evaluaciones, evidencias, asistencia y comunicaciones suelen
+          <div class="beneficio-card">
+            <img src="/assets/beneficios/cards/icon_archivo.svg" alt="Información dispersa" class="beneficio-card-icon"
+              loading="lazy" />
+            <h3 class="beneficio-card-title">Información dispersa</h3>
+            <p class="beneficio-card-text">Planificación, evaluaciones, evidencias, asistencia y comunicaciones suelen
               operar en espacios diferentes sin conexión.</p>
           </div>
 
           <!-- Card 2: Demasiado trabajo operativo -->
-          <div class="card-glass">
-            <img src="./assets/icon_reloj.svg" alt="Demasiado trabajo operativo" class="card-dolor-icon"
-              loading="lazy" />
-            <h3 class="card-dolor-title">Demasiado trabajo operativo</h3>
-            <p class="card-dolor-text">Docentes y equipos académicos destinan horas valiosas a tareas manuales que
+          <div class="beneficio-card">
+            <img src="/assets/beneficios/cards/icon_reloj.svg" alt="Demasiado trabajo operativo"
+              class="beneficio-card-icon" loading="lazy" />
+            <h3 class="beneficio-card-title">Demasiado trabajo operativo</h3>
+            <p class="beneficio-card-text">Docentes y equipos académicos destinan horas valiosas a tareas manuales que
               pueden organizarse y agilizarse digitalmente.</p>
           </div>
 
           <!-- Card 3: Decisiones que llegan tarde -->
-          <div class="card-glass">
-            <img src="./assets/icon_metrica.svg" alt="Decisiones que llegan tarde" class="card-dolor-icon"
-              loading="lazy" />
-            <h3 class="card-dolor-title">Decisiones que llegan tarde</h3>
-            <p class="card-dolor-text">Cuando la información no está integrada, detectar brechas de aprendizaje y actuar
+          <div class="beneficio-card">
+            <img src="/assets/beneficios/cards/icon_metrica.svg" alt="Decisiones que llegan tarde"
+              class="beneficio-card-icon" loading="lazy" />
+            <h3 class="beneficio-card-title">Decisiones que llegan tarde</h3>
+            <p class="beneficio-card-text">Cuando la información no está integrada, detectar brechas de aprendizaje y
+              actuar
               oportunamente se vuelve muy difícil.</p>
           </div>
         </div>
@@ -418,8 +470,44 @@
         <!-- Section 5: Transition Banner -->
         <div class="banner-transicion-solucion">
           <h3 class="banner-solucion-title">
-            Mentora College conecta estos procesos en un solo ecosistema educativo.
+            Frente a estos desafíos, la educación necesita un ecosistema integral, no más herramientas aisladas.
           </h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. QUÉ ES MENTORA COLLEGE - NARRATIVA & STORYTELLING
+         ========================================================================== -->
+    <section id="porque-mentora" class="seccion-que-es section-py">
+      <span id="que-es-mentora" style="position: absolute; top: -80px;"></span>
+      <div class="container">
+        <div class="que-es-split-grid">
+          <!-- Columna Izquierda: Narrativa y Definición -->
+          <div class="que-es-content-col">
+            <h2 class="que-es-title">
+              ¿Qué es <span class="text-gradient-purple">Mentora College?</span>
+            </h2>
+            <p class="que-es-story">
+              Frente a la dispersión de datos, los sistemas desconectados y el agotamiento operativo de directivos y
+              maestros, creamos un ecosistema diseñado para <strong>unificar la gestión escolar y potenciar la labor
+                pedagógica</strong>, devolviendo el tiempo a lo que de verdad importa: el aprendizaje y bienestar de
+              cada
+              estudiante.
+            </p>
+            <p class="que-es-story">
+              El <strong>ecosistema integral de gestión educativa y analítica pedagógica</strong> que conecta en una
+              sola plataforma la vida académica, el trabajo docente, la comunicación con las familias y la toma de
+              decisiones con Inteligencia Artificial. No es solo un sistema administrativo o un registro de notas; es el
+              corazón digital donde conviven y se potencian todos los procesos de tu institución.
+            </p>
+          </div>
+
+          <!-- Columna Derecha: Mockup Limpio (sin marcos, iconos ni letras alrededor) -->
+          <div class="que-es-media-col">
+            <img src="/assets/general/mockup-mentora-college.svg" alt="Mentora College Plataforma"
+              class="que-es-mockup-img" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
@@ -441,8 +529,8 @@
         <div class="beneficios-grid">
           <!-- Beneficio 1: Control de asistencia -->
           <div class="beneficio-card">
-            <img src="./assets/control-de-asistencia.svg" alt="Control de asistencia" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/cards/control-de-asistencia.svg" alt="Control de asistencia"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Control de asistencia</h3>
             <p class="beneficio-card-text">
               Registra ingresos, salidas e inasistencias en tiempo real y facilita la comunicación directa con las
@@ -455,8 +543,8 @@
 
           <!-- Beneficio 2: Familias conectadas -->
           <div class="beneficio-card">
-            <img src="./assets/familias-conectadas.svg" alt="Familias conectadas" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/cards/familias-conectadas.svg" alt="Familias conectadas"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Familias conectadas</h3>
             <p class="beneficio-card-text">
               Centraliza comunicados, alertas institucionales e información académica relevante del estudiante.
@@ -466,23 +554,23 @@
             </a>
           </div>
 
-          <!-- Beneficio 3: Gestión académica -->
+          <!-- Beneficio 3: Gestión de evaluaciones -->
           <div class="beneficio-card">
-            <img src="./assets/gestion-academica.svg" alt="Gestión académica" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/cards/gestion-academica.svg" alt="Gestión de evaluaciones"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Gestión de evaluaciones</h3>
             <p class="beneficio-card-text">
               Digitaliza las evaluaciones, tareas y rúbricas para la sesión.
             </p>
-            <a href="./boletas-digitales/index.html" class="beneficio-pill-btn pill-slate">
-              Descubre las evaluaciones digitales <span>→</span>
+            <a href="./gestion-evaluaciones/index.html" class="beneficio-pill-btn pill-slate">
+              Descubre la gestión de evaluaciones <span>→</span>
             </a>
           </div>
 
           <!-- Beneficio 4: Planificación alineada -->
           <div class="beneficio-card">
-            <img src="./assets/planificacion-alineada.svg" alt="Planificación alineada" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/cards/planificacion-alineada.svg" alt="Planificación alineada"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Planificación alineada</h3>
             <p class="beneficio-card-text">
               Conecta competencias, capacidades, criterios, sesiones, recursos y evidencias educativas.
@@ -492,10 +580,10 @@
             </a>
           </div>
 
-          <!-- Beneficio 5: Enseñanza y evaluación (Destacada) -->
+          <!-- Beneficio 5: Enseñanza y evaluación (Destacada) 
           <div class="beneficio-card card-highlight">
-            <img src="./assets/ensenanza-y-evaluacion.svg" alt="Enseñanza y evaluación" class="beneficio-card-icon"
-              loading="lazy">
+            <img src="/assets/beneficios/cards/ensenanza-y-evaluacion.svg" alt="Enseñanza y evaluación"
+              class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Enseñanza y evaluación</h3>
             <p class="beneficio-card-text">
               Organiza evidencias y rúbricas incorporando Inteligencia Artificial como asistente docente.
@@ -503,11 +591,11 @@
             <a href="./evaluacion-con-ia/index.html" class="beneficio-pill-btn pill-amber">
               Conoce la evaluación apoyada por IA <span>→</span>
             </a>
-          </div>
+          </div>-->
 
           <!-- Beneficio 6: Monitoreo del aprendizaje -->
           <div class="beneficio-card">
-            <img src="./assets/monitoreo-del-aprendizaje.svg" alt="Monitoreo del aprendizaje"
+            <img src="/assets/beneficios/cards/monitoreo-del-aprendizaje.svg" alt="Monitoreo del aprendizaje"
               class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Monitoreo del aprendizaje</h3>
             <p class="beneficio-card-text">
@@ -654,7 +742,7 @@
               <!-- SLIDE 0: PLANIFICA -->
               <div class="ecosistema-slide is-active" data-slide="0">
                 <div class="ecosistema-image-card">
-                  <img src="./assets/ecosistema-01-planifica.png" alt="Plataforma Mentora College - Planifica"
+                  <img src="/assets/ecosistema/ecosistema-01-planifica.png" alt="Plataforma Mentora College - Planifica"
                     class="ecosistema-slide-img" loading="eager">
                 </div>
               </div>
@@ -662,7 +750,7 @@
               <!-- SLIDE 1: ENSEÑA -->
               <div class="ecosistema-slide" data-slide="1">
                 <div class="ecosistema-image-card">
-                  <img src="./assets/ecosistema-02-ensena.png" alt="Plataforma Mentora College - Enseña"
+                  <img src="/assets/ecosistema/ecosistema-02-ensena.png" alt="Plataforma Mentora College - Enseña"
                     class="ecosistema-slide-img" loading="lazy">
                 </div>
               </div>
@@ -670,7 +758,7 @@
               <!-- SLIDE 2: EVALÚA -->
               <div class="ecosistema-slide" data-slide="2">
                 <div class="ecosistema-image-card">
-                  <img src="./assets/ecosistema-03-evalua.png" alt="Plataforma Mentora College - Evalúa"
+                  <img src="/assets/ecosistema/ecosistema-03-evalua.png" alt="Plataforma Mentora College - Evalúa"
                     class="ecosistema-slide-img" loading="lazy">
                 </div>
               </div>
@@ -678,15 +766,15 @@
               <!-- SLIDE 3: RETROALIMENTA -->
               <div class="ecosistema-slide" data-slide="3">
                 <div class="ecosistema-image-card">
-                  <img src="./assets/ecosistema-04-retroalimenta.png" alt="Plataforma Mentora College - Retroalimenta"
-                    class="ecosistema-slide-img" loading="lazy">
+                  <img src="/assets/ecosistema/ecosistema-04-retroalimenta.png"
+                    alt="Plataforma Mentora College - Retroalimenta" class="ecosistema-slide-img" loading="lazy">
                 </div>
               </div>
 
               <!-- SLIDE 4: MONITOREA -->
               <div class="ecosistema-slide" data-slide="4">
                 <div class="ecosistema-image-card">
-                  <img src="./assets/ecosistema-05-monitorea.png" alt="Plataforma Mentora College - Monitorea"
+                  <img src="/assets/ecosistema/ecosistema-05-monitorea.png" alt="Plataforma Mentora College - Monitorea"
                     class="ecosistema-slide-img" loading="lazy">
                 </div>
               </div>
@@ -694,8 +782,8 @@
               <!-- SLIDE 5: MEJORA -->
               <div class="ecosistema-slide" data-slide="5">
                 <div class="ecosistema-image-card">
-                  <img src="./assets/ecosistema-06-mejora.png" alt="Plataforma Mentora College - Mejora Continua"
-                    class="ecosistema-slide-img" loading="lazy">
+                  <img src="/assets/ecosistema/ecosistema-06-mejora.png"
+                    alt="Plataforma Mentora College - Mejora Continua" class="ecosistema-slide-img" loading="lazy">
                 </div>
               </div>
 
@@ -723,10 +811,11 @@
         <div class="ia-beneficios-grid">
           <!-- Tarjeta 1: CREA -->
           <div class="beneficio-card ia-card-crea" data-ia-modal="crea">
-            <img src="./assets/11.svg" alt="CREA" class="beneficio-card-icon" loading="lazy">
-            <h3 class="beneficio-card-title">CREA</h3>
+            <img src="/assets/ia/11.svg" alt="CREA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">CREA Y PLANIFICA</h3>
             <p class="beneficio-card-text">
-              Recursos e instrumentos de evaluación a partir del contexto y parámetros del docente.
+              Genera recursos didácticos e instrumentos de evaluación a partir del contexto y parámetros curriculares
+              del docente.
             </p>
             <button type="button" class="ia-card-plus-btn" data-ia-modal="crea" aria-label="Ver demo de CREA"
               title="Ver herramienta interactiva">
@@ -734,38 +823,27 @@
             </button>
           </div>
 
-          <!-- Tarjeta 2: EVALÚA -->
+          <!-- Tarjeta 2: EVALÚA Y RETROALIMENTA -->
           <div class="beneficio-card ia-card-evalua" data-ia-modal="evalua">
-            <img src="./assets/12.svg" alt="EVALÚA" class="beneficio-card-icon" loading="lazy">
-            <h3 class="beneficio-card-title">EVALÚA</h3>
+            <img src="/assets/ia/12.svg" alt="EVALÚA Y RETROALIMENTA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">EVALÚA Y RETROALIMENTA</h3>
             <p class="beneficio-card-text">
-              Apoya la revisión de tareas y participaciones según criterios definidos pedagógicamente.
+              Apoya la revisión ágil de evidencias según criterios pedagógicos y genera orientaciones formativas
+              personalizadas.
             </p>
-            <button type="button" class="ia-card-plus-btn" data-ia-modal="evalua" aria-label="Ver demo de EVALÚA"
-              title="Ver herramienta interactiva">
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="evalua"
+              aria-label="Ver demo de EVALÚA Y RETROALIMENTA" title="Ver herramienta interactiva">
               <span>+</span>
             </button>
           </div>
 
-          <!-- Tarjeta 3: RETROALIMENTA -->
-          <div class="beneficio-card ia-card-retro" data-ia-modal="retroalimenta">
-            <img src="./assets/13.svg" alt="RETROALIMENTA" class="beneficio-card-icon" loading="lazy">
-            <h3 class="beneficio-card-title">RETROALIMENTA</h3>
-            <p class="beneficio-card-text">
-              Genera orientaciones que ayudan al estudiante a comprender cómo mejorar.
-            </p>
-            <button type="button" class="ia-card-plus-btn" data-ia-modal="retroalimenta"
-              aria-label="Ver demo de RETROALIMENTA" title="Ver herramienta interactiva">
-              <span>+</span>
-            </button>
-          </div>
-
-          <!-- Tarjeta 4: ANALIZA -->
+          <!-- Tarjeta 3: ANALIZA -->
           <div class="beneficio-card ia-card-analiza" data-ia-modal="analiza">
-            <img src="./assets/14.svg" alt="ANALIZA" class="beneficio-card-icon" loading="lazy">
-            <h3 class="beneficio-card-title">ANALIZA</h3>
+            <img src="/assets/ia/14.svg" alt="ANALIZA" class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">ANALIZA Y DECIDE</h3>
             <p class="beneficio-card-text">
-              Interpreta resultados, niveles de logro y desempeño para apoyar decisiones.
+              Interpreta resultados, niveles de logro (AD, A, B, C) y alertas tempranas para apoyar la toma de
+              decisiones oportunas.
             </p>
             <button type="button" class="ia-card-plus-btn" data-ia-modal="analiza" aria-label="Ver demo de ANALIZA"
               title="Ver herramienta interactiva">
@@ -796,7 +874,7 @@
               </button>
             </div>
             <div class="ia-modal-body">
-              <img id="iaModalImg" src="./assets/ia-modal-crea.png" alt="Vista previa de IA" class="ia-modal-img"
+              <img id="iaModalImg" src="/assets/ia/ia-modal-crea.png" alt="Vista previa de IA" class="ia-modal-img"
                 loading="lazy">
             </div>
             <div class="ia-modal-footer">
@@ -814,11 +892,12 @@
     <!-- ==========================================================================
          10. VALOR POR ACTOR (TABS INTERACTIVOS)
          ========================================================================== -->
-    <section id="actores" class="bg-white-surface" style="padding: 5rem 0;">
+    <section id="actores" class="bg-white-surface section-py">
       <div class="container">
         <div style="max-width: 720px; margin: 0 auto 3rem auto; text-align: center;">
-          <h2 style="margin-bottom: 1rem;">Una solución diseñada para toda la comunidad escolar</h2>
-          <p class="text-intro">Selecciona un actor para explorar cómo Mentora College transforma su experiencia diaria.
+          <h2 class="section-title">Una solución diseñada para toda la comunidad escolar</h2>
+          <p class="section-subtitle">Selecciona un actor para explorar cómo Mentora College transforma su experiencia
+            diaria.
           </p>
         </div>
 
@@ -834,70 +913,24 @@
         <div id="actorPreviewSlot" style="max-width: 860px; margin: 0 auto;"></div>
       </div>
     </section>
-
-    <!-- ==========================================================================
-         11. ANTES VS MENTORA (COMPARADOR MATRIZ)
-         ========================================================================== -->
-    <section class="bg-soft" style="padding: 5rem 0;">
-      <div class="container">
-        <div style="max-width: 720px; margin: 0 auto 3rem auto; text-align: center;">
-          <span class="badge badge-purple" style="margin-bottom: 0.75rem;">Comparativa de Escenarios</span>
-          <h2>Transformación digital visible e inmediata</h2>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 960px; margin: 0 auto;">
-          <!-- Sin Mentora -->
-          <div style="background: #FFF5F5; border: 1px solid #FED7D7; border-radius: var(--radius-lg); padding: 2rem;">
-            <div
-              style="font-weight: 700; font-size: 1.15rem; color: #C53030; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span>❌</span> Sin Mentora College
-            </div>
-            <ul
-              style="list-style: none; display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem; color: #742A2A;">
-              <li>• Documentos de planificación aislados en carpetas personales.</li>
-              <li>• Calificación por notas numéricas sin reflejar el logro real por competencias.</li>
-              <li>• Horas invertidas manualmente en reportes y comunicados.</li>
-              <li>• Decisiones reactivas al final del periodo escolar.</li>
-            </ul>
-          </div>
-
-          <!-- Con Mentora -->
-          <div
-            style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm);">
-            <div
-              style="font-weight: 700; font-size: 1.15rem; color: #15803D; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span>✅</span> Con Mentora College
-            </div>
-            <ul
-              style="list-style: none; display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem; color: #166534;">
-              <li>• Planificación 100% conectada a sesiones, evaluaciones y evidencias.</li>
-              <li>• Seguimiento pedagógico detallado con niveles de logro (AD, A, B, C).</li>
-              <li>• Inteligencia Artificial que reduce hasta un 40% el tiempo de preparación.</li>
-              <li>• Indicadores preventivos en tiempo real para intervenciones oportunas.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ==========================================================================
          12. CASOS DE ÉXITO & TESTIMONIOS
          ========================================================================== -->
-    <section id="casos" class="bg-white-surface" style="padding: 5rem 0;">
+    <section id="casos" class="bg-white-surface section-py">
       <div class="container">
         <div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
           <span class="badge badge-blue" style="margin-bottom: 0.75rem;">Prueba Social Verificable</span>
-          <h2 style="margin-bottom: 1rem;">Experiencias reales de instituciones en transformación</h2>
-          <p class="text-intro">Casos estructurados: Problema ➔ Implementación ➔ Resultado observado.</p>
+          <h2 class="section-title">Experiencias reales de instituciones en transformación</h2>
+          <p class="section-subtitle">Casos estructurados: Problema ➔ Implementación ➔ Resultado observado.</p>
         </div>
 
         <div
-          style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1040px; margin: 0 auto;">
+          style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1240px; margin: 0 auto;">
           <!-- Caso 1 -->
           <div class="card">
             <div style="display: flex; items-center; justify-content: space-between; margin-bottom: 1rem;">
               <span class="badge badge-purple">Colegio San Agustín (1,400 alumnos)</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Nivel Secundaria</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Secundaria</span>
             </div>
 
             <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
@@ -905,7 +938,8 @@
               boletas de evaluación.
             </div>
             <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Implementación:</strong> Adopción del módulo de Planificación Alineada y Boletas Digitales en 3
+              <strong>Implementación:</strong> Adopción del módulo de Planificación Alineada y Gestión de Evaluaciones
+              en 3
               semanas.
             </div>
             <div
@@ -931,7 +965,7 @@
           <div class="card">
             <div style="display: flex; items-center; justify-content: space-between; margin-bottom: 1rem;">
               <span class="badge badge-blue">Santa Maria School (850 alumnos)</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Primaria y Secundaria</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Primaria y Sec.</span>
             </div>
 
             <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
@@ -955,7 +989,42 @@
                 JR</div>
               <div>
                 <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Lic. Jorge Ramírez</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">Coordinador de Innovación Educativa</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Coordinador de Innovación</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Caso 3 -->
+          <div class="card">
+            <div style="display: flex; items-center; justify-content: space-between; margin-bottom: 1rem;">
+              <span class="badge badge-purple"
+                style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.25);">Col.
+                Fernando Stahl (1,200 alumnos)</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Primaria y Sec.</span>
+            </div>
+
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              <strong>Problema:</strong> Registro manual de asistencia física y demoras en la notificación inmediata a
+              los padres.
+            </div>
+            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              <strong>Implementación:</strong> Módulo de Asistencia Digital en tiempo real y Comunicación Institucional
+              con familias.
+            </div>
+            <div
+              style="background: #F8FAFC; border-left: 3px solid #10b981; padding: 0.75rem; border-radius: 6px; font-size: 0.875rem; color: var(--text-main); font-weight: 500;">
+              💡 <strong>Resultado:</strong> 99% de inasistencias notificadas al instante vía WhatsApp y reducción a
+              cero del papeleo de justificaciones.
+            </div>
+
+            <div
+              style="margin-top: 1.25rem; pt: 1rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; gap: 0.75rem;">
+              <div
+                style="width: 40px; height: 40px; background: #E2E8F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #475569;">
+                FS</div>
+              <div>
+                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Prof. Carlos Quispe</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Coordinador General</div>
               </div>
             </div>
           </div>
@@ -964,56 +1033,14 @@
     </section>
 
     <!-- ==========================================================================
-         13. POR QUÉ MENTORA COLLEGE
+         13. PREGUNTAS FRECUENTES (FAQ)
          ========================================================================== -->
-    <section id="porque-mentora" class="bg-soft" style="padding: 5rem 0;">
+    <section class="bg-white-surface section-py">
       <div class="container">
         <div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
-          <span class="badge badge-purple" style="margin-bottom: 0.75rem;">Pilares Institucionales</span>
-          <h2 style="margin-bottom: 1rem;">¿Por qué las instituciones líderes eligen Mentora College?</h2>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
-          <div class="card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔄</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Integración 360°</h3>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Elimina los sistemas aislados conectando gestión,
-              pedagogía y familias en un solo lugar.</p>
-          </div>
-
-          <div class="card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎯</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Alineamiento Curricular</h3>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Configurado para trabajar por competencias,
-              capacidades y estándares oficializados.</p>
-          </div>
-
-          <div class="card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 0.75rem;">🤖</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">IA Ética Docente</h3>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Tecnología con propósito pedagógico diseñada para
-              apoyar y no reemplazar al maestro.</p>
-          </div>
-
-          <div class="card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 0.75rem;">🤝</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Acompañamiento</h3>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Capacitación continua y soporte especializado para
-              asegurar el éxito en la adopción.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         14. PREGUNTAS FRECUENTES (FAQ)
-         ========================================================================== -->
-    <section class="bg-white-surface" style="padding: 5rem 0;">
-      <div class="container">
-        <div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
-          <span class="badge badge-blue" style="margin-bottom: 0.75rem;">Resolvemos tus Dudas</span>
-          <h2 style="margin-bottom: 1rem;">Preguntas Frecuentes</h2>
-          <p class="text-intro">Encuentra respuestas claras a las objeciones más habituales de directivos y promotores.
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-subtitle">Encuentra respuestas claras a las objeciones más habituales de directivos y
+            promotores.
           </p>
         </div>
 
@@ -1107,16 +1134,17 @@
     </section>
 
     <!-- ==========================================================================
-         15. CTA FINAL & FORMULARIO COMERCIAL
+         14. CTA FINAL & FORMULARIO COMERCIAL
          ========================================================================== -->
-    <section id="contacto" class="bg-hero-gradient" style="padding: 5.5rem 0;">
+    <section id="contacto" class="bg-hero-gradient section-py">
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5rem; align-items: center;">
           <div>
-            <h2 style="color: white; margin-bottom: 1.25rem;">
+            <h2 class="section-title" style="color: white; margin-bottom: 1.25rem;">
               Conversemos sobre cómo fortalecer la gestión educativa de tu colegio.
             </h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+            <p class="section-subtitle"
+              style="color: rgba(255,255,255,0.9); margin-bottom: 2rem; margin-left: 0; text-align: left;">
               Solicita una sesión estratégica personalizada para conocer la plataforma en acción y descubrir cómo se
               adapta a las metas de tu institución.
             </p>
@@ -1125,16 +1153,18 @@
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <div
                   style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <img src="./assets/tel.svg" alt="Teléfono" style="width: 20px; height: 20px; object-fit: contain;">
+                  <img src="/assets/general/tel.svg" alt="Teléfono"
+                    style="width: 20px; height: 20px; object-fit: contain;">
                 </div>
-                <span>Atención Comercial: +51 (1) 700-8800</span>
+                <span>+51 992 808 830</span>
               </div>
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <div
                   style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <img src="./assets/correo.svg" alt="Correo" style="width: 20px; height: 20px; object-fit: contain;">
+                  <img src="/assets/general/correo.svg" alt="Correo"
+                    style="width: 20px; height: 20px; object-fit: contain;">
                 </div>
-                <span>contacto@mentoracollege.edu</span>
+                <span>eva@icrm-edu.com </span>
               </div>
             </div>
           </div>

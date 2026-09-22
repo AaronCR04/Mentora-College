@@ -58,6 +58,22 @@
   --radius-xl: 24px;
   --radius-pill: 9999px;
 
+  /* Section Spacing Tokens */
+  --section-py: 5.5rem;
+  --section-py-mobile: 3.5rem;
+  --section-header-mb: 3rem;
+  --grid-gap-standard: 2.5rem;
+
+  /* Standard Section Typography Tokens */
+  --font-size-section-title: clamp(2rem, 3.4vw, 2.75rem);
+  --font-weight-section-title: 800;
+  --line-height-section-title: 1.22;
+  --letter-spacing-section-title: -0.025em;
+
+  --font-size-section-sub: clamp(1.05rem, 1.25vw, 1.15rem);
+  --color-section-sub: #475569;
+  --line-height-section-sub: 1.65;
+
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,10 +125,29 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.625rem);
-  /* 28px mobile - 42px desktop */
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-section-title);
+  line-height: var(--line-height-section-title);
+  letter-spacing: var(--letter-spacing-section-title);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-section-title);
+  line-height: var(--line-height-section-title);
+  letter-spacing: var(--letter-spacing-section-title);
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-section-sub);
+  color: var(--color-section-sub);
+  line-height: var(--line-height-section-sub);
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 h3 {
@@ -122,10 +157,9 @@ h3 {
 }
 
 .text-intro {
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  /* 17px - 20px */
-  color: var(--text-muted);
-  line-height: 1.6;
+  font-size: var(--font-size-section-sub);
+  color: var(--color-section-sub);
+  line-height: var(--line-height-section-sub);
 }
 
 .text-auxiliary {
@@ -235,7 +269,7 @@ h3 {
 /* Glassmorphism Benefit Cards & Section */
 .beneficios-section {
   position: relative;
-  padding: 6rem 0;
+  padding: var(--section-py) 0;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eff6ff 100%);
   overflow: hidden;
 }
@@ -343,7 +377,7 @@ h3 {
    ========================================================================== */
 .beneficios-section {
   position: relative;
-  padding: 6.5rem 0 7rem 0;
+  padding: var(--section-py) 0;
   background-color: var(--bg-general);
   border-top: 1px solid rgba(226, 232, 240, 0.8);
   overflow: hidden;
@@ -351,35 +385,42 @@ h3 {
 
 .beneficios-header {
   max-width: 780px;
-  margin: 0 auto 3.75rem auto;
+  margin: 0 auto var(--section-header-mb) auto;
   text-align: center;
 }
 
 .beneficios-title {
-  font-family: 'Sora', var(--font-heading), sans-serif;
-  font-size: clamp(2.1rem, 3.4vw, 2.85rem);
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-section-title);
   color: #0b132b;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  line-height: var(--line-height-section-title);
+  letter-spacing: var(--letter-spacing-section-title);
   margin-bottom: 1rem;
 }
 
 .beneficios-subtitle {
-  font-family: var(--font-sans);
-  font-size: 1.05rem;
-  color: #64748b;
-  line-height: 1.6;
-  max-width: 620px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-section-sub);
+  color: var(--color-section-sub);
+  line-height: var(--line-height-section-sub);
+  max-width: 680px;
   margin: 0 auto;
 }
 
 .beneficios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4.75rem 2rem;
-  margin-top: 5rem;
-  margin-bottom: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap-standard);
+  margin-top: 3.25rem;
+  margin-bottom: 0;
+}
+
+.beneficios-grid .beneficio-card {
+  flex: 0 0 calc((100% - (var(--grid-gap-standard) * 2)) / 3);
+  max-width: calc((100% - (var(--grid-gap-standard) * 2)) / 3);
+  box-sizing: border-box;
 }
 
 .beneficio-card {
@@ -391,7 +432,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-top: 3px solid transparent;
   border-radius: 20px;
-  padding: 3.25rem 2rem 2.25rem 2rem;
+  padding: 2.85rem 2rem 2.25rem 2rem;
   box-shadow: 0 10px 30px -5px rgba(86, 50, 232, 0.06);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
   display: flex;
@@ -412,23 +453,28 @@ h3 {
 .beneficios-grid .beneficio-card:has(.pill-purple):hover {
   border-top-color: #7e22ce;
 }
+
 .beneficios-grid .beneficio-card:nth-child(2):hover,
 .beneficios-grid .beneficio-card:has(.pill-cyan):hover {
   border-top-color: #0284c7;
 }
+
 .beneficios-grid .beneficio-card:nth-child(3):hover,
 .beneficios-grid .beneficio-card:has(.pill-slate):hover {
   border-top-color: #475569;
 }
+
 .beneficios-grid .beneficio-card:nth-child(4):hover,
 .beneficios-grid .beneficio-card:has(.pill-indigo):hover {
   border-top-color: #4338ca;
 }
+
 .beneficios-grid .beneficio-card:nth-child(5):hover,
 .beneficios-grid .beneficio-card:has(.pill-amber):hover,
 .beneficio-card.card-highlight:hover {
   border-top-color: #f59e0b;
 }
+
 .beneficios-grid .beneficio-card:nth-child(6):hover,
 .beneficios-grid .beneficio-card:has(.pill-neutral):hover {
   border-top-color: #64748b;
@@ -467,10 +513,10 @@ h3 {
 
 .beneficio-card-icon {
   position: absolute;
-  top: -42px;
-  right: 28px;
-  width: 88px;
-  height: 88px;
+  top: -26px;
+  right: 22px;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
   filter: drop-shadow(0 14px 18px rgba(86, 50, 232, 0.12));
   pointer-events: none;
@@ -538,6 +584,7 @@ h3 {
   color: #7e22ce;
   border: 1px solid rgba(216, 180, 254, 0.55);
 }
+
 .pill-purple:hover {
   background: #f3e8ff;
   color: #6b21a8;
@@ -548,6 +595,7 @@ h3 {
   color: #0284c7;
   border: 1px solid rgba(186, 230, 253, 0.55);
 }
+
 .pill-cyan:hover {
   background: #e0f2fe;
   color: #0369a1;
@@ -558,6 +606,7 @@ h3 {
   color: #334155;
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
+
 .pill-slate:hover {
   background: #e2e8f0;
   color: #0f172a;
@@ -568,6 +617,7 @@ h3 {
   color: #4338ca;
   border: 1px solid rgba(199, 210, 254, 0.55);
 }
+
 .pill-indigo:hover {
   background: #ede9fe;
   color: #3730a3;
@@ -578,6 +628,7 @@ h3 {
   color: #b45309;
   border: 1px solid rgba(253, 230, 138, 0.75);
 }
+
 .pill-amber:hover {
   background: #fde68a;
   color: #92400e;
@@ -588,6 +639,7 @@ h3 {
   color: #334155;
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
+
 .pill-neutral:hover {
   background: #e2e8f0;
   color: #0f172a;
@@ -598,6 +650,7 @@ h3 {
   color: #c026d3;
   border: 1px solid rgba(244, 114, 182, 0.55);
 }
+
 .pill-magenta:hover {
   background: #fdf2f8;
   color: #a21caf;
@@ -605,26 +658,37 @@ h3 {
 
 @media (max-width: 1024px) {
   .beneficios-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 4.5rem 1.75rem;
+  }
+
+  .beneficios-grid .beneficio-card {
+    flex: 0 0 calc((100% - 1.75rem) / 2);
+    max-width: calc((100% - 1.75rem) / 2);
   }
 }
 
 @media (max-width: 640px) {
   .beneficios-section {
-    padding: 4.5rem 0 5rem 0;
+    padding: var(--section-py-mobile) 0;
   }
+
   .beneficios-grid {
-    grid-template-columns: 1fr;
     gap: 4.5rem 1.75rem;
     margin-top: 4.25rem;
   }
+
+  .beneficios-grid .beneficio-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   .beneficio-card-icon {
     width: 78px;
     height: 78px;
     top: -38px;
     right: 20px;
   }
+
   .beneficios-title {
     font-size: 1.85rem;
   }
@@ -678,6 +742,21 @@ h3 {
 .bg-hero-gradient {
   background: var(--gradient-hero);
   color: var(--text-white);
+}
+
+/* ==========================================================================
+   UNIFIED STANDARD SECTION SPACING (.section-py)
+   ========================================================================== */
+.section-py {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+@media (max-width: 768px) {
+  .section-py {
+    padding-top: var(--section-py-mobile);
+    padding-bottom: var(--section-py-mobile);
+  }
 }
 
 /* ==========================================================================
@@ -1196,11 +1275,15 @@ h3 {
   align-items: center;
   justify-content: center;
   color: var(--text-muted);
+  z-index: 50;
+  pointer-events: auto;
+  transition: all 0.2s ease;
 }
 
 .modal-close:hover {
   background: #E2E8F0;
   color: var(--text-main);
+  transform: scale(1.05);
 }
 
 /* Success Confirmation State */
@@ -1871,15 +1954,22 @@ body>main {
 
 .logos-marquee-track {
   display: flex;
-  align-items: center;
-  gap: 2rem;
   width: max-content;
-  animation: marqueeLogosScroll 24s linear infinite;
+  user-select: none;
+}
+
+.logos-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+  animation: marqueeLogosScroll 42s linear infinite;
+  flex-shrink: 0;
   will-change: transform;
 }
 
 /* Detener carrousel al pasar el mouse por encima */
-.logos-carousel-container:hover .logos-marquee-track {
+.logos-carousel-container:hover .logos-marquee-group {
   animation-play-state: paused;
 }
 
@@ -1887,11 +1977,10 @@ body>main {
   display: inline-flex;
   align-items: center;
   gap: 1.1rem;
-  padding: 0.85rem 1.65rem;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  padding: 0.5rem 0.5rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   flex-shrink: 0;
@@ -1899,19 +1988,26 @@ body>main {
 }
 
 .school-logo-card img {
-  height: 54px;
-  width: 54px;
+  height: 70px;
+  width: auto;
+  max-width: 220px;
   object-fit: contain;
-  filter: grayscale(100%) opacity(0.55);
+  filter: grayscale(100%) opacity(0.7);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(0.98);
 }
 
+/* Logos completos sin texto adicional (Fernando Stahl y Educación Adventista) */
+.school-logo-card img:only-child {
+  height: 82px;
+  max-width: 250px;
+}
+
 .school-logo-name {
   font-family: var(--font-heading);
-  font-size: 0.96rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #64748b;
+  color: #475569;
   white-space: nowrap;
   letter-spacing: -0.01em;
   transition: all 0.35s ease;
@@ -1919,15 +2015,15 @@ body>main {
 
 /* Hover individual: vuelve a color y resalta */
 .school-logo-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 10px 25px rgba(86, 50, 232, 0.12);
-  background: #ffffff;
+  transform: translateY(-3px) scale(1.05);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .school-logo-card:hover img {
   filter: grayscale(0%) opacity(1);
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .school-logo-card:hover .school-logo-name {
@@ -1940,7 +2036,7 @@ body>main {
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1950,7 +2046,7 @@ body>main {
 .seccion-dolores {
   background-color: var(--bg-general);
   border-top: 1px solid rgba(226, 232, 240, 0.8);
-  padding: 6rem 0 5.5rem 0;
+  padding: var(--section-py) 0;
   position: relative;
   overflow: hidden;
 }
@@ -1981,28 +2077,41 @@ body>main {
 
 .titulo-dolores {
   font-family: var(--font-heading);
-  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
-  font-weight: 800;
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-section-title);
   color: #0f172a;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
+  line-height: var(--line-height-section-title);
+  letter-spacing: var(--letter-spacing-section-title);
   margin-bottom: 1rem;
 }
 
 .subtitulo-dolores {
-  font-size: 1.05rem;
-  color: #475569;
-  line-height: 1.6;
-  max-width: 620px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-section-sub);
+  color: var(--color-section-sub);
+  line-height: var(--line-height-section-sub);
+  max-width: 680px;
   margin: 0 auto;
 }
 
 .grid-dolores {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 5rem;
-  margin-bottom: 4rem;
+  gap: var(--grid-gap-standard);
+  margin-top: 3.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.grid-dolores .beneficio-card:nth-child(1):hover {
+  border-top-color: #ef4444;
+}
+
+.grid-dolores .beneficio-card:nth-child(2):hover {
+  border-top-color: #f59e0b;
+}
+
+.grid-dolores .beneficio-card:nth-child(3):hover {
+  border-top-color: #7c3aed;
 }
 
 .card-glass {
@@ -2027,10 +2136,10 @@ body>main {
 
 .card-dolor-icon {
   position: absolute;
-  top: -42px;
-  right: 28px;
-  width: 88px;
-  height: 88px;
+  top: -26px;
+  right: 22px;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
   filter: drop-shadow(0 14px 18px rgba(86, 50, 232, 0.12));
   pointer-events: none;
@@ -2111,18 +2220,174 @@ body>main {
 }
 
 /* ==========================================================================
+   SECCIÓN QUÉ ES MENTORA COLLEGE - 2-COLUMN SPLIT & STORYTELLING
+   ========================================================================== */
+.seccion-que-es {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: var(--section-py) 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.seccion-que-es::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(86, 50, 232, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.seccion-que-es::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.que-es-split-grid {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.que-es-content-col {
+  text-align: left;
+}
+
+.que-es-content-col .que-es-question-pill {
+  display: inline-block;
+  background: #5632e8;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 1.25rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 12px rgba(86, 50, 232, 0.28);
+}
+
+.que-es-content-col .que-es-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-section-title);
+  color: #0f172a;
+  line-height: var(--line-height-section-title);
+  letter-spacing: var(--letter-spacing-section-title);
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #5632e8 0%, #7c3aed 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.que-es-content-col .que-es-story {
+  font-family: var(--font-body);
+  font-size: var(--font-size-section-sub);
+  line-height: 1.75;
+  color: var(--color-section-sub);
+  margin: 0 0 1.25rem 0;
+  text-align: left;
+}
+
+.que-es-content-col .que-es-definition-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #475569;
+  margin: 0;
+  text-align: left;
+}
+
+.que-es-content-col .que-es-definition-text strong {
+  color: #5632e8;
+  font-weight: 700;
+}
+
+/* Columna Derecha: Mockup Limpio sin marcos, iconos ni letras alrededor */
+.que-es-media-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.que-es-mockup-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  filter: drop-shadow(0 12px 30px rgba(86, 50, 232, 0.08));
+  transition: transform 0.35s ease;
+}
+
+.que-es-mockup-img:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 992px) {
+  .que-es-split-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .que-es-content-col {
+    text-align: center;
+  }
+
+  .que-es-content-col .que-es-title,
+  .que-es-content-col .que-es-story,
+  .que-es-content-col .que-es-definition-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .que-es-media-col {
+    justify-content: center;
+  }
+
+  .que-es-mockup-img {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
    ECOSISTEMA CONTINUO - 2-COLUMN GSAP SCROLLYTELLING SECTION
    Exact Match to Reference UI Mockup with Neon Glowing Stepper & Glass Preview
    ========================================================================== */
 .ecosistema-scrolly-section {
   position: relative;
   background-color: #0b0f19;
-  background-image: 
+  background-image:
     radial-gradient(circle at 86% 22%, rgba(139, 92, 246, 0.22) 0%, transparent 48%),
     radial-gradient(circle at 14% 38%, rgba(86, 50, 232, 0.18) 0%, transparent 45%),
     radial-gradient(circle at 50% 90%, rgba(59, 130, 246, 0.12) 0%, transparent 50%);
   color: #ffffff;
-  padding: 5.5rem 0 6rem 0;
+  padding: var(--section-py) 0;
   overflow: hidden;
 }
 
@@ -2157,12 +2422,12 @@ body>main {
 }
 
 .ecosistema-title {
-  font-family: 'Sora', var(--font-heading), sans-serif;
-  font-size: clamp(2.1rem, 3.5vw, 2.95rem);
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-section-title);
   color: #ffffff;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  line-height: var(--line-height-section-title);
+  letter-spacing: var(--letter-spacing-section-title);
   margin: 0;
 }
 
@@ -2260,7 +2525,7 @@ body>main {
 .ecosistema-step-item.is-active .step-num-box {
   background: rgba(24, 16, 48, 0.85);
   border: 2px solid #a855f7;
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(168, 85, 247, 0.65),
     inset 0 0 12px rgba(168, 85, 247, 0.3);
   color: #ffffff;
@@ -2270,7 +2535,7 @@ body>main {
 .ecosistema-step-item.is-active .step-title-bar {
   background: rgba(24, 16, 48, 0.85);
   border: 2px solid #a855f7;
-  box-shadow: 
+  box-shadow:
     0 0 24px rgba(168, 85, 247, 0.55),
     inset 0 0 14px rgba(168, 85, 247, 0.25);
   color: #ffffff;
@@ -2370,7 +2635,7 @@ body>main {
   width: 100%;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 25px 55px -12px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(255, 255, 255, 0.14);
   background: #0d1527;
@@ -2767,9 +3032,11 @@ body>main {
     grid-template-columns: 350px 1fr;
     gap: 2.5rem;
   }
+
   .mockup-grid-content {
     grid-template-columns: 140px 1fr;
   }
+
   .mockup-col-data {
     display: none;
   }
@@ -2777,28 +3044,34 @@ body>main {
 
 @media (max-width: 992px) {
   .ecosistema-scrolly-section {
-    padding: 4.5rem 0 5rem 0;
+    padding: var(--section-py-mobile) 0;
   }
+
   .ecosistema-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+
   .ecosistema-stepper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
+
   .ecosistema-step-item.is-active .step-details-expand {
     grid-column: span 2;
     padding-left: 1rem;
   }
+
   .ecosistema-step-item.is-active .step-details-expand::before {
     display: none;
   }
+
   .ecosistema-preview-frame {
     padding: 0;
     min-height: auto;
   }
+
   .software-mockup-window {
     min-height: 350px;
   }
@@ -2808,22 +3081,27 @@ body>main {
   .ecosistema-stepper {
     grid-template-columns: 1fr;
   }
+
   .ecosistema-step-item.is-active .step-details-expand {
     grid-column: span 1;
   }
+
   .step-num-box {
     width: 48px;
     height: 46px;
     font-size: 1.05rem;
   }
+
   .step-title-bar {
     height: 46px;
     font-size: 0.95rem;
     padding: 0 1rem;
   }
+
   .mockup-grid-content {
     grid-template-columns: 1fr;
   }
+
   .mockup-col-calendar {
     display: none;
   }
@@ -2836,9 +3114,9 @@ body>main {
 
 .ia-beneficios-section {
   position: relative;
-  padding: 6.5rem 0 7rem 0;
+  padding: var(--section-py) 0;
   background-color: #f7fafe;
-  background-image: 
+  background-image:
     radial-gradient(at 8% 18%, rgba(219, 234, 254, 0.85) 0px, transparent 48%),
     radial-gradient(at 92% 22%, rgba(237, 233, 254, 0.9) 0px, transparent 45%),
     radial-gradient(at 95% 80%, rgba(238, 232, 255, 0.75) 0px, transparent 45%),
@@ -2849,9 +3127,9 @@ body>main {
 
 .ia-beneficios-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4.5rem 1.25rem;
-  margin-top: 5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap-standard);
+  margin-top: 3.25rem;
   margin-bottom: 2rem;
   align-items: stretch;
 }
@@ -2862,10 +3140,10 @@ body>main {
 }
 
 .ia-beneficios-grid .beneficio-card-icon {
-  width: 78px;
-  height: 78px;
-  top: -39px;
-  right: 16px;
+  width: 76px;
+  height: 76px;
+  top: -26px;
+  right: 20px;
 }
 
 .ia-beneficios-grid .beneficio-card-title {
@@ -2925,6 +3203,7 @@ body>main {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -2936,12 +3215,14 @@ body>main {
   color: #7c3aed;
   box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22);
 }
+
 .ia-card-crea:hover .ia-card-plus-btn,
 .ia-card-crea .ia-card-plus-btn:hover {
   background: #e9d5ff;
   color: #6d28d9;
   box-shadow: 0 6px 20px rgba(124, 58, 237, 0.42);
 }
+
 .ia-card-crea:hover {
   border-top-color: var(--mentora-purple, #7c3aed);
 }
@@ -2952,12 +3233,14 @@ body>main {
   color: #4f46e5;
   box-shadow: 0 4px 14px rgba(79, 70, 229, 0.22);
 }
+
 .ia-card-evalua:hover .ia-card-plus-btn,
 .ia-card-evalua .ia-card-plus-btn:hover {
   background: #ddd6fe;
   color: #3730a3;
   box-shadow: 0 6px 20px rgba(79, 70, 229, 0.42);
 }
+
 .ia-card-evalua:hover {
   border-top-color: var(--mentora-blue, #4f46e5);
 }
@@ -2968,12 +3251,14 @@ body>main {
   color: #0284c7;
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22);
 }
+
 .ia-card-retro:hover .ia-card-plus-btn,
 .ia-card-retro .ia-card-plus-btn:hover {
   background: #bae6fd;
   color: #0369a1;
   box-shadow: 0 6px 20px rgba(2, 132, 199, 0.42);
 }
+
 .ia-card-retro:hover {
   border-top-color: var(--tech-cyan, #0284c7);
 }
@@ -2984,12 +3269,14 @@ body>main {
   color: #c026d3;
   box-shadow: 0 4px 14px rgba(192, 38, 211, 0.22);
 }
+
 .ia-card-analiza:hover .ia-card-plus-btn,
 .ia-card-analiza .ia-card-plus-btn:hover {
   background: #fce7f3;
   color: #a21caf;
   box-shadow: 0 6px 20px rgba(192, 38, 211, 0.42);
 }
+
 .ia-card-analiza:hover {
   border-top-color: var(--accent-magenta, #c026d3);
 }
@@ -3156,27 +3443,30 @@ body>main {
   color: #0f172a;
 }
 
-/* Responsividad: 4 columnas en 1 fila hasta 880px */
-@media (max-width: 880px) {
+/* Responsividad: IA Grid simétrico en 2 columnas y 1 columna */
+@media (max-width: 992px) {
   .ia-beneficios-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 4.25rem 1.5rem;
+    gap: 4.5rem 1.75rem;
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 640px) {
   .ia-beneficios-section {
-    padding: 4.5rem 0 5rem 0;
+    padding: var(--section-py-mobile) 0;
   }
+
   .ia-beneficios-grid {
     grid-template-columns: 1fr;
     gap: 4.25rem 1.25rem;
     margin-top: 4.25rem;
   }
+
   .ia-modal-footer {
     flex-direction: column;
     align-items: stretch;
   }
+
   .ia-modal-footer-btn {
     text-align: center;
   }
@@ -3321,6 +3611,7 @@ body>main {
   .mockup-slider-arrow.prev {
     left: 2px;
   }
+
   .mockup-slider-arrow.next {
     right: 2px;
   }
@@ -3565,12 +3856,12 @@ body>main {
 
 .docente-slide-cel-img {
   width: 100%;
-  max-width: 250px;
+  max-width: 320px;
   height: auto;
-  max-height: 480px;
+  max-height: 520px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.14));
+  filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.16));
   pointer-events: none;
   transition: transform 0.4s ease;
 }
@@ -3679,6 +3970,7 @@ body>main {
   .docente-slider-arrow.prev {
     left: 2px;
   }
+
   .docente-slider-arrow.next {
     right: 2px;
   }
@@ -3766,9 +4058,17 @@ body>main {
   background: rgba(255, 255, 255, 0.25);
 }
 
-.mockup-dot.red { background: #ef4444; }
-.mockup-dot.yellow { background: #eab308; }
-.mockup-dot.green { background: #10b981; }
+.mockup-dot.red {
+  background: #ef4444;
+}
+
+.mockup-dot.yellow {
+  background: #eab308;
+}
+
+.mockup-dot.green {
+  background: #10b981;
+}
 
 .mockup-frame-title {
   font-size: 0.92rem;
@@ -4036,6 +4336,7 @@ body>main {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
   .comunicacion-mockup-frame {
     position: static;
   }
@@ -4048,10 +4349,10 @@ body>main {
     border-radius: 16px;
     padding: 8px;
   }
+
   .role-tab-btn {
     width: 100%;
     justify-content: center;
     padding: 0.75rem 1rem;
   }
 }
-

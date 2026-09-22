@@ -7,10 +7,10 @@
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comunicación Integrada | Mentora College</title>
+  <title>Gestión de Evaluaciones | Mentora College</title>
   <meta name="description"
-    content="Centraliza comunicados, alertas de asistencia y progreso académico manteniendo a los padres informados y conectados.">
-  <link rel="canonical" href="https://mentoracollege.edu/comunicacion-familias/">
+    content="Digitaliza y automatiza evaluaciones por competencias, rúbricas cualitativas y seguimiento del aprendizaje en tiempo real.">
+  <link rel="canonical" href="https://mentoracollege.edu/gestion-evaluaciones/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -20,35 +20,41 @@
 </head>
 
 <body>
-  <!-- Header y Drawer de Navegación Componetizados -->
+  <!-- Componente Componetizado: Header Navigation -->
   <include src="/components/header.html"></include>
+
   <main>
+    <!-- HERO SECTION -->
     <section class="bg-hero-gradient" style="padding: 4rem 0;">
       <div class="container">
-        <div style="font-size: 0.85rem; color: #93C5FD; margin-bottom: 0.75rem;"><a href="../index.html"
-            style="color: #93C5FD; text-decoration: none;">Inicio</a> / Comunicación Integrada</div>
-        <h1 style="color: white; margin-bottom: 1rem; max-width: 800px;">Comunicación <br> Integrada</h1>
-        <p style="color: rgba(255,255,255,0.9); font-size: 1.15rem; max-width: 700px; margin-bottom: 2rem;">Fortalece el
-          vínculo entre la institución y la comunidad escolar con información oportuna y transparente.</p>
+        <div style="font-size: 0.85rem; color: #93C5FD; margin-bottom: 0.75rem;">
+          <a href="../index.html" style="color: #93C5FD; text-decoration: none;">Inicio</a> / Gestión de Evaluaciones
+        </div>
+        <h1 style="color: white; margin-bottom: 1rem; max-width: 820px; font-family: 'Sora', sans-serif;">
+          Gestión de evaluaciones
+        </h1>
+        <p
+          style="color: rgba(255,255,255,0.9); font-size: 1.15rem; max-width: 720px; margin-bottom: 2rem; line-height: 1.6;">
+          Generación de evaluaciones alineadas a las competencias y criterios de la sesión y unidad.
+        </p>
       </div>
     </section>
+
     <!-- SECCIÓN INTERACTIVA: VISTAS DOCENTE Y ALUMNO / PADRE -->
     <section class="bg-soft" style="padding: 4.5rem 0 5.5rem 0; border-top: 1px solid rgba(226, 232, 240, 0.8);">
       <div class="container">
 
         <!-- Header con selector de vistas -->
         <div style="text-align: center; max-width: 820px; margin: 0 auto 1.5rem auto;">
-          <div class="pill-ia-label" style="display: inline-flex; margin-bottom: 1.25rem;">
-          </div>
           <h2
             style="font-size: clamp(2rem, 3.2vw, 2.6rem); font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); line-height: 1.25; margin-bottom: 1.15rem;">
-            Canal Oficial y Personalizado para Colegio y Familias
+            Evaluación Continua y Formativa por Competencias
           </h2>
           <p style="color: #64748b; font-size: 1.08rem; line-height: 1.6; margin-bottom: 0.5rem;">
             Conoce cómo cada miembro de la comunidad educativa interactúa en la plataforma: selecciona entre la
-            perspectiva del <strong>Docente</strong> para emitir y segmentar, o la del <strong>Alumno / Padre</strong>
-            para
-            recibir y confirmar.
+            perspectiva del <strong>Docente</strong> para programar y calificar, o la del <strong>Alumno /
+              Padre</strong>
+            para consultar avances y retroalimentación.
           </p>
         </div>
 
@@ -72,62 +78,98 @@
           <!-- ==========================================
                PANEL 1: VISTA DOCENTE
                ========================================== -->
-          <div class="comunicacion-view-panel" id="viewDocente" role="tabpanel" aria-labelledby="tabBtnDocente">
+          <div class="comunicacion-view-panel" id="viewDocente" role="tabpanel" aria-labelledby="tabBtnDocente"
+            style="align-items: center;">
 
             <!-- Columna Izquierda: Capacidades Docente -->
             <div>
               <div style="margin-bottom: 1.75rem;">
                 <span
                   style="font-size: 0.85rem; font-weight: 700; color: var(--mentora-blue); text-transform: uppercase; letter-spacing: 0.5px;">
-                  Gestión para Profesores y Tutores
+                  Gestión para Profesores y Coordinadores
                 </span>
                 <h3
                   style="font-size: 1.65rem; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); margin-top: 0.35rem; margin-bottom: 0.75rem;">
-                  Envia comunicados segmentados con total libertad
+                  Diseña y califica evaluaciones con criterios transparentes
                 </h3>
                 <p style="color: #475569; font-size: 0.98rem; line-height: 1.6;">
-                  Emite avisos formales dirigidas a la audiencia exacta. El docente ahorra tiempo y
-                  mantiene registro digital de cada interacción.
+                  Automatiza la creación de instrumentos de evaluación vinculados directamente a las unidades y sesiones
+                  curriculares.
                 </p>
               </div>
 
-              <!-- Feature 1: Configuración Rápida -->
-              <div class="comunicacion-feature-card accent-blue">
+              <!-- Feature 1: Instrumentos de evaluación -->
+              <div class="comunicacion-feature-card accent-blue is-clickable is-active js-docente-card" data-slide="0"
+                role="button" tabindex="0" aria-pressed="true">
                 <div class="comunicacion-card-header">
                   <div class="comunicacion-card-icon">
-                    <img src="/assets/general/correo.svg" alt="Creación" width="22" height="22"
+                    <img src="/assets/beneficios/cards/icon_archivo.svg" alt="Creación" width="22" height="22"
                       style="filter: brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(1478%) hue-rotate(210deg) brightness(97%) contrast(92%);">
                   </div>
-                  <h4 class="comunicacion-card-title">Configuración Rápida</h4>
+                  <h4 class="comunicacion-card-title">Instrumentos de evaluación</h4>
                 </div>
                 <p class="comunicacion-card-text">
-                  Redacta comunicados con editor enriquecido, programa fecha y hora de publicación, y edita avisos
-                  vigentes al instante si necesitas actualizar indicaciones o adjuntos.
+                  Define el tipo de intrumento que deseas utilizar para evaluar a tus alumnos.
+                  Entre ellos:<strong> Rubro de evaluación, Escala de Valoración, Lista de Cotejo y Rúbrica de
+                    aprendizaje.</strong>
                 </p>
               </div>
 
-              <!-- Feature 2: Segmentación Personalizada -->
-              <div class="comunicacion-feature-card accent-purple">
+              <!-- Feature 2: Calificación por Competencias -->
+              <div class="comunicacion-feature-card accent-purple is-clickable js-docente-card" data-slide="1"
+                role="button" tabindex="0" aria-pressed="false">
                 <div class="comunicacion-card-header">
                   <div class="comunicacion-card-icon purple">
-                    <img src="/assets/general/segmento.svg" alt="Segmentación" width="22" height="22">
+                    <img src="/assets/general/evaluaciones.svg" alt="Calificación" width="22" height="22">
                   </div>
-                  <h4 class="comunicacion-card-title">Segmentación de secciones, grados, alumnos y padres</h4>
+                  <h4 class="comunicacion-card-title">Evaluaciones del curso</h4>
                 </div>
                 <p class="comunicacion-card-text">
-                  Elige a quién dirigir cada mensaje: sección, un grupo
-                  específico, estudiantes individuales o únicamente a los padres de familia.
+                  Existen distintos tipos de evaluaciones para la unidad y sesión que puedes utilizar para evaluar a tus
+                  alumnos.
+                  Entre ellos: <strong>Cuestionarios, Tareas, Foros, Rutas de aprendizaje.</strong>
                 </p>
               </div>
             </div>
 
-            <!-- Columna Derecha: Mockup Comunicados Docente Único -->
-            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-              <div style="max-width: 280px; width: 100%; display: flex; justify-content: center;">
-                <img src="/assets/beneficios/comunicacion/comunicados docentes cel.svg"
-                  alt="Comunicados Docentes en Móvil - Mentora College"
-                  style="width: 100%; height: auto; display: block; object-fit: contain; filter: drop-shadow(0 15px 35px rgba(86, 50, 232, 0.14));"
-                  loading="lazy">
+            <!-- Columna Derecha: Mockups y Sliders Dinámicos Docente (Sin Marcos) -->
+            <div class="docente-slider-wrapper" style="position: relative; top: 0; align-self: center;">
+              <div class="docente-slider-container" id="docenteSliderContainer">
+
+                <!-- Viewport del Slider -->
+                <div class="docente-slider-viewport">
+                  <div class="docente-slider-track" id="docenteSliderTrack">
+
+                    <!-- Slide 1: Instrumentos de evaluación -->
+                    <div class="docente-slide" data-index="0" aria-hidden="false">
+                      <img src="/assets/beneficios/evaluacion/instrumentos.svg"
+                        alt="Instrumentos de evaluación - Mentora College" class="docente-slide-comp-img">
+                    </div>
+
+                    <!-- Slide 2: Evaluaciones del curso -->
+                    <div class="docente-slide" data-index="1" aria-hidden="true">
+                      <img src="/assets/beneficios/evaluacion/evaluaciones.svg"
+                        alt="Evaluaciones del curso - Mentora College" class="docente-slide-comp-img">
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Flechas Flotantes -->
+                <button type="button" class="docente-slider-arrow prev" id="docenteSliderPrev" style="top: 50%;"
+                  aria-label="Pantalla anterior">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button type="button" class="docente-slider-arrow next" id="docenteSliderNext" style="top: 50%;"
+                  aria-label="Siguiente pantalla">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
               </div>
             </div>
 
@@ -137,7 +179,7 @@
                PANEL 2: VISTA ALUMNO / PADRE
                ========================================== -->
           <div class="comunicacion-view-panel" id="viewFamilia" role="tabpanel" aria-labelledby="tabBtnFamilia"
-            style="display: none; opacity: 0;">
+            style="display: none; opacity: 0; align-items: center;">
 
             <!-- Columna Izquierda: Capacidades Familia / Alumno -->
             <div>
@@ -148,81 +190,78 @@
                 </span>
                 <h3
                   style="font-size: 1.65rem; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); margin-top: 0.35rem; margin-bottom: 0.75rem;">
-                  Observa todos los comunicados de docentes y autoridades
+                  Seguimiento claro del aprendizaje y retroalimentación oportuna
                 </h3>
                 <p style="color: #475569; font-size: 0.98rem; line-height: 1.6;">
-                  Una sola bandeja oficial donde padres y alumnos leen avisos de profesores, circulares de dirección y
-                  confirmaciones de eventos, sin pérdidas en redes sociales.
+                  A través de la plataforma web o la app móvil, tanto alumnos como padres pueden consultar los criterios
+                  de evaluación y subir los entregables correspondientes.
                 </p>
               </div>
 
-              <!-- Feature 1: Bandeja Centralizada -->
+              <!-- Feature 1: Bandeja de Evaluaciones -->
               <div class="comunicacion-feature-card accent-yellow is-clickable js-familia-card is-active" data-slide="0"
-                data-caption="<strong style='color: var(--text-main);'>Bandeja en Computadora:</strong> Consulta detallada de avisos, circulares y adjuntos escolares en pantalla amplia con panel organizado por materias."
                 role="button" tabindex="0" aria-pressed="true">
                 <div class="comunicacion-card-header">
                   <div class="comunicacion-card-icon yellow">
-                    <img src="/assets/general/correo.svg" alt="Bandeja" width="22" height="22"
-                      style="filter: brightness(0) saturate(100%) invert(58%) sepia(85%) saturate(830%) hue-rotate(5deg) brightness(97%) contrast(93%);">
+                    <img src="/assets/general/bandeja.svg" alt="Evaluaciones" width="22" height="22">
                   </div>
-                  <h4 class="comunicacion-card-title">Bandeja Centralizada de Comunicados</h4>
+                  <h4 class="comunicacion-card-title">Bandeja de evaluaciones y tareas</h4>
                 </div>
                 <p class="comunicacion-card-text">
-                  Encuentra los comunicados organizados por materia, docente emisor y fecha. Cada mensaje incluye
-                  detalles claros, enlaces y archivos descargables.
+                  Consulta cronograma de evaluaciones, pautas de trabajo y rúbricas antes de la entrega desde cualquier
+                  dispositivo.
                 </p>
               </div>
 
-              <!-- Feature 2: Comunicados Oficiales de Autoridades -->
+              <!-- Feature 2: Resultados y Retroalimentación -->
               <div class="comunicacion-feature-card accent-blue is-clickable js-familia-card" data-slide="1"
-                data-caption="<strong style='color: var(--text-main);'>Avisos en la App Móvil:</strong> Acceso instantáneo a circulares y notificaciones oficiales en tiempo real desde el celular para familias."
                 role="button" tabindex="0" aria-pressed="false">
                 <div class="comunicacion-card-header">
                   <div class="comunicacion-card-icon">
-                    <img src="/assets/general/aviso.svg" alt="Autoridades" width="22" height="22">
+                    <img src="/assets/general/resultados.svg" alt="Resultados" width="22" height="22">
                   </div>
-                  <h4 class="comunicacion-card-title">Avisos de Docentes y autoridades de la institución</h4>
+                  <h4 class="comunicacion-card-title">Resultados y retroalimentación formativa</h4>
                 </div>
                 <p class="comunicacion-card-text">
-                  Recibe circulares institucionales, cronogramas de exámenes, citaciones a escuela de padres entre otros
-                  comunicados.
+                  Visualiza los niveles de logro alcanzados por cada competencia, comentarios del docente y sugerencias
+                  para seguir mejorando.
                 </p>
               </div>
             </div>
 
-            <!-- Columna Derecha: Slider Dinámico Alumno / Padre (Computadora y Celular) -->
-            <div class="docente-slider-wrapper">
+            <!-- Columna Derecha: Slider Dinámico Alumno / Padre -->
+            <div class="docente-slider-wrapper" style="position: relative; top: 0; align-self: center;">
               <div class="docente-slider-container" id="familiaSliderContainer">
 
                 <!-- Viewport del Slider -->
                 <div class="docente-slider-viewport">
                   <div class="docente-slider-track" id="familiaSliderTrack">
 
-                    <!-- Slide 1: Ver Comunicado en Computadora -->
+                    <!-- Slide 1: Bandeja de evaluaciones -->
                     <div class="docente-slide familia-slide" data-index="0" aria-hidden="false">
-                      <img src="/assets/beneficios/comunicacion/ver-comunicado-comp.svg"
-                        alt="Visualización de comunicados en Computadora - Mentora College"
-                        class="docente-slide-comp-img">
+                      <img src="/assets/beneficios/evaluacion/entregar tarea web.svg"
+                        alt="Bandeja de evaluaciones del estudiante - Mentora College" class="docente-slide-comp-img">
                     </div>
 
-                    <!-- Slide 2: Ver Comunicado en Celular -->
+                    <!-- Slide 2: Reporte de calificaciones -->
                     <div class="docente-slide familia-slide" data-index="1" aria-hidden="true">
-                      <img src="/assets/beneficios/comunicacion/ver-comunicado-cel.svg"
-                        alt="Visualización de comunicados en Celular - Mentora College" class="docente-slide-cel-img">
+                      <img src="/assets/beneficios/evaluacion/entregar tarea cel.svg"
+                        alt="Reporte de calificaciones y retroalimentación - Mentora College"
+                        class="docente-slide-comp-img">
                     </div>
 
                   </div>
                 </div>
 
                 <!-- Flechas Flotantes -->
-                <button type="button" class="docente-slider-arrow prev" id="familiaSliderPrev"
+                <button type="button" class="docente-slider-arrow prev" id="familiaSliderPrev" style="top: 50%;"
                   aria-label="Pantalla anterior">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                     stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
                 </button>
-                <button type="button" class="docente-slider-arrow next" id="familiaSliderNext"
+                <button type="button" class="docente-slider-arrow next" id="familiaSliderNext" style="top: 50%;"
                   aria-label="Siguiente pantalla">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -235,15 +274,18 @@
           </div>
 
         </div>
+
+      </div>
     </section>
   </main>
+
   <!-- Componentes Componetizados: Footer y Modal de Contacto -->
   <include src="/components/footer.html"></include>
   <include src="/components/lead-modal.html"></include>
 
   <!-- Main JavaScript App -->
   <script type="module" src="/js/app.js"></script>
-  <script type="module" src="/js/comunicacion-tabs.js"></script>
+  <script type="module" src="/js/evaluaciones-tabs.js"></script>
 </body>
 
 </html>
