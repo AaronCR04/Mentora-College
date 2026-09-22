@@ -1,236 +1,337 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boletas Digitales y Gestión Académica | Mentora College</title>
-  <meta name="description" content="Automatiza la emisión de boletas de notas, informes cualitativos por competencias y certificados digitales institucionales.">
+  <title>Gestión de Evaluaciones | Mentora College</title>
+  <meta name="description"
+    content="Digitaliza y automatiza evaluaciones por competencias, rúbricas cualitativas y seguimiento del aprendizaje en tiempo real.">
   <link rel="canonical" href="https://mentoracollege.edu/boletas-digitales/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css?v=8">
 </head>
+
 <body>
-    <!-- Header Navigation matching index.html -->
-  <header class="header-v2-wrapper" id="mainHeader">
-    <div class="header-v2">
-      <!-- Logo -->
-      <a href="/index.html" class="logo-brand-v2 flex items-center" aria-label="Mentora College - Inicio">
-        <img src="/assets/logo.png" alt="Mentora College" class="brand-logo-img" height="40"
-          style="height: 42px; width: auto; max-height: 44px; display: block; object-fit: contain;">
-      </a>
+  <!-- Componente Componetizado: Header Navigation -->
+  <include src="/components/header.html"></include>
 
-      <!-- Enlaces de navegación Desktop -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 nav-desktop-v2">
-        <a href="/index.html#problema"
-          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
-          Soluciones
-          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <a href="/recursos/index.html"
-          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
-          Recursos
-          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <a href="/index.html#porque-mentora" class="hover:text-purple-700 transition-colors nav-link-v2">Nosotros</a>
-        <a href="/index.html#ecosistema" class="hover:text-purple-700 transition-colors nav-link-v2">Plataforma</a>
-      </nav>
-
-      <!-- Botón CTA & Mobile Toggle -->
-      <div class="flex items-center gap-3">
-        <a href="/index.html#contacto"
-          class="cta-btn-v2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md transition-all js-open-lead-modal">
-          Más información
-          <span class="cta-arrow-circle">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </span>
-        </a>
-
-        <!-- Botón menú hamburguesa móvil -->
-        <button class="mobile-drawer-toggle" id="mobileDrawerToggle" aria-label="Abrir menú" aria-expanded="false">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer Nav -->
-  <div class="mobile-drawer" id="mobileDrawerNav">
-    <a href="/index.html#problema" class="nav-link">Soluciones</a>
-    <a href="/recursos/index.html" class="nav-link">Recursos</a>
-    <a href="/index.html#porque-mentora" class="nav-link">Nosotros</a>
-    <a href="/index.html#ecosistema" class="nav-link">Plataforma</a>
-    <div style="margin-top: 1rem;">
-      <button class="btn btn-primary js-open-lead-modal" style="width: 100%;">
-        Contáctanos
-      </button>
-    </div>
-  </div>
   <main>
+    <!-- HERO SECTION -->
     <section class="bg-hero-gradient" style="padding: 4rem 0;">
       <div class="container">
-        <div style="font-size: 0.85rem; color: #93C5FD; margin-bottom: 0.75rem;"><a href="../index.html" style="color: #93C5FD; text-decoration: none;">Inicio</a> / Boletas Digitales</div>
-        <h1 style="color: white; margin-bottom: 1rem; max-width: 800px;">Boletas Digitales y Gestión Académica</h1>
-        <p style="color: rgba(255,255,255,0.9); font-size: 1.15rem; max-width: 700px; margin-bottom: 2rem;">Generación automatizada de reportes cualitativos y cuantitativos sin errores manuales.</p>
-        <button class="btn btn-white js-open-lead-modal">Ver Ejemplo de Boleta Digital</button>
+        <div style="font-size: 0.85rem; color: #93C5FD; margin-bottom: 0.75rem;">
+          <a href="../index.html" style="color: #93C5FD; text-decoration: none;">Inicio</a> / Gestión de Evaluaciones
+        </div>
+        <div class="hero-badge"
+          style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 9999px; padding: 0.35rem 1rem; color: white; font-size: 0.82rem; font-weight: 600; margin-bottom: 1.25rem;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #38bdf8;"></span>
+          Evaluación Formativa y por Competencias
+        </div>
+        <h1 style="color: white; margin-bottom: 1rem; max-width: 820px; font-family: 'Sora', sans-serif;">
+          Gestión de evaluaciones
+        </h1>
+        <p
+          style="color: rgba(255,255,255,0.9); font-size: 1.15rem; max-width: 720px; margin-bottom: 2rem; line-height: 1.6;">
+          Generación de evaluaciones alineadas a las competencias y criterios de la sesión y unidad.
+        </p>
       </div>
     </section>
-    <section class="bg-white-surface" style="padding: 4rem 0;">
-      <div class="container" style="max-width: 900px;">
-        <h2>Digitalización Completa del Periodo Escolar</h2>
-        <p class="text-intro" style="margin-top: 1rem; margin-bottom: 2rem;">Elimina la impresión masiva en papel y las horas de digitación. Mentora consolida los registros de evaluación docentes y emite boletas firmadas electrónicamente.</p>
-        <div class="card">
-          <h3>Informes Cualitativos Descriptivos</h3>
-          <p style="color: var(--text-muted); margin-top: 0.5rem;">Incluye conclusiones descriptivas por competencia alineadas a la normativa vigente con apoyo de sugerencias redactadas con IA.</p>
+
+    <!-- SECCIÓN INTERACTIVA: VISTAS DOCENTE Y ALUMNO / PADRE -->
+    <section class="bg-soft" style="padding: 4.5rem 0 5.5rem 0; border-top: 1px solid rgba(226, 232, 240, 0.8);">
+      <div class="container">
+
+        <!-- Header con selector de vistas -->
+        <div style="text-align: center; max-width: 820px; margin: 0 auto 1.5rem auto;">
+          <h2
+            style="font-size: clamp(2rem, 3.2vw, 2.6rem); font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); line-height: 1.25; margin-bottom: 1.15rem;">
+            Evaluación Continua y Formativa por Competencias
+          </h2>
+          <p style="color: #64748b; font-size: 1.08rem; line-height: 1.6; margin-bottom: 0.5rem;">
+            Conoce cómo cada miembro de la comunidad educativa interactúa en la plataforma: selecciona entre la
+            perspectiva del <strong>Docente</strong> para programar y calificar, o la del <strong>Alumno / Padre</strong>
+            para consultar avances y retroalimentación.
+          </p>
         </div>
+
+        <!-- Botones Selectores de Rol (Docente vs Alumno / Padre) -->
+        <div class="comunicacion-role-tabs-container">
+          <div class="comunicacion-role-tabs" role="tablist" aria-label="Selector de Vista">
+            <button class="role-tab-btn active" id="tabBtnDocente" role="tab" aria-selected="true"
+              aria-controls="viewDocente" type="button">
+              <span>Vista Docente</span>
+            </button>
+            <button class="role-tab-btn" id="tabBtnFamilia" role="tab" aria-selected="false" aria-controls="viewFamilia"
+              type="button">
+              <span>Vista Alumno / Padre</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor de Vistas -->
+        <div class="comunicacion-views-wrapper">
+
+          <!-- ==========================================
+               PANEL 1: VISTA DOCENTE
+               ========================================== -->
+          <div class="comunicacion-view-panel" id="viewDocente" role="tabpanel" aria-labelledby="tabBtnDocente">
+
+            <!-- Columna Izquierda: Capacidades Docente -->
+            <div>
+              <div style="margin-bottom: 1.75rem;">
+                <span
+                  style="font-size: 0.85rem; font-weight: 700; color: var(--mentora-blue); text-transform: uppercase; letter-spacing: 0.5px;">
+                  Gestión para Profesores y Coordinadores
+                </span>
+                <h3
+                  style="font-size: 1.65rem; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); margin-top: 0.35rem; margin-bottom: 0.75rem;">
+                  Diseña y califica evaluaciones con criterios transparentes
+                </h3>
+                <p style="color: #475569; font-size: 0.98rem; line-height: 1.6;">
+                  Automatiza la creación de instrumentos de evaluación vinculados directamente a las unidades y sesiones
+                  curriculares.
+                </p>
+              </div>
+
+              <!-- Feature 1: Creación y Configuración -->
+              <div class="comunicacion-feature-card accent-blue is-clickable is-active js-docente-card" data-slide="0"
+                role="button" tabindex="0" aria-pressed="true">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon">
+                    <img src="/assets/icon_archivo.svg" alt="Creación" width="22" height="22"
+                      style="filter: brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(1478%) hue-rotate(210deg) brightness(97%) contrast(92%);">
+                  </div>
+                  <h4 class="comunicacion-card-title">Creación y configuración de evaluaciones</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Define tipo de evaluación (tarea, examen, proyecto), fechas de entrega y vincula los criterios de la
+                  sesión con total flexibilidad.
+                </p>
+              </div>
+
+              <!-- Feature 2: Calificación por Competencias -->
+              <div class="comunicacion-feature-card accent-purple is-clickable js-docente-card" data-slide="1"
+                role="button" tabindex="0" aria-pressed="false">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon purple">
+                    <img src="/assets/icon_metrica.svg" alt="Calificación" width="22" height="22">
+                  </div>
+                  <h4 class="comunicacion-card-title">Calificación por competencias y rúbricas</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Registra valoraciones cualitativas (AD, A, B, C) o cuantitativas, con conclusiones descriptivas y
+                  retroalimentación asistida por IA.
+                </p>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Mockups y Sliders Dinámicos Docente (Sin Marcos) -->
+            <div class="docente-slider-wrapper">
+              <div class="docente-slider-container" id="docenteSliderContainer">
+
+                <!-- Viewport del Slider -->
+                <div class="docente-slider-viewport">
+                  <div class="docente-slider-track" id="docenteSliderTrack">
+
+                    <!-- Slide 1: Creación de evaluaciones -->
+                    <div class="docente-slide" data-index="0" aria-hidden="false">
+                      <img src="/assets/gestion-academica.svg"
+                        alt="Configuración de evaluaciones escolares - Mentora College" class="docente-slide-comp-img">
+                    </div>
+
+                    <!-- Slide 2: Calificación por rúbricas -->
+                    <div class="docente-slide" data-index="1" aria-hidden="true">
+                      <img src="/assets/ensenanza-y-evaluacion.svg"
+                        alt="Calificación por competencias y rúbricas - Mentora College"
+                        class="docente-slide-comp-img">
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Flechas Flotantes -->
+                <button type="button" class="docente-slider-arrow prev" id="docenteSliderPrev"
+                  aria-label="Pantalla anterior">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button type="button" class="docente-slider-arrow next" id="docenteSliderNext"
+                  aria-label="Siguiente pantalla">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+
+                <!-- Controles e Indicadores -->
+                <div class="docente-slider-controls">
+                  <div class="docente-slider-pills" id="docenteSliderDots" role="tablist"
+                    aria-label="Pestañas de evaluación docente">
+                    <button type="button" class="docente-slider-pill is-active" data-slide="0" role="tab"
+                      aria-selected="true" aria-label="Ver Configuración">
+                      Configuración
+                    </button>
+                    <button type="button" class="docente-slider-pill" data-slide="1" role="tab" aria-selected="false"
+                      aria-label="Ver Calificación">
+                      Calificación y Rúbricas
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Leyenda / Caption Informativo Compartido -->
+                <div id="docenteMockupCaption" class="docente-slider-caption">
+                  <strong style="color: var(--text-main);">Configuración de Evaluaciones:</strong> Crea tareas y
+                  exámenes vinculando competencias, criterios de evaluación y fechas clave.
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ==========================================
+               PANEL 2: VISTA ALUMNO / PADRE
+               ========================================== -->
+          <div class="comunicacion-view-panel" id="viewFamilia" role="tabpanel" aria-labelledby="tabBtnFamilia"
+            style="display: none; opacity: 0;">
+
+            <!-- Columna Izquierda: Capacidades Familia / Alumno -->
+            <div>
+              <div style="margin-bottom: 1.75rem;">
+                <span
+                  style="font-size: 0.85rem; font-weight: 700; color: #ca8a04; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Experiencia para Familias y Estudiantes
+                </span>
+                <h3
+                  style="font-size: 1.65rem; font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-main); margin-top: 0.35rem; margin-bottom: 0.75rem;">
+                  Seguimiento claro del aprendizaje y retroalimentación oportuna
+                </h3>
+                <p style="color: #475569; font-size: 0.98rem; line-height: 1.6;">
+                  Los alumnos conocen previamente con qué criterios serán evaluados y las familias acceden a las
+                  evidencias y progresos sin demoras.
+                </p>
+              </div>
+
+              <!-- Feature 1: Bandeja de Evaluaciones -->
+              <div class="comunicacion-feature-card accent-yellow is-clickable js-familia-card is-active"
+                data-slide="0" role="button" tabindex="0" aria-pressed="true">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon yellow">
+                    <img src="/assets/reloj.svg" alt="Evaluaciones" width="22" height="22">
+                  </div>
+                  <h4 class="comunicacion-card-title">Bandeja de evaluaciones y tareas</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Consulta cronograma de evaluaciones, pautas de trabajo y rúbricas antes de la entrega desde cualquier
+                  dispositivo.
+                </p>
+              </div>
+
+              <!-- Feature 2: Resultados y Retroalimentación -->
+              <div class="comunicacion-feature-card accent-blue is-clickable js-familia-card" data-slide="1"
+                role="button" tabindex="0" aria-pressed="false">
+                <div class="comunicacion-card-header">
+                  <div class="comunicacion-card-icon">
+                    <img src="/assets/control-de-asistencia.svg" alt="Resultados" width="22" height="22">
+                  </div>
+                  <h4 class="comunicacion-card-title">Resultados y retroalimentación formativa</h4>
+                </div>
+                <p class="comunicacion-card-text">
+                  Visualiza los niveles de logro alcanzados por cada competencia, comentarios del docente y sugerencias
+                  para seguir mejorando.
+                </p>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Slider Dinámico Alumno / Padre -->
+            <div class="docente-slider-wrapper">
+              <div class="docente-slider-container" id="familiaSliderContainer">
+
+                <!-- Viewport del Slider -->
+                <div class="docente-slider-viewport">
+                  <div class="docente-slider-track" id="familiaSliderTrack">
+
+                    <!-- Slide 1: Bandeja de evaluaciones -->
+                    <div class="docente-slide familia-slide" data-index="0" aria-hidden="false">
+                      <img src="/assets/monitoreo-del-aprendizaje.svg"
+                        alt="Bandeja de evaluaciones del estudiante - Mentora College" class="docente-slide-comp-img">
+                    </div>
+
+                    <!-- Slide 2: Reporte de calificaciones -->
+                    <div class="docente-slide familia-slide" data-index="1" aria-hidden="true">
+                      <img src="/assets/reporte.svg"
+                        alt="Reporte de calificaciones y retroalimentación - Mentora College"
+                        class="docente-slide-comp-img">
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Flechas Flotantes -->
+                <button type="button" class="docente-slider-arrow prev" id="familiaSliderPrev"
+                  aria-label="Pantalla anterior">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button type="button" class="docente-slider-arrow next" id="familiaSliderNext"
+                  aria-label="Siguiente pantalla">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+
+                <!-- Controles e Indicadores -->
+                <div class="docente-slider-controls">
+                  <div class="docente-slider-pills" id="familiaSliderDots" role="tablist"
+                    aria-label="Pestañas de evaluación familia">
+                    <button type="button" class="docente-slider-pill familia-slider-pill is-active" data-slide="0"
+                      role="tab" aria-selected="true" aria-label="Ver Bandeja de Evaluaciones">
+                      Bandeja de Evaluaciones
+                    </button>
+                    <button type="button" class="docente-slider-pill familia-slider-pill" data-slide="1" role="tab"
+                      aria-selected="false" aria-label="Ver Resultados">
+                      Logros y Calificaciones
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Leyenda / Caption Informativo Compartido -->
+                <div id="familiaMockupCaption" class="docente-slider-caption">
+                  <strong style="color: var(--text-main);">Bandeja de Evaluaciones:</strong> Vista clara de tareas
+                  programadas, fechas de vencimiento y rúbricas orientadoras para los estudiantes.
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
   </main>
-    <!-- ==========================================================================
-       FOOTER INSTITUCIONAL
-       ========================================================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="/index.html" class="footer-logo-brand" aria-label="Mentora College - Inicio">
-            <img src="/assets/mentora-logo-blanco.svg" alt="Mentora College" class="footer-logo-img" height="42">
-          </a>
-          <p
-            style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
-            Ecosistema de gestión educativa que conecta planificación, evaluación, seguimiento del aprendizaje e IA para
-            transformar información en mejores decisiones.
-          </p>
-          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
-            Conecta la gestión. Comprende el aprendizaje. Impulsa la mejora.
-          </div>
-        </div>
 
-        <!-- Col 2: Soluciones SEO -->
-        <div>
-          <div class="footer-col-title">Soluciones Específicas</div>
-          <ul class="footer-links">
-            <li><a href="/gestion-educativa-colegios/index.html" class="footer-link">Gestión Educativa</a></li>
-            <li><a href="/planificacion-evaluacion-competencias/index.html" class="footer-link">Planificación por
-                Competencias</a></li>
-            <li><a href="/inteligencia-artificial-educacion/index.html" class="footer-link">IA Educativa</a></li>
-            <li><a href="/monitoreo-aprendizaje/index.html" class="footer-link">Monitoreo del Aprendizaje</a></li>
-            <li><a href="/evaluacion-con-ia/index.html" class="footer-link">Evaluación asistida por IA</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Módulos -->
-        <div>
-          <div class="footer-col-title">Módulos de Plataforma</div>
-          <ul class="footer-links">
-            <li><a href="/comunicacion-familias/index.html" class="footer-link">Comunicación con Familias</a></li>
-            <li><a href="/asistencia-escolar/index.html" class="footer-link">Control de Asistencia</a></li>
-            <li><a href="/boletas-digitales/index.html" class="footer-link">Boletas Digitales</a></li>
-            <li><a href="/casos-de-exito/index.html" class="footer-link">Casos de Éxito</a></li>
-            <li><a href="/recursos/index.html" class="footer-link">Recursos Educativos</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Legal & Contacto -->
-        <div>
-          <div class="footer-col-title">Contacto & Respaldo</div>
-          <ul class="footer-links" style="font-size: 0.9rem;">
-            <li>📍 Av. Javier Prado Este 2450, Lima, Perú</li>
-            <li>✉️ contacto@mentoracollege.edu</li>
-            <li>📞 +51 (1) 700-8800</li>
-            <li><a href="/index.html#contacto" class="footer-link js-open-lead-modal" style="color: var(--tech-cyan);">Solicitar Demostración</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Mentora College. Todos los derechos reservados. Ecosistema de Gestión Educativa.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" class="footer-link">Política de Privacidad</a>
-          <a href="#" class="footer-link">Términos de Servicio</a>
-          <a href="#" class="footer-link">Seguridad y Datos</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Modal Lead Popup Container -->
-  <div class="modal-overlay" id="leadModalOverlay">
-    <div class="modal-container">
-      <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar ventana">✕</button>
-      <h3 style="margin-bottom: 0.5rem; font-size: 1.35rem; font-family: 'Sora', sans-serif;">Solicitar Presentación
-        Institucional</h3>
-      <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Un especialista de Mentora
-        College se contactará contigo para coordinar una demostración personalizada.</p>
-
-      <form class="lead-form-element" method="POST">
-        <div class="form-group">
-          <label class="form-label" for="modal_nombre">Nombre y apellido *</label>
-          <input class="form-input" type="text" id="modal_nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="modal_colegio">Nombre del colegio *</label>
-          <input class="form-input" type="text" id="modal_colegio" name="colegio" placeholder="Ej. Colegio Innova"
-            required>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div class="form-group">
-            <label class="form-label" for="modal_cargo">Cargo *</label>
-            <select class="form-select" id="modal_cargo" name="cargo" required>
-              <option value="">Selecciona...</option>
-              <option value="Director / Promotor">Director / Promotor</option>
-              <option value="Coordinador Académico">Coordinador Académico</option>
-              <option value="TI / Transformación Digital">TI / Transformación Digital</option>
-              <option value="Docente">Docente</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="modal_email">Correo institucional *</label>
-            <input class="form-input" type="email" id="modal_email" name="email" placeholder="jperez@colegio.edu"
-              required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="modal_telefono">Teléfono / WhatsApp *</label>
-          <input class="form-input" type="tel" id="modal_telefono" name="telefono" placeholder="+51 987 654 321"
-            required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="modal_interes">Interés principal *</label>
-          <select class="form-select" id="modal_interes" name="interes" required>
-            <option value="Solución integral">Solución integral 360°</option>
-            <option value="Gestión académica">Gestión académica y Boletas</option>
-            <option value="Planificación y evaluación">Planificación y evaluación por competencias</option>
-            <option value="Monitoreo del aprendizaje">Monitoreo del aprendizaje</option>
-            <option value="Inteligencia Artificial">Inteligencia Artificial Educativa</option>
-          </select>
-        </div>
-
-        <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: 0.5rem;">
-          Quiero conocer Mentora College →
-        </button>
-      </form>
-    </div>
-  </div>
+  <!-- Componentes Componetizados: Footer y Modal de Contacto -->
+  <include src="/components/footer.html"></include>
+  <include src="/components/lead-modal.html"></include>
 
   <!-- Main JavaScript App -->
   <script type="module" src="/js/app.js"></script>
+  <script type="module" src="/js/evaluaciones-tabs.js"></script>
 </body>
+
 </html>

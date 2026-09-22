@@ -1,11 +1,10 @@
 /**
- * comunicacion-tabs.js
+ * evaluaciones-tabs.js
  * Control de vistas dinámicas para Docente y Alumno/Padre,
- * y Sliders Interactivos de Creación (Docente) y Visualización (Alumno/Padre)
- * en el módulo de Comunicación Colegio - Familias.
+ * y Sliders Interactivos para el módulo de Gestión de Evaluaciones.
  */
 
-export function initComunicacionTabs() {
+export function initEvaluacionesTabs() {
   // ============================================================
   // 1. SELECTOR DE PESTAÑAS PRINCIPALES: DOCENTE VS ALUMNO/PADRE
   // ============================================================
@@ -18,7 +17,6 @@ export function initComunicacionTabs() {
     return;
   }
 
-  // Declaraciones previas de funciones de autoplay para coordinar con las pestañas
   let startDocenteAutoplay = () => {};
   let stopDocenteAutoplay = () => {};
   let startFamiliaAutoplay = () => {};
@@ -31,7 +29,6 @@ export function initComunicacionTabs() {
       tabBtnFamilia.classList.remove('active');
       tabBtnFamilia.setAttribute('aria-selected', 'false');
 
-      // Pausar autoplay de familia
       stopFamiliaAutoplay();
 
       viewFamilia.style.opacity = '0';
@@ -52,7 +49,6 @@ export function initComunicacionTabs() {
       tabBtnDocente.classList.remove('active');
       tabBtnDocente.setAttribute('aria-selected', 'false');
 
-      // Pausar autoplay de docente
       stopDocenteAutoplay();
 
       viewDocente.style.opacity = '0';
@@ -74,7 +70,7 @@ export function initComunicacionTabs() {
   tabBtnFamilia.addEventListener('click', () => switchTab('familia'));
 
   // ============================================================
-  // 2. SLIDER DOCENTE: Creación y Edición (Computadora / Celular)
+  // 2. SLIDER DOCENTE
   // ============================================================
   const docenteContainer = document.getElementById('docenteSliderContainer');
   const docenteTrack = document.getElementById('docenteSliderTrack');
@@ -90,8 +86,8 @@ export function initComunicacionTabs() {
   const autoplayInterval = 6000;
 
   const docenteSlideCaptions = [
-    "<strong style='color: var(--text-main);'>Vista Computadora:</strong> Editor enriquecido en pantalla amplia para redactar con total comodidad y adjuntar archivos multimedia.",
-    "<strong style='color: var(--text-main);'>Vista Celular:</strong> Creación y publicación rápida desde la app móvil para avisos inmediatos o de última hora."
+    "<strong style='color: var(--text-main);'>Configuración de Evaluaciones:</strong> Crea tareas y exámenes vinculando competencias, criterios de evaluación y fechas clave.",
+    "<strong style='color: var(--text-main);'>Calificación y Rúbricas:</strong> Evalúa evidencias de forma ágil con rúbricas cualitativas y sugerencias descriptivas con IA."
   ];
 
   function updateDocenteCaption(text) {
@@ -103,7 +99,7 @@ export function initComunicacionTabs() {
     }, 150);
   }
 
-  function goToDocenteSlide(index, fromUser = false) {
+  function goToDocenteSlide(index, _fromUser = false) {
     if (docenteTotalSlides === 0 || !docenteTrack) return;
 
     if (index < 0) {
@@ -114,17 +110,14 @@ export function initComunicacionTabs() {
       docenteCurrentIndex = index;
     }
 
-    // Desplazamiento horizontal
     docenteTrack.style.transform = `translateX(-${docenteCurrentIndex * 100}%)`;
 
-    // Actualizar pills
     docentePills.forEach((pill, i) => {
       const isActive = i === docenteCurrentIndex;
       pill.classList.toggle('is-active', isActive);
       pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
 
-    // Actualizar visibilidad de slides
     docenteSlides.forEach((slide, i) => {
       const isActive = i === docenteCurrentIndex;
       slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
@@ -132,8 +125,7 @@ export function initComunicacionTabs() {
       slide.style.transform = isActive ? 'scale(1)' : 'scale(0.96)';
     });
 
-    // Actualizar leyenda si viene de interacción de usuario o autoplay
-    if (fromUser && docenteSlideCaptions[docenteCurrentIndex]) {
+    if (docenteSlideCaptions[docenteCurrentIndex]) {
       updateDocenteCaption(docenteSlideCaptions[docenteCurrentIndex]);
     }
   }
@@ -146,18 +138,14 @@ export function initComunicacionTabs() {
     goToDocenteSlide(docenteCurrentIndex - 1, fromUser);
   }
 
-  startDocenteAutoplay = function() {
+  startDocenteAutoplay = function () {
     stopDocenteAutoplay();
-    // Solo reproducir si estamos en la pestaña docente y el panel de creación está activo
-    const panelCreacion = document.getElementById('panelDocenteCreacion');
-    if (tabBtnDocente.classList.contains('active') && panelCreacion && panelCreacion.classList.contains('is-active')) {
-      docenteAutoplayTimer = setInterval(() => {
-        nextDocenteSlide(false);
-      }, autoplayInterval);
-    }
+    docenteAutoplayTimer = setInterval(() => {
+      nextDocenteSlide(false);
+    }, autoplayInterval);
   };
 
-  stopDocenteAutoplay = function() {
+  stopDocenteAutoplay = function () {
     if (docenteAutoplayTimer) {
       clearInterval(docenteAutoplayTimer);
       docenteAutoplayTimer = null;
@@ -212,34 +200,8 @@ export function initComunicacionTabs() {
     }, { passive: true });
   }
 
-  // 3. Manejo de cards dinámicas en Docente (Creación vs Segmentación)
+  // Cards dinámicas en Docente
   const docenteCards = document.querySelectorAll('.js-docente-card');
-  const panelCreacion = document.getElementById('panelDocenteCreacion');
-  const panelSegmentacion = document.getElementById('panelDocenteSegmentacion');
-
-  const mediaPanels = {
-    creacion: panelCreacion,
-    segmentacion: panelSegmentacion
-  };
-
-  function switchDocentePanel(panelKey) {
-    Object.entries(mediaPanels).forEach(([key, panel]) => {
-      if (!panel) return;
-      if (key === panelKey) {
-        panel.classList.add('is-active');
-      } else {
-        panel.classList.remove('is-active');
-      }
-    });
-
-    if (panelKey === 'creacion') {
-      goToDocenteSlide(0, false);
-      startDocenteAutoplay();
-    } else {
-      stopDocenteAutoplay();
-    }
-  }
-
   docenteCards.forEach((card) => {
     card.addEventListener('click', () => {
       docenteCards.forEach((c) => {
@@ -250,15 +212,9 @@ export function initComunicacionTabs() {
       card.classList.add('is-active');
       card.setAttribute('aria-pressed', 'true');
 
-      const targetPanel = card.getAttribute('data-panel');
-      if (targetPanel && mediaPanels[targetPanel]) {
-        switchDocentePanel(targetPanel);
-      }
-
-      const targetCaption = card.getAttribute('data-caption');
-      if (targetCaption) {
-        updateDocenteCaption(targetCaption);
-      }
+      const targetSlide = parseInt(card.getAttribute('data-slide') || '0', 10);
+      goToDocenteSlide(targetSlide, true);
+      startDocenteAutoplay();
     });
 
     card.addEventListener('keydown', (e) => {
@@ -269,31 +225,24 @@ export function initComunicacionTabs() {
     });
   });
 
-  // Inicializar slider docente
-  if (docenteSlides.length > 0) {
-    goToDocenteSlide(0);
-    startDocenteAutoplay();
-  }
-
   // ============================================================
-  // 4. SLIDER ALUMNO / PADRE: Visualización (Computadora / Celular)
+  // 3. SLIDER ALUMNO / PADRE
   // ============================================================
   const familiaContainer = document.getElementById('familiaSliderContainer');
   const familiaTrack = document.getElementById('familiaSliderTrack');
   const familiaSlides = document.querySelectorAll('#familiaSliderContainer .familia-slide');
-  const familiaPills = document.querySelectorAll('#familiaSliderDots .familia-slider-pill');
+  const familiaPills = document.querySelectorAll('#familiaSliderDots .docente-slider-pill');
   const familiaBtnPrev = document.getElementById('familiaSliderPrev');
   const familiaBtnNext = document.getElementById('familiaSliderNext');
   const familiaCaption = document.getElementById('familiaMockupCaption');
-  const familiaCards = document.querySelectorAll('.js-familia-card');
 
   let familiaCurrentIndex = 0;
   const familiaTotalSlides = familiaSlides.length;
   let familiaAutoplayTimer = null;
 
   const familiaSlideCaptions = [
-    "<strong style='color: var(--text-main);'>Vista Computadora:</strong> Consulta detallada de avisos, circulares y adjuntos escolares en pantalla amplia con panel organizado por materias.",
-    "<strong style='color: var(--text-main);'>Vista Móvil:</strong> Acceso instantáneo a la bandeja de comunicados y notificaciones en tiempo real desde la app escolar para familias."
+    "<strong style='color: var(--text-main);'>Bandeja de Evaluaciones:</strong> Vista clara de tareas programadas, fechas de vencimiento y rúbricas orientadoras para los estudiantes.",
+    "<strong style='color: var(--text-main);'>Logros y Calificaciones:</strong> Reportes de progreso por competencia con conclusiones descriptivas y retroalimentación pedagógica oportuna."
   ];
 
   function updateFamiliaCaption(text) {
@@ -316,17 +265,14 @@ export function initComunicacionTabs() {
       familiaCurrentIndex = index;
     }
 
-    // Desplazamiento horizontal fluido
     familiaTrack.style.transform = `translateX(-${familiaCurrentIndex * 100}%)`;
 
-    // Actualizar pills de dispositivo
     familiaPills.forEach((pill, i) => {
       const isActive = i === familiaCurrentIndex;
       pill.classList.toggle('is-active', isActive);
       pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
 
-    // Actualizar visibilidad y escala de los slides
     familiaSlides.forEach((slide, i) => {
       const isActive = i === familiaCurrentIndex;
       slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
@@ -334,7 +280,8 @@ export function initComunicacionTabs() {
       slide.style.transform = isActive ? 'scale(1)' : 'scale(0.96)';
     });
 
-    // Sincronizar card activa en la columna izquierda
+    // Sincronizar tarjetas en familia
+    const familiaCards = document.querySelectorAll('.js-familia-card');
     familiaCards.forEach((card) => {
       const cardSlide = parseInt(card.getAttribute('data-slide') || '0', 10);
       const isCardActive = cardSlide === familiaCurrentIndex;
@@ -342,7 +289,6 @@ export function initComunicacionTabs() {
       card.setAttribute('aria-pressed', isCardActive ? 'true' : 'false');
     });
 
-    // Actualizar leyenda explicativa
     if (familiaSlideCaptions[familiaCurrentIndex]) {
       updateFamiliaCaption(familiaSlideCaptions[familiaCurrentIndex]);
     }
@@ -356,16 +302,14 @@ export function initComunicacionTabs() {
     goToFamiliaSlide(familiaCurrentIndex - 1, fromUser);
   }
 
-  startFamiliaAutoplay = function() {
+  startFamiliaAutoplay = function () {
     stopFamiliaAutoplay();
-    if (tabBtnFamilia.classList.contains('active')) {
-      familiaAutoplayTimer = setInterval(() => {
-        nextFamiliaSlide(false);
-      }, autoplayInterval);
-    }
+    familiaAutoplayTimer = setInterval(() => {
+      nextFamiliaSlide(false);
+    }, autoplayInterval);
   };
 
-  stopFamiliaAutoplay = function() {
+  stopFamiliaAutoplay = function () {
     if (familiaAutoplayTimer) {
       clearInterval(familiaAutoplayTimer);
       familiaAutoplayTimer = null;
@@ -396,22 +340,6 @@ export function initComunicacionTabs() {
     });
   });
 
-  // Clic interactivo en las cards de la columna izquierda de Familia
-  familiaCards.forEach((card) => {
-    card.addEventListener('click', () => {
-      const targetSlide = parseInt(card.getAttribute('data-slide') || '0', 10);
-      goToFamiliaSlide(targetSlide, true);
-      startFamiliaAutoplay();
-    });
-
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
-      }
-    });
-  });
-
   if (familiaContainer) {
     familiaContainer.addEventListener('mouseenter', stopFamiliaAutoplay);
     familiaContainer.addEventListener('mouseleave', startFamiliaAutoplay);
@@ -436,15 +364,30 @@ export function initComunicacionTabs() {
     }, { passive: true });
   }
 
-  // Inicializar estado del slider familia
-  if (familiaSlides.length > 0) {
-    goToFamiliaSlide(0);
-  }
+  const familiaCards = document.querySelectorAll('.js-familia-card');
+  familiaCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const targetSlide = parseInt(card.getAttribute('data-slide') || '0', 10);
+      goToFamiliaSlide(targetSlide, true);
+      startFamiliaAutoplay();
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Inicialización
+  goToDocenteSlide(0);
+  goToFamiliaSlide(0);
+  startDocenteAutoplay();
 }
 
-// Auto-inicialización si el DOM ya cargó
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initComunicacionTabs);
+  document.addEventListener('DOMContentLoaded', initEvaluacionesTabs);
 } else {
-  initComunicacionTabs();
+  initEvaluacionesTabs();
 }

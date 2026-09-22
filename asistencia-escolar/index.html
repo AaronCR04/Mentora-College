@@ -20,70 +20,8 @@
 </head>
 
 <body>
-  <!-- Header Navigation matching index.html -->
-  <header class="header-v2-wrapper" id="mainHeader">
-    <div class="header-v2">
-      <!-- Logo -->
-      <a href="/index.html" class="logo-brand-v2 flex items-center" aria-label="Mentora College - Inicio">
-        <img src="/assets/logo.png" alt="Mentora College" class="brand-logo-img" height="40"
-          style="height: 42px; width: auto; max-height: 44px; display: block; object-fit: contain;">
-      </a>
-
-      <!-- Enlaces de navegación Desktop -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 nav-desktop-v2">
-        <a href="/index.html#problema"
-          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
-          Soluciones
-          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <a href="/recursos/index.html"
-          class="hover:text-purple-700 transition-colors inline-flex items-center gap-1.5 nav-link-v2">
-          Recursos
-          <svg class="w-3.5 h-3.5 opacity-70 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-        <a href="/index.html#porque-mentora" class="hover:text-purple-700 transition-colors nav-link-v2">Nosotros</a>
-        <a href="/index.html#ecosistema" class="hover:text-purple-700 transition-colors nav-link-v2">Plataforma</a>
-      </nav>
-
-      <!-- Botón CTA & Mobile Toggle -->
-      <div class="flex items-center gap-3">
-        <a href="/index.html#contacto"
-          class="cta-btn-v2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md transition-all">
-          Más información
-          <span class="cta-arrow-circle">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </span>
-        </a>
-
-        <!-- Botón menú hamburguesa móvil -->
-        <button class="mobile-drawer-toggle" id="mobileDrawerToggle" aria-label="Abrir menú" aria-expanded="false">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer Nav -->
-  <div class="mobile-drawer" id="mobileDrawerNav">
-    <a href="/index.html#problema" class="nav-link">Soluciones</a>
-    <a href="/recursos/index.html" class="nav-link">Recursos</a>
-    <a href="/index.html#porque-mentora" class="nav-link">Nosotros</a>
-    <a href="/index.html#ecosistema" class="nav-link">Plataforma</a>
-    <div style="margin-top: 1rem;">
-      <a href="/index.html#contacto" class="btn btn-primary"
-        style="width: 100%; text-align: center; display: block; text-decoration: none;">
-        Contáctanos
-      </a>
-    </div>
-  </div>
+  <!-- Header y Drawer de Navegación Componetizados -->
+  <include src="/components/header.html"></include>
   <main>
     <section class="bg-hero-gradient" style="padding: 4.5rem 0 4rem 0;">
       <div class="container">
@@ -291,74 +229,9 @@
 
 
   </main>
-  <!-- ==========================================================================
-       FOOTER INSTITUCIONAL
-       ========================================================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="/index.html" class="footer-logo-brand" aria-label="Mentora College - Inicio">
-            <img src="/assets/mentora-logo-blanco.svg" alt="Mentora College" class="footer-logo-img" height="42">
-          </a>
-          <p
-            style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
-            Ecosistema de gestión educativa que conecta planificación, evaluación, seguimiento del aprendizaje e IA para
-            transformar información en mejores decisiones.
-          </p>
-          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
-            Conecta la gestión. Comprende el aprendizaje. Impulsa la mejora.
-          </div>
-        </div>
-
-        <!-- Col 2: Soluciones SEO -->
-        <div>
-          <div class="footer-col-title">Soluciones Específicas</div>
-          <ul class="footer-links">
-            <li><a href="/gestion-educativa-colegios/index.html" class="footer-link">Gestión Educativa</a></li>
-            <li><a href="/planificacion-evaluacion-competencias/index.html" class="footer-link">Planificación por
-                Competencias</a></li>
-            <li><a href="/inteligencia-artificial-educacion/index.html" class="footer-link">IA Educativa</a></li>
-            <li><a href="/monitoreo-aprendizaje/index.html" class="footer-link">Monitoreo del Aprendizaje</a></li>
-            <li><a href="/evaluacion-con-ia/index.html" class="footer-link">Evaluación asistida por IA</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Módulos -->
-        <div>
-          <div class="footer-col-title">Módulos de Plataforma</div>
-          <ul class="footer-links">
-            <li><a href="/comunicacion-familias/index.html" class="footer-link">Comunicación con Familias</a></li>
-            <li><a href="/asistencia-escolar/index.html" class="footer-link">Control de Asistencia</a></li>
-            <li><a href="/boletas-digitales/index.html" class="footer-link">Boletas Digitales</a></li>
-            <li><a href="/casos-de-exito/index.html" class="footer-link">Casos de Éxito</a></li>
-            <li><a href="/recursos/index.html" class="footer-link">Recursos Educativos</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Legal & Contacto -->
-        <div>
-          <div class="footer-col-title">Contacto & Respaldo</div>
-          <ul class="footer-links" style="font-size: 0.9rem;">
-            <li>📍 Av. Javier Prado Este 2450, Lima, Perú</li>
-            <li>✉️ contacto@mentoracollege.edu</li>
-            <li>📞 +51 (1) 700-8800</li>
-            <li><a href="/index.html#contacto" class="footer-link" style="color: var(--tech-cyan);">Solicitar
-                Demostración</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Mentora College. Todos los derechos reservados. Ecosistema de Gestión Educativa.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" class="footer-link">Política de Privacidad</a>
-          <a href="#" class="footer-link">Términos de Servicio</a>
-          <a href="#" class="footer-link">Seguridad y Datos</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Componentes Componetizados: Footer y Modal de Contacto -->
+  <include src="/components/footer.html"></include>
+  <include src="/components/lead-modal.html"></include>
 
   <!-- Main JavaScript App -->
   <script type="module" src="/js/app.js"></script>
