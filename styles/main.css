@@ -2195,7 +2195,7 @@ body>main {
   }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
   .header-v2 {
     padding: 0.85rem 1.25rem;
   }
@@ -2225,6 +2225,11 @@ body>main {
   .mobile-drawer-toggle:active {
     background: #e2e8f0;
     color: #5632E8;
+  }
+
+  /* Hide header CTA on mobile screens <= 768px to keep mobile header clean and avoid button crowding */
+  .header-v2 .cta-btn-v2 {
+    display: none !important;
   }
 
   body > main {
@@ -2523,11 +2528,19 @@ body>main {
 }
 
 .grid-dolores {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--grid-gap-standard);
   margin-top: 3.25rem;
   margin-bottom: 3.5rem;
+  align-items: stretch;
+}
+
+.grid-dolores .beneficio-card {
+  flex: 0 0 calc((100% - (var(--grid-gap-standard) * 2)) / 3);
+  max-width: calc((100% - (var(--grid-gap-standard) * 2)) / 3);
+  box-sizing: border-box;
 }
 
 .grid-dolores .beneficio-card:nth-child(1):hover {
@@ -2639,11 +2652,27 @@ body>main {
   letter-spacing: -0.015em;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .grid-dolores {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    margin-top: 4rem;
+    gap: 4.5rem 1.75rem;
+    margin-top: 3.5rem;
+  }
+
+  .grid-dolores .beneficio-card {
+    flex: 0 0 calc((100% - 1.75rem) / 2);
+    max-width: calc((100% - 1.75rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-dolores {
+    gap: 4.25rem 1.25rem;
+    margin-top: 3.5rem;
+  }
+
+  .grid-dolores .beneficio-card {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
@@ -5104,8 +5133,9 @@ body>main {
    12. CASOS DE ÉXITO - EFECTO IDÉNTICO A GRID-DOLORES / BENEFICIO-CARD
    ========================================================================== */
 .casos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--grid-gap-standard, 1.75rem);
   max-width: 1240px;
   margin: 0 auto;
@@ -5113,6 +5143,9 @@ body>main {
 }
 
 .casos-grid .caso-card {
+  flex: 0 0 calc((100% - (var(--grid-gap-standard, 1.75rem) * 2)) / 3);
+  max-width: calc((100% - (var(--grid-gap-standard, 1.75rem) * 2)) / 3);
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.65);
@@ -5343,8 +5376,25 @@ body>main {
 
 @media (max-width: 1024px) {
   .casos-grid {
-    grid-template-columns: 1fr;
-    max-width: 560px;
+    gap: 4.5rem 1.75rem;
+    margin-top: 3rem;
+  }
+
+  .casos-grid .caso-card {
+    flex: 0 0 calc((100% - 1.75rem) / 2);
+    max-width: calc((100% - 1.75rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .casos-grid {
+    gap: 4.25rem 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .casos-grid .caso-card {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
