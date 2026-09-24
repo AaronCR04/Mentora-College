@@ -1,7 +1,8 @@
 /* ==========================================================================
    IA MODAL CONTROLLER - MENTORA COLLEGE
-   Visualizador interactivo para los 4 pilares de IA:
-   CREA, EVALÚA, RETROALIMENTA y ANALIZA
+   Visualizador interactivo para los pilares de IA:
+   - DOCENTES: Recursos (Video Drive), Instrumentos (Video Drive), Evaluaciones, Foros, Rutas
+   - ESTUDIANTES: Revisión de tareas, Retroalimentación de ruta de aprendizaje
    ========================================================================== */
 
 export function initIaModal() {
@@ -12,58 +13,281 @@ export function initIaModal() {
   const titleEl = document.getElementById('iaModalTitle');
   const imgEl = document.getElementById('iaModalImg');
   const descEl = document.getElementById('iaModalDesc');
+  const videoContainer = document.getElementById('iaModalVideoContainer');
+  const iframeEl = document.getElementById('iaModalIframe');
+  const prevBtn = document.getElementById('iaSlidePrev');
+  const nextBtn = document.getElementById('iaSlideNext');
+  const dotsContainer = document.getElementById('iaSlideDots');
+  const dotBtns = document.querySelectorAll('.ia-video-dot');
+
+  let currentVideos = [];
+  let currentDescs = [];
+  let currentVideoIndex = 0;
 
   const iaData = {
-    crea: {
-      badge: 'CREA',
-      title: 'Generar recursos con IA',
-      img: '/assets/ia/ia-modal-crea.png',
-      desc: 'Genera recursos pedagógicos e instrumentos de evaluación a partir del contexto y parámetros del docente.',
+    // 1. DOCENTE: Creación de Recursos con IA (Video Drive)
+    recursos: {
+      badge: 'RECURSOS',
+      title: 'Creación de Recursos con IA',
+      videos: [
+        'https://drive.google.com/file/d/1E9x0QUQxW6qF9boBOAro5GtBpEyQ21zS/preview'
+      ],
+      descs: [
+        'Generación inteligente de fichas didácticas, lecturas adaptadas y materiales pedagógicos alineados al contexto y nivel del aula.'
+      ],
       color: '#7c3aed',
-      bg: '#f3e8ff'
+      bg: '#f3e8ff',
+      darkColor: '#c084fc',
+      darkBg: 'rgba(168, 85, 247, 0.16)'
     },
-    evalua: {
-      badge: 'EVALÚA',
-      title: 'Evaluación y revisión criterial con IA',
-      img: '/assets/ecosistema/ecosistema-03-evalua.png',
-      desc: 'Apoya la revisión ágil de tareas, cuestionarios y evidencias según criterios pedagógicos curriculares.',
+    // Alias para compatibilidad con código previo
+    crea: {
+      badge: 'RECURSOS',
+      title: 'Creación de Recursos con IA',
+      videos: [
+        'https://drive.google.com/file/d/1E9x0QUQxW6qF9boBOAro5GtBpEyQ21zS/preview'
+      ],
+      descs: [
+        'Generación inteligente de fichas didácticas, lecturas adaptadas y materiales pedagógicos alineados al contexto y nivel del aula.'
+      ],
+      color: '#7c3aed',
+      bg: '#f3e8ff',
+      darkColor: '#c084fc',
+      darkBg: 'rgba(168, 85, 247, 0.16)'
+    },
+
+    // 2. DOCENTE: Crear instrumentos de evaluación con IA (Video Drive)
+    instrumentos: {
+      badge: 'INSTRUMENTOS',
+      title: 'Crear instrumentos de evaluación con IA',
+      videos: [
+        'https://drive.google.com/file/d/1f4mcaQjEYLIIqpFkAsuCGIMpbwfkdB2q/preview'
+      ],
+      descs: [
+        'Construcción de rúbricas por niveles de logro (AD, A, B, C), listas de cotejo y matrices de evaluación por competencias.'
+      ],
       color: '#4f46e5',
-      bg: '#ede9fe'
+      bg: '#ede9fe',
+      darkColor: '#818cf8',
+      darkBg: 'rgba(99, 102, 241, 0.16)'
     },
-    retroalimenta: {
-      badge: 'RETROALIMENTA',
-      title: 'Análisis cualitativo y retroalimentación formativa',
-      img: '/assets/ecosistema/ecosistema-04-retroalimenta.png',
-      desc: 'Genera orientaciones personalizadas que ayudan al estudiante a comprender cómo mejorar su aprendizaje.',
+    // Alias para compatibilidad con código previo
+    evalua: {
+      badge: 'INSTRUMENTOS',
+      title: 'Crear instrumentos de evaluación con IA',
+      videos: [
+        'https://drive.google.com/file/d/1f4mcaQjEYLIIqpFkAsuCGIMpbwfkdB2q/preview'
+      ],
+      descs: [
+        'Construcción de rúbricas por niveles de logro (AD, A, B, C), listas de cotejo y matrices de evaluación por competencias.'
+      ],
+      color: '#4f46e5',
+      bg: '#ede9fe',
+      darkColor: '#818cf8',
+      darkBg: 'rgba(99, 102, 241, 0.16)'
+    },
+
+    // 3. DOCENTE: Revisar evaluaciones con IA (Video Drive)
+    evaluaciones: {
+      badge: 'EVALUACIONES',
+      title: 'Revisar evaluaciones con IA',
+      videos: [
+        'https://drive.google.com/file/d/1JzfsY2rBs5UJzI7_OsFsD1_SPzID6gFh/preview'
+      ],
+      descs: [
+        'Agiliza la revisión de los entregables de las tareas con criterios pedagógicos objetivos y transparentes.'
+      ],
       color: '#0284c7',
-      bg: '#e0f2fe'
+      bg: '#e0f2fe',
+      darkColor: '#38bdf8',
+      darkBg: 'rgba(14, 165, 233, 0.16)'
+    },
+
+    // 4. DOCENTE: Foros inteligentes (Video Drive)
+    foros: {
+      badge: 'FOROS',
+      title: 'Foros inteligentes',
+      videos: [
+        'https://drive.google.com/file/d/1i2f28RzZ4R7Q-dULUaHmh6PwrfxcH8Xo/preview'
+      ],
+      descs: [
+        'Realiza una evaluación cualitativa y genera feedback a las respuestas del estudiante del foro.'
+      ],
+      color: '#d97706',
+      bg: '#fef3c7',
+      darkColor: '#fbbf24',
+      darkBg: 'rgba(245, 158, 11, 0.16)'
+    },
+
+    // 5. DOCENTE: Generar rutas de aprendizaje con IA (Video Drive)
+    rutas: {
+      badge: 'RUTAS',
+      title: 'Generar rutas de aprendizaje con IA',
+      videos: [
+        'https://drive.google.com/file/d/1Q5bMkd9A_M4GTLeOW8AlPG-n8m-qlazm/preview'
+      ],
+      descs: [
+        'Estructura secuencias modulares y trayectorias formativas adaptadas a los ritmos y necesidades de cada grupo.'
+      ],
+      color: '#c026d3',
+      bg: '#fdf2f8',
+      darkColor: '#e879f9',
+      darkBg: 'rgba(217, 70, 239, 0.16)'
     },
     analiza: {
-      badge: 'ANALIZA',
-      title: 'Ficha de analítica y logro pedagógico con IA',
-      img: '/assets/ecosistema/ecosistema-06-mejora.png',
-      desc: 'Interpreta resultados grupales e individuales, niveles de logro y predicción de refuerzo educativo.',
+      badge: 'RUTAS',
+      title: 'Generar rutas de aprendizaje con IA',
+      videos: [
+        'https://drive.google.com/file/d/1Q5bMkd9A_M4GTLeOW8AlPG-n8m-qlazm/preview'
+      ],
+      descs: [
+        'Estructura secuencias modulares y trayectorias formativas adaptadas a los ritmos y necesidades de cada grupo.'
+      ],
       color: '#c026d3',
-      bg: '#fdf2f8'
+      bg: '#fdf2f8',
+      darkColor: '#e879f9',
+      darkBg: 'rgba(217, 70, 239, 0.16)'
+    },
+
+    // 6. DOCENTE: Mentor Genesys (Video Drive)
+    'mentor-genesys': {
+      badge: 'MENTOR GENESYS',
+      title: 'Mentor Genesys',
+      videos: [
+        'https://drive.google.com/file/d/14Ldfl0KfgO4Nwz43arCB9ZTj-mn-g1SG/preview'
+      ],
+      descs: [
+        'Mentor Genesys es un asistente virtual que ayudará a resolver durante todo el ciclo del aprendizaje al usuario.'
+      ],
+      color: '#2563eb',
+      bg: '#eff6ff',
+      darkColor: '#60a5fa',
+      darkBg: 'rgba(59, 130, 246, 0.16)'
+    },
+    'chat-gemini': {
+      badge: 'MENTOR GENESYS',
+      title: 'Mentor Genesys',
+      videos: [
+        'https://drive.google.com/file/d/14Ldfl0KfgO4Nwz43arCB9ZTj-mn-g1SG/preview'
+      ],
+      descs: [
+        'Mentor Genesys es un asistente virtual que ayudará a resolver durante todo el ciclo del aprendizaje al usuario.'
+      ],
+      color: '#2563eb',
+      bg: '#eff6ff',
+      darkColor: '#60a5fa',
+      darkBg: 'rgba(59, 130, 246, 0.16)'
+    },
+    'chat': {
+      badge: 'MENTOR GENESYS',
+      title: 'Mentor Genesys',
+      videos: [
+        'https://drive.google.com/file/d/14Ldfl0KfgO4Nwz43arCB9ZTj-mn-g1SG/preview'
+      ],
+      descs: [
+        'Mentor Genesys es un asistente virtual que ayudará a resolver durante todo el ciclo del aprendizaje al usuario.'
+      ],
+      color: '#2563eb',
+      bg: '#eff6ff',
+      darkColor: '#60a5fa',
+      darkBg: 'rgba(59, 130, 246, 0.16)'
+    },
+
+    // 7. ESTUDIANTE: Revisión de tareas con IA (Video Drive)
+    'est-tareas': {
+      badge: 'ESTUDIANTE',
+      title: 'Revisión de tareas con IA',
+      videos: [
+        'https://drive.google.com/file/d/1q9-RYthoZkay38xDgfzdzxzg91ysRdaj/preview'
+      ],
+      descs: [
+        'Orientación formativa previa a la entrega final para identificar áreas de mejora sin otorgar respuestas automáticas.'
+      ],
+      color: '#059669',
+      bg: '#d1fae5',
+      darkColor: '#34d399',
+      darkBg: 'rgba(16, 185, 129, 0.16)'
+    },
+
+    // 7. ESTUDIANTE: Retroalimentación de ruta de aprendizaje con IA
+    'est-ruta': {
+      badge: 'ESTUDIANTE',
+      title: 'Retroalimentación de ruta de aprendizaje con IA',
+      img: '/assets/general/criterios.svg',
+      desc: 'Tutoría guiada paso a paso que refuerza los conceptos clave en función del progreso y desempeño en su itinerario formativo.',
+      color: '#6366f1',
+      bg: '#e0e7ff',
+      darkColor: '#a5b4fc',
+      darkBg: 'rgba(99, 102, 241, 0.16)'
     }
   };
 
+  function setVideo(index) {
+    if (!currentVideos || currentVideos.length === 0) return;
+    currentVideoIndex = (index + currentVideos.length) % currentVideos.length;
+
+    if (iframeEl) {
+      iframeEl.src = currentVideos[currentVideoIndex];
+    }
+
+    if (descEl && currentDescs && currentDescs[currentVideoIndex]) {
+      descEl.textContent = currentDescs[currentVideoIndex];
+    }
+
+    // Actualizar dots
+    dotBtns.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === currentVideoIndex);
+    });
+  }
+
   function openModal(type) {
-    const data = iaData[type] || iaData.crea;
+    const data = iaData[type] || iaData.recursos;
     if (badgeEl) {
       badgeEl.textContent = data.badge;
-      badgeEl.style.color = data.color;
-      badgeEl.style.backgroundColor = data.bg;
+      badgeEl.style.color = data.darkColor || data.color;
+      badgeEl.style.backgroundColor = data.darkBg || 'rgba(255, 255, 255, 0.08)';
+      badgeEl.style.borderColor = (data.darkColor || data.color) ? `${data.darkColor || data.color}55` : 'rgba(255, 255, 255, 0.2)';
     }
     if (titleEl) {
       titleEl.textContent = data.title;
     }
-    if (imgEl) {
-      imgEl.src = data.img;
-      imgEl.alt = data.title;
-    }
-    if (descEl) {
-      descEl.textContent = data.desc;
+
+    if (data.videos && data.videos.length > 0) {
+      // Modo Video
+      currentVideos = data.videos;
+      currentDescs = data.descs || [data.desc];
+      if (imgEl) {
+        imgEl.style.display = 'none';
+        imgEl.src = '';
+      }
+      if (videoContainer) {
+        videoContainer.style.display = 'flex';
+      }
+
+      // Si hay más de 1 video, mostrar controles de slide; si es 1, ocultar flechas y dots
+      const hasMultipleVideos = currentVideos.length > 1;
+      if (prevBtn) prevBtn.style.display = hasMultipleVideos ? 'flex' : 'none';
+      if (nextBtn) nextBtn.style.display = hasMultipleVideos ? 'flex' : 'none';
+      if (dotsContainer) dotsContainer.style.display = hasMultipleVideos ? 'flex' : 'none';
+
+      setVideo(0);
+    } else {
+      // Modo Imagen
+      currentVideos = [];
+      if (videoContainer) {
+        videoContainer.style.display = 'none';
+      }
+      if (iframeEl) {
+        iframeEl.src = '';
+      }
+      if (imgEl) {
+        imgEl.style.display = 'block';
+        imgEl.src = data.img;
+        imgEl.alt = data.title;
+      }
+      if (descEl) {
+        descEl.textContent = data.desc;
+      }
     }
 
     overlay.classList.add('is-active');
@@ -75,9 +299,42 @@ export function initIaModal() {
     overlay.classList.remove('is-active');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    // Detener reproducción al cerrar desmontando el src
+    if (iframeEl) {
+      iframeEl.src = '';
+    }
   }
 
-  // Event listeners for triggers
+  // Controles de flechas (solo iconos)
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setVideo(currentVideoIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setVideo(currentVideoIndex + 1);
+    });
+  }
+
+  // Controles de dots
+  dotBtns.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const idx = parseInt(dot.getAttribute('data-index'), 10);
+      if (!isNaN(idx)) {
+        setVideo(idx);
+      }
+    });
+  });
+
+  // Event listeners para los triggers de las tarjetas y botones
   document.querySelectorAll('[data-ia-modal]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
@@ -87,15 +344,16 @@ export function initIaModal() {
     });
   });
 
-  // Event listeners for close buttons and backdrop
+  // Event listeners para cerrar modal
   overlay.querySelectorAll('[data-close-ia-modal]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       closeModal();
     });
   });
 
-  // Close on Escape key
+  // Cerrar al pulsar Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('is-active')) {
       closeModal();

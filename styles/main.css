@@ -460,8 +460,9 @@ h3 {
 }
 
 .beneficios-grid .beneficio-card:nth-child(3):hover,
-.beneficios-grid .beneficio-card:has(.pill-slate):hover {
-  border-top-color: #475569;
+.beneficios-grid .beneficio-card:has(.pill-emerald):hover,
+.beneficios-grid .beneficio-card:has(.pill-green):hover {
+  border-top-color: #10b981;
 }
 
 .beneficios-grid .beneficio-card:nth-child(4):hover,
@@ -470,14 +471,13 @@ h3 {
 }
 
 .beneficios-grid .beneficio-card:nth-child(5):hover,
-.beneficios-grid .beneficio-card:has(.pill-amber):hover,
-.beneficio-card.card-highlight:hover {
-  border-top-color: #f59e0b;
+.beneficios-grid .beneficio-card:has(.pill-neutral):hover {
+  border-top-color: #64748b;
 }
 
 .beneficios-grid .beneficio-card:nth-child(6):hover,
-.beneficios-grid .beneficio-card:has(.pill-neutral):hover {
-  border-top-color: #64748b;
+.beneficios-grid .beneficio-card:has(.pill-amber):hover {
+  border-top-color: #f59e0b;
 }
 
 /* Modificadores de color de línea superior en hover para cards de asistencia */
@@ -494,6 +494,14 @@ h3 {
 .beneficios-grid .beneficio-card.card-hover-emerald:hover,
 .asistencia-beneficios-grid .beneficio-card:nth-child(3):hover {
   border-top-color: var(--status-success, #10B981);
+}
+
+.beneficios-grid .beneficio-card.card-hover-purple:hover {
+  border-top-color: #7e22ce;
+}
+
+.beneficios-grid .beneficio-card.card-hover-amber:hover {
+  border-top-color: #f59e0b;
 }
 
 /* Tarjeta destacada: Enseñanza y evaluación con IA */
@@ -599,6 +607,19 @@ h3 {
 .pill-cyan:hover {
   background: #e0f2fe;
   color: #0369a1;
+}
+
+.pill-emerald,
+.pill-green {
+  background: rgba(236, 253, 245, 0.92);
+  color: #059669;
+  border: 1px solid rgba(167, 243, 208, 0.75);
+}
+
+.pill-emerald:hover,
+.pill-green:hover {
+  background: #d1fae5;
+  color: #047857;
 }
 
 .pill-slate {
@@ -2630,15 +2651,14 @@ body>main {
   opacity: 1;
 }
 
-/* Image Card Showcase */
+/* Image Card Showcase (Sin marco ni márgenes) */
 .ecosistema-image-card {
   width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow:
-    0 25px 55px -12px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 255, 255, 0.14);
-  background: #0d1527;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2651,7 +2671,9 @@ body>main {
   max-height: 520px;
   object-fit: contain;
   display: block;
-  border-radius: 18px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
 /* Software Mockup Window */
@@ -3134,19 +3156,22 @@ body>main {
   align-items: stretch;
 }
 
-.ia-beneficios-grid .beneficio-card {
+.ia-beneficios-grid .beneficio-card,
+.ia-estudiantes-grid .beneficio-card {
   padding: 3.15rem 1.4rem 2rem 1.4rem;
   height: 100%;
 }
 
-.ia-beneficios-grid .beneficio-card-icon {
+.ia-beneficios-grid .beneficio-card-icon,
+.ia-estudiantes-grid .beneficio-card-icon {
   width: 76px;
   height: 76px;
   top: -26px;
   right: 20px;
 }
 
-.ia-beneficios-grid .beneficio-card-title {
+.ia-beneficios-grid .beneficio-card-title,
+.ia-estudiantes-grid .beneficio-card-title {
   color: #0f172a;
 }
 
@@ -3166,119 +3191,297 @@ body>main {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 3px solid #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display, sans-serif);
-  font-size: 1.65rem;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
   z-index: 10;
   padding: 0;
+  overflow: hidden;
+  background: #ffffff;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.ia-card-plus-btn span {
+/* Efecto de relleno circular expansivo desde el centro */
+.ia-card-plus-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.ia-play-icon-wrap {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  transform-origin: center center;
+  margin-left: 2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.ia-play-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  transition: fill 0.3s ease, transform 0.3s ease;
 }
 
 .beneficio-card:hover .ia-card-plus-btn,
 .ia-card-plus-btn:hover {
-  transform: translateX(-50%) scale(1.15);
+  transform: translateX(-50%) scale(1.12);
 }
 
-.beneficio-card:hover .ia-card-plus-btn span,
-.ia-card-plus-btn:hover span {
-  animation: spinPlus 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+.beneficio-card:hover .ia-card-plus-btn::before,
+.ia-card-plus-btn:hover::before {
+  transform: scale(1.08);
 }
 
-@keyframes spinPlus {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.beneficio-card:hover .ia-card-plus-btn .ia-play-icon-wrap,
+.ia-card-plus-btn:hover .ia-play-icon-wrap {
+  color: #ffffff !important;
 }
 
-/* 1. CREA (Morado) */
+/* 1. RECURSOS (Morado) */
+.ia-card-recursos .ia-card-plus-btn,
 .ia-card-crea .ia-card-plus-btn {
-  background: #f3e8ff;
+  border: 2.5px solid #7c3aed;
   color: #7c3aed;
   box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22);
 }
 
-.ia-card-crea:hover .ia-card-plus-btn,
-.ia-card-crea .ia-card-plus-btn:hover {
-  background: #e9d5ff;
-  color: #6d28d9;
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.42);
+.ia-card-recursos .ia-card-plus-btn::before,
+.ia-card-crea .ia-card-plus-btn::before {
+  background: #7c3aed;
 }
 
+.ia-card-recursos:hover .ia-card-plus-btn,
+.ia-card-recursos .ia-card-plus-btn:hover,
+.ia-card-crea:hover .ia-card-plus-btn,
+.ia-card-crea .ia-card-plus-btn:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 6px 22px rgba(124, 58, 237, 0.45);
+}
+
+.ia-card-recursos:hover,
 .ia-card-crea:hover {
   border-top-color: var(--mentora-purple, #7c3aed);
 }
 
-/* 2. EVALÚA (Azul índigo) */
+/* 2. INSTRUMENTOS (Azul índigo) */
+.ia-card-instrumentos .ia-card-plus-btn,
 .ia-card-evalua .ia-card-plus-btn {
-  background: #ede9fe;
+  border: 2.5px solid #4f46e5;
   color: #4f46e5;
   box-shadow: 0 4px 14px rgba(79, 70, 229, 0.22);
 }
 
-.ia-card-evalua:hover .ia-card-plus-btn,
-.ia-card-evalua .ia-card-plus-btn:hover {
-  background: #ddd6fe;
-  color: #3730a3;
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.42);
+.ia-card-instrumentos .ia-card-plus-btn::before,
+.ia-card-evalua .ia-card-plus-btn::before {
+  background: #4f46e5;
 }
 
+.ia-card-instrumentos:hover .ia-card-plus-btn,
+.ia-card-instrumentos .ia-card-plus-btn:hover,
+.ia-card-evalua:hover .ia-card-plus-btn,
+.ia-card-evalua .ia-card-plus-btn:hover {
+  border-color: #4f46e5;
+  box-shadow: 0 6px 22px rgba(79, 70, 229, 0.45);
+}
+
+.ia-card-instrumentos:hover,
 .ia-card-evalua:hover {
   border-top-color: var(--mentora-blue, #4f46e5);
 }
 
-/* 3. RETROALIMENTA (Azul celeste) */
+/* 3. REVISAR EVALUACIONES (Azul celeste / Tech) */
+.ia-card-evaluaciones .ia-card-plus-btn,
 .ia-card-retro .ia-card-plus-btn {
-  background: #e0f2fe;
+  border: 2.5px solid #0284c7;
   color: #0284c7;
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22);
 }
 
-.ia-card-retro:hover .ia-card-plus-btn,
-.ia-card-retro .ia-card-plus-btn:hover {
-  background: #bae6fd;
-  color: #0369a1;
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.42);
+.ia-card-evaluaciones .ia-card-plus-btn::before,
+.ia-card-retro .ia-card-plus-btn::before {
+  background: #0284c7;
 }
 
+.ia-card-evaluaciones:hover .ia-card-plus-btn,
+.ia-card-evaluaciones .ia-card-plus-btn:hover,
+.ia-card-retro:hover .ia-card-plus-btn,
+.ia-card-retro .ia-card-plus-btn:hover {
+  border-color: #0284c7;
+  box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45);
+}
+
+.ia-card-evaluaciones:hover,
 .ia-card-retro:hover {
   border-top-color: var(--tech-cyan, #0284c7);
 }
 
-/* 4. ANALIZA (Magenta / Rosa) */
+/* 4. FOROS (Ámbar / Naranja) */
+.ia-card-foros .ia-card-plus-btn {
+  border: 2.5px solid #d97706;
+  color: #d97706;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.22);
+}
+
+.ia-card-foros .ia-card-plus-btn::before {
+  background: #d97706;
+}
+
+.ia-card-foros:hover .ia-card-plus-btn,
+.ia-card-foros .ia-card-plus-btn:hover {
+  border-color: #d97706;
+  box-shadow: 0 6px 22px rgba(217, 119, 6, 0.45);
+}
+
+.ia-card-foros:hover {
+  border-top-color: #d97706;
+}
+
+/* 5. RUTAS DE APRENDIZAJE (Magenta / Rosa) */
+.ia-card-rutas .ia-card-plus-btn,
 .ia-card-analiza .ia-card-plus-btn {
-  background: #fdf2f8;
+  border: 2.5px solid #c026d3;
   color: #c026d3;
   box-shadow: 0 4px 14px rgba(192, 38, 211, 0.22);
 }
 
-.ia-card-analiza:hover .ia-card-plus-btn,
-.ia-card-analiza .ia-card-plus-btn:hover {
-  background: #fce7f3;
-  color: #a21caf;
-  box-shadow: 0 6px 20px rgba(192, 38, 211, 0.42);
+.ia-card-rutas .ia-card-plus-btn::before,
+.ia-card-analiza .ia-card-plus-btn::before {
+  background: #c026d3;
 }
 
+.ia-card-rutas:hover .ia-card-plus-btn,
+.ia-card-rutas .ia-card-plus-btn:hover,
+.ia-card-analiza:hover .ia-card-plus-btn,
+.ia-card-analiza .ia-card-plus-btn:hover {
+  border-color: #c026d3;
+  box-shadow: 0 6px 22px rgba(192, 38, 211, 0.45);
+}
+
+.ia-card-rutas:hover,
 .ia-card-analiza:hover {
   border-top-color: var(--accent-magenta, #c026d3);
+}
+
+/* 6. CHAT BOX GEMINI (Azul Eléctrico / Gemini) */
+.ia-card-chat .ia-card-plus-btn {
+  border: 2.5px solid #2563eb;
+  color: #2563eb;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.22);
+}
+
+.ia-card-chat .ia-card-plus-btn::before {
+  background: #2563eb;
+}
+
+.ia-card-chat:hover .ia-card-plus-btn,
+.ia-card-chat .ia-card-plus-btn:hover {
+  border-color: #2563eb;
+  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45);
+}
+
+.ia-card-chat:hover {
+  border-top-color: #2563eb;
+}
+
+/* ESTUDIANTE 1. REVISIÓN DE TAREAS (Esmeralda / Verde) */
+.ia-card-est-tareas .ia-card-plus-btn {
+  border: 2.5px solid #059669;
+  color: #059669;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.22);
+}
+
+.ia-card-est-tareas .ia-card-plus-btn::before {
+  background: #059669;
+}
+
+.ia-card-est-tareas:hover .ia-card-plus-btn,
+.ia-card-est-tareas .ia-card-plus-btn:hover {
+  border-color: #059669;
+  box-shadow: 0 6px 22px rgba(5, 150, 105, 0.45);
+}
+
+.ia-card-est-tareas:hover {
+  border-top-color: #059669;
+}
+
+/* ESTUDIANTE 2. RETROALIMENTACIÓN DE RUTA (Violeta Vibrante) */
+.ia-card-est-ruta .ia-card-plus-btn {
+  border: 2.5px solid #6366f1;
+  color: #6366f1;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.22);
+}
+
+.ia-card-est-ruta .ia-card-plus-btn::before {
+  background: #6366f1;
+}
+
+.ia-card-est-ruta:hover .ia-card-plus-btn,
+.ia-card-est-ruta .ia-card-plus-btn:hover {
+  border-color: #6366f1;
+  box-shadow: 0 6px 22px rgba(99, 102, 241, 0.45);
+}
+
+.ia-card-est-ruta:hover {
+  border-top-color: #6366f1;
+}
+
+/* Grids responsivos de IA - Estándar Compartido */
+.ia-beneficios-grid,
+.ia-estudiantes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap-standard);
+  margin-top: 3.25rem;
+  margin-bottom: 2rem;
+  align-items: stretch;
+}
+
+.ia-beneficios-grid .beneficio-card,
+.ia-estudiantes-grid .beneficio-card {
+  flex: 0 0 calc((100% - (var(--grid-gap-standard) * 2)) / 3);
+  max-width: calc((100% - (var(--grid-gap-standard) * 2)) / 3);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .ia-beneficios-grid,
+  .ia-estudiantes-grid {
+    gap: 4.5rem 1.75rem;
+  }
+
+  .ia-beneficios-grid .beneficio-card,
+  .ia-estudiantes-grid .beneficio-card {
+    flex: 0 0 calc((100% - 1.75rem) / 2);
+    max-width: calc((100% - 1.75rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .ia-beneficios-grid,
+  .ia-estudiantes-grid {
+    gap: 4.5rem 1.75rem;
+    margin-top: 4.25rem;
+  }
+
+  .ia-beneficios-grid .beneficio-card,
+  .ia-estudiantes-grid .beneficio-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 /* ==========================================================================
@@ -3307,22 +3510,30 @@ body>main {
 .ia-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(11, 15, 25, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .ia-modal-window {
   position: relative;
   z-index: 10;
-  background: #ffffff;
+  background-color: #0b0f19;
+  background-image:
+    radial-gradient(circle at 86% 22%, rgba(139, 92, 246, 0.22) 0%, transparent 48%),
+    radial-gradient(circle at 14% 38%, rgba(86, 50, 232, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(59, 130, 246, 0.12) 0%, transparent 50%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   width: 100%;
   max-width: 960px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(124, 58, 237, 0.15);
+  box-shadow:
+    0 25px 65px -10px rgba(0, 0, 0, 0.85),
+    0 0 40px rgba(139, 92, 246, 0.22),
+    inset 0 0 0 1px rgba(168, 85, 247, 0.15);
   overflow: hidden;
   transform: scale(0.92) translateY(20px);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3336,9 +3547,11 @@ body>main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #f1f5f9;
-  background: #fafbfc;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .ia-modal-header-left {
@@ -3351,10 +3564,11 @@ body>main {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background: #f3e8ff;
-  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #c084fc;
   text-transform: uppercase;
 }
 
@@ -3362,7 +3576,7 @@ body>main {
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -3370,9 +3584,9 @@ body>main {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  color: #64748b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3382,16 +3596,16 @@ body>main {
 }
 
 .ia-modal-close-btn:hover {
-  background: #fee2e2;
-  color: #ef4444;
-  border-color: #fca5a5;
+  background: rgba(239, 68, 68, 0.22);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.55);
   transform: rotate(90deg);
 }
 
 .ia-modal-body {
   padding: 1.25rem;
   overflow-y: auto;
-  background: #f8fafc;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3403,24 +3617,124 @@ body>main {
   max-height: 60vh;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: block;
+}
+
+/* Reproductor de Video con Slide para IA Modal */
+.ia-modal-video-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ia-video-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 62vh;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.75),
+    0 0 25px rgba(139, 92, 246, 0.2);
+}
+
+.ia-modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Flechas flotantes (solo iconos) */
+.ia-video-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.ia-video-arrow:hover {
+  background: #7c3aed;
+  border-color: #a855f7;
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.65);
+}
+
+.ia-video-arrow.prev {
+  left: 14px;
+}
+
+.ia-video-arrow.next {
+  right: 14px;
+}
+
+/* Puntos indicadores elegantes */
+.ia-video-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 0 0 0;
+}
+
+.ia-video-dot {
+  width: 26px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  padding: 0;
+}
+
+.ia-video-dot:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.ia-video-dot.is-active {
+  width: 42px;
+  background: #a855f7;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.75);
 }
 
 .ia-modal-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 1.5rem;
-  border-top: 1px solid #f1f5f9;
-  background: #ffffff;
+  padding: 0.95rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   gap: 1.5rem;
 }
 
 .ia-modal-desc {
   font-size: 0.88rem;
-  color: #64748b;
+  color: #cbd5e1;
   line-height: 1.45;
   margin: 0;
 }
@@ -3428,9 +3742,9 @@ body>main {
 .ia-modal-footer-btn {
   padding: 0.5rem 1.35rem;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
@@ -3439,8 +3753,9 @@ body>main {
 }
 
 .ia-modal-footer-btn:hover {
-  background: #e2e8f0;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 /* Responsividad: IA Grid simétrico en 2 columnas y 1 columna */

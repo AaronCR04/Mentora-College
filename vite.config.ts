@@ -65,6 +65,7 @@ export default defineConfig({
         planificacion: path.resolve(__dirname, 'planificacion-evaluacion-competencias/index.html'),
         evaluaciones: path.resolve(__dirname, 'gestion-evaluaciones/index.html'),
         monitoreo: path.resolve(__dirname, 'monitoreo-aprendizaje/index.html'),
+        boleta: path.resolve(__dirname, 'boleta-de-notas/index.html'),
       },
     },
   },
