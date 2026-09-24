@@ -209,12 +209,16 @@ export function initIaModal() {
       darkBg: 'rgba(16, 185, 129, 0.16)'
     },
 
-    // 7. ESTUDIANTE: Retroalimentación de ruta de aprendizaje con IA
+    // 7. ESTUDIANTE: Retroalimentación de R.A. con IA (Video Drive)
     'est-ruta': {
       badge: 'ESTUDIANTE',
-      title: 'Retroalimentación de ruta de aprendizaje con IA',
-      img: '/assets/general/criterios.svg',
-      desc: 'Tutoría guiada paso a paso que refuerza los conceptos clave en función del progreso y desempeño en su itinerario formativo.',
+      title: 'Retroalimentación de R.A. con IA',
+      videos: [
+        'https://drive.google.com/file/d/1l5FytXhyY04uVsydkQYUBtrq47zDi0Zy/preview'
+      ],
+      descs: [
+        'Retroalimentación formativa para el estudiante para cada reto planteado en las Rutas de Aprendizaje.'
+      ],
       color: '#6366f1',
       bg: '#e0e7ff',
       darkColor: '#a5b4fc',
@@ -334,7 +338,7 @@ export function initIaModal() {
     });
   });
 
-  // Event listeners para los triggers de las tarjetas y botones
+  // Event listeners para cualquier disparador con [data-ia-modal] (cards de IA y footer)
   document.querySelectorAll('[data-ia-modal]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
@@ -359,4 +363,20 @@ export function initIaModal() {
       closeModal();
     }
   });
+
+  // Abrir automáticamente si se proporciona parámetro en URL o hash
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoParam = urlParams.get('video');
+    if (videoParam && iaData[videoParam]) {
+      setTimeout(() => openModal(videoParam), 350);
+    } else if (window.location.hash.startsWith('#video-')) {
+      const hashVideo = window.location.hash.replace('#video-', '');
+      if (iaData[hashVideo]) {
+        setTimeout(() => openModal(hashVideo), 350);
+      }
+    }
+  } catch {
+    // Ignore URL parse error
+  }
 }

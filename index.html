@@ -46,353 +46,6 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/styles/main.css">
-  <style>
-    .ia-beneficios-grid,
-    .ia-estudiantes-grid {
-      display: flex !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      gap: var(--grid-gap-standard) !important;
-      margin-top: 3.25rem !important;
-      margin-bottom: 2rem !important;
-      align-items: stretch !important;
-    }
-
-    .ia-beneficios-grid .beneficio-card,
-    .ia-estudiantes-grid .beneficio-card {
-      flex: 0 0 calc((100% - (var(--grid-gap-standard) * 2)) / 3) !important;
-      max-width: calc((100% - (var(--grid-gap-standard) * 2)) / 3) !important;
-      box-sizing: border-box !important;
-
-      .ia-beneficios-grid .beneficio-card,
-      .ia-estudiantes-grid .beneficio-card {
-        padding: 2.85rem 1.75rem 2rem 1.75rem !important;
-        height: 100% !important;
-        cursor: pointer !important;
-        position: relative !important;
-        border-top: 3px solid transparent !important;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease !important;
-      }
-
-      .ia-beneficios-grid .beneficio-card-icon,
-      .ia-estudiantes-grid .beneficio-card-icon {
-        width: 76px !important;
-        height: 76px !important;
-        top: -26px !important;
-        right: 20px !important;
-      }
-
-      .ia-beneficios-grid .beneficio-card-title,
-      .ia-estudiantes-grid .beneficio-card-title {
-        color: #0f172a !important;
-      }
-
-      .ia-card-plus-btn {
-        position: absolute !important;
-        left: 50% !important;
-        bottom: -22px !important;
-        top: auto !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        z-index: 10 !important;
-        padding: 0 !important;
-        overflow: hidden !important;
-        background: #ffffff !important;
-        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
-      }
-
-      /* Efecto de relleno circular expansivo desde el centro */
-      .ia-card-plus-btn::before {
-        content: '' !important;
-        position: absolute !important;
-        top: -2px !important;
-        left: -2px !important;
-        right: -2px !important;
-        bottom: -2px !important;
-        border-radius: 50% !important;
-        transform: scale(0) !important;
-        transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        z-index: 1 !important;
-      }
-
-      .ia-play-icon-wrap {
-        position: relative !important;
-        z-index: 2 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        height: 100% !important;
-        margin-left: 2px !important;
-        /* Ajuste óptico para centrado de play */
-        transition: color 0.3s ease, transform 0.3s ease !important;
-      }
-
-      .ia-play-icon {
-        width: 18px !important;
-        height: 18px !important;
-        display: block !important;
-        transition: fill 0.3s ease, transform 0.3s ease !important;
-      }
-
-      .beneficio-card:hover .ia-card-plus-btn,
-      .ia-card-plus-btn:hover {
-        transform: translateX(-50%) scale(1.12) !important;
-      }
-
-      .beneficio-card:hover .ia-card-plus-btn::before,
-      .ia-card-plus-btn:hover::before {
-        transform: scale(1.08) !important;
-      }
-
-      .beneficio-card:hover .ia-card-plus-btn .ia-play-icon-wrap,
-      .ia-card-plus-btn:hover .ia-play-icon-wrap {
-        color: #ffffff !important;
-      }
-
-      /* 1. RECURSOS (Morado) */
-      .ia-card-recursos .ia-card-plus-btn,
-      .ia-card-crea .ia-card-plus-btn {
-        border: 2.5px solid #7c3aed !important;
-        color: #7c3aed !important;
-        box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22) !important;
-      }
-
-      .ia-card-recursos .ia-card-plus-btn::before,
-      .ia-card-crea .ia-card-plus-btn::before {
-        background: #7c3aed !important;
-      }
-
-      .ia-card-recursos:hover .ia-card-plus-btn,
-      .ia-card-recursos .ia-card-plus-btn:hover,
-      .ia-card-crea:hover .ia-card-plus-btn,
-      .ia-card-crea .ia-card-plus-btn:hover {
-        border-color: #7c3aed !important;
-        box-shadow: 0 6px 22px rgba(124, 58, 237, 0.45) !important;
-      }
-
-      .ia-card-recursos:hover,
-      .ia-card-crea:hover {
-        border-top-color: #7c3aed !important;
-      }
-
-      /* 2. INSTRUMENTOS (Azul índigo) */
-      .ia-card-instrumentos .ia-card-plus-btn,
-      .ia-card-evalua .ia-card-plus-btn {
-        border: 2.5px solid #4f46e5 !important;
-        color: #4f46e5 !important;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.22) !important;
-      }
-
-      .ia-card-instrumentos .ia-card-plus-btn::before,
-      .ia-card-evalua .ia-card-plus-btn::before {
-        background: #4f46e5 !important;
-      }
-
-      .ia-card-instrumentos:hover .ia-card-plus-btn,
-      .ia-card-instrumentos .ia-card-plus-btn:hover,
-      .ia-card-evalua:hover .ia-card-plus-btn,
-      .ia-card-evalua .ia-card-plus-btn:hover {
-        border-color: #4f46e5 !important;
-        box-shadow: 0 6px 22px rgba(79, 70, 229, 0.45) !important;
-      }
-
-      .ia-card-instrumentos:hover,
-      .ia-card-evalua:hover {
-        border-top-color: #4f46e5 !important;
-      }
-
-      /* 3. REVISAR EVALUACIONES (Azul celeste / Tech) */
-      .ia-card-evaluaciones .ia-card-plus-btn,
-      .ia-card-retro .ia-card-plus-btn {
-        border: 2.5px solid #0284c7 !important;
-        color: #0284c7 !important;
-        box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22) !important;
-      }
-
-      .ia-card-evaluaciones .ia-card-plus-btn::before,
-      .ia-card-retro .ia-card-plus-btn::before {
-        background: #0284c7 !important;
-      }
-
-      .ia-card-evaluaciones:hover .ia-card-plus-btn,
-      .ia-card-evaluaciones .ia-card-plus-btn:hover,
-      .ia-card-retro:hover .ia-card-plus-btn,
-      .ia-card-retro .ia-card-plus-btn:hover {
-        border-color: #0284c7 !important;
-        box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45) !important;
-      }
-
-      .ia-card-evaluaciones:hover,
-      .ia-card-retro:hover {
-        border-top-color: #0284c7 !important;
-      }
-
-      /* 4. FOROS (Ámbar / Naranja) */
-      .ia-card-foros .ia-card-plus-btn {
-        border: 2.5px solid #d97706 !important;
-        color: #d97706 !important;
-        box-shadow: 0 4px 14px rgba(217, 119, 6, 0.22) !important;
-      }
-
-      .ia-card-foros .ia-card-plus-btn::before {
-        background: #d97706 !important;
-      }
-
-      .ia-card-foros:hover .ia-card-plus-btn,
-      .ia-card-foros .ia-card-plus-btn:hover {
-        border-color: #d97706 !important;
-        box-shadow: 0 6px 22px rgba(217, 119, 6, 0.45) !important;
-      }
-
-      .ia-card-foros:hover {
-        border-top-color: #d97706 !important;
-      }
-
-      /* 5. RUTAS DE APRENDIZAJE (Magenta / Rosa) */
-      .ia-card-rutas .ia-card-plus-btn,
-      .ia-card-analiza .ia-card-plus-btn {
-        border: 2.5px solid #c026d3 !important;
-        color: #c026d3 !important;
-        box-shadow: 0 4px 14px rgba(192, 38, 211, 0.22) !important;
-      }
-
-      .ia-card-rutas .ia-card-plus-btn::before,
-      .ia-card-analiza .ia-card-plus-btn::before {
-        background: #c026d3 !important;
-      }
-
-      .ia-card-rutas:hover .ia-card-plus-btn,
-      .ia-card-rutas .ia-card-plus-btn:hover,
-      .ia-card-analiza:hover .ia-card-plus-btn,
-      .ia-card-analiza .ia-card-plus-btn:hover {
-        border-color: #c026d3 !important;
-        box-shadow: 0 6px 22px rgba(192, 38, 211, 0.45) !important;
-      }
-
-      .ia-card-rutas:hover,
-      .ia-card-analiza:hover {
-        border-top-color: #c026d3 !important;
-      }
-
-      /* 6. CHAT BOX GEMINI (Azul Eléctrico / Gemini) */
-      .ia-card-chat .ia-card-plus-btn {
-        border: 2.5px solid #2563eb !important;
-        color: #2563eb !important;
-        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.22) !important;
-      }
-
-      .ia-card-chat .ia-card-plus-btn::before {
-        background: #2563eb !important;
-      }
-
-      .ia-card-chat:hover .ia-card-plus-btn,
-      .ia-card-chat .ia-card-plus-btn:hover {
-        border-color: #2563eb !important;
-        box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45) !important;
-      }
-
-      .ia-card-chat:hover {
-        border-top-color: #2563eb !important;
-      }
-
-      /* ESTUDIANTE 1. REVISIÓN DE TAREAS (Esmeralda / Verde) */
-      .ia-card-est-tareas .ia-card-plus-btn {
-        border: 2.5px solid #059669 !important;
-        color: #059669 !important;
-        box-shadow: 0 4px 14px rgba(5, 150, 105, 0.22) !important;
-      }
-
-      .ia-card-est-tareas .ia-card-plus-btn::before {
-        background: #059669 !important;
-      }
-
-      .ia-card-est-tareas:hover .ia-card-plus-btn,
-      .ia-card-est-tareas .ia-card-plus-btn:hover {
-        border-color: #059669 !important;
-        box-shadow: 0 6px 22px rgba(5, 150, 105, 0.45) !important;
-      }
-
-      .ia-card-est-tareas:hover {
-        border-top-color: #059669 !important;
-      }
-
-      /* ESTUDIANTE 2. RETROALIMENTACIÓN DE RUTA (Violeta Vibrante) */
-      .ia-card-est-ruta .ia-card-plus-btn {
-        border: 2.5px solid #6366f1 !important;
-        color: #6366f1 !important;
-        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.22) !important;
-      }
-
-      .ia-card-est-ruta .ia-card-plus-btn::before {
-        background: #6366f1 !important;
-      }
-
-      .ia-card-est-ruta:hover .ia-card-plus-btn,
-      .ia-card-est-ruta .ia-card-plus-btn:hover {
-        border-color: #6366f1 !important;
-        box-shadow: 0 6px 22px rgba(99, 102, 241, 0.45) !important;
-      }
-
-      .ia-card-est-ruta:hover {
-        border-top-color: #6366f1 !important;
-      }
-
-      /* RESPONSIVE LAYOUTS - ESTÁNDAR COMPARTIDO */
-      .ia-beneficios-grid,
-      .ia-estudiantes-grid {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: var(--grid-gap-standard) !important;
-        margin-top: 3.25rem !important;
-        margin-bottom: 2rem !important;
-        align-items: stretch !important;
-      }
-
-      .ia-beneficios-grid .beneficio-card,
-      .ia-estudiantes-grid .beneficio-card {
-        flex: 0 0 calc((100% - (var(--grid-gap-standard) * 2)) / 3) !important;
-        max-width: calc((100% - (var(--grid-gap-standard) * 2)) / 3) !important;
-        box-sizing: border-box !important;
-      }
-
-      @media (max-width: 1024px) {
-
-        .ia-beneficios-grid,
-        .ia-estudiantes-grid {
-          gap: 4.5rem 1.75rem !important;
-        }
-
-        .ia-beneficios-grid .beneficio-card,
-        .ia-estudiantes-grid .beneficio-card {
-          flex: 0 0 calc((100% - 1.75rem) / 2) !important;
-          max-width: calc((100% - 1.75rem) / 2) !important;
-        }
-      }
-
-      @media (max-width: 640px) {
-
-        .ia-beneficios-grid,
-        .ia-estudiantes-grid {
-          gap: 4.5rem 1.75rem !important;
-          margin-top: 4.25rem !important;
-        }
-
-        .ia-beneficios-grid .beneficio-card,
-        .ia-estudiantes-grid .beneficio-card {
-          flex: 0 0 100% !important;
-          max-width: 100% !important;
-        }
-      }
-  </style>
 
   <!-- JSON-LD Structured Data for SEO -->
   <script type="application/ld+json">
@@ -992,7 +645,7 @@
 
         <div class="ia-beneficios-grid">
           <!-- Tarjeta 1: Mentor Genesys -->
-          <div class="beneficio-card ia-card-chat" data-ia-modal="chat-gemini">
+          <div class="beneficio-card ia-card-chat">
             <img src="/assets/hero/robot_transparent.svg" alt="Mentor Genesys" class="beneficio-card-icon"
               loading="lazy">
             <h3 class="beneficio-card-title">Mentor <br> Genesys</h3>
@@ -1011,7 +664,7 @@
           </div>
 
           <!-- Tarjeta 2: Creación de Recursos con IA -->
-          <div class="beneficio-card ia-card-recursos" data-ia-modal="recursos">
+          <div class="beneficio-card ia-card-recursos">
             <img src="/assets/ia/11.svg" alt="Creación de Recursos con IA" class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Creación de Recursos con IA</h3>
             <p class="beneficio-card-text">
@@ -1029,7 +682,7 @@
           </div>
 
           <!-- Tarjeta 3: Crear instrumentos de evaluación con IA -->
-          <div class="beneficio-card ia-card-instrumentos" data-ia-modal="instrumentos">
+          <div class="beneficio-card ia-card-instrumentos">
             <img src="/assets/ia/instrumentos.svg" alt="Crear instrumentos de evaluación con IA"
               class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Crear instrumentos de evaluación con IA</h3>
@@ -1047,7 +700,7 @@
           </div>
 
           <!-- Tarjeta 4: Revisar evaluaciones con IA -->
-          <div class="beneficio-card ia-card-evaluaciones" data-ia-modal="evaluaciones">
+          <div class="beneficio-card ia-card-evaluaciones">
             <img src="/assets/ia/revisar evaluaciones.svg" alt="Revisar evaluaciones con IA" class="beneficio-card-icon"
               loading="lazy">
             <h3 class="beneficio-card-title">Revisar evaluaciones con IA</h3>
@@ -1066,7 +719,7 @@
           </div>
 
           <!-- Tarjeta 5: Foros inteligentes -->
-          <div class="beneficio-card ia-card-foros" data-ia-modal="foros">
+          <div class="beneficio-card ia-card-foros">
             <img src="/assets/ia/generar foro.svg" alt="Foros inteligentes" class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Foros <br> inteligentes</h3>
             <p class="beneficio-card-text">
@@ -1083,7 +736,7 @@
           </div>
 
           <!-- Tarjeta 6: Generar rutas de aprendizaje con IA -->
-          <div class="beneficio-card ia-card-rutas" data-ia-modal="rutas">
+          <div class="beneficio-card ia-card-rutas">
             <img src="/assets/ia/generar rutas.svg" alt="Generar rutas de aprendizaje con IA"
               class="beneficio-card-icon" loading="lazy">
             <h3 class="beneficio-card-title">Generar rutas de aprendizaje con IA</h3>
@@ -1116,7 +769,7 @@
 
           <div class="ia-estudiantes-grid">
             <!-- Tarjeta Estudiante 1: Revisión de tareas con IA -->
-            <div class="beneficio-card ia-card-est-tareas" data-ia-modal="est-tareas">
+            <div class="beneficio-card ia-card-est-tareas">
               <img src="/assets/beneficios/cards/evaluaciones.svg" alt="Revisión de tareas con IA"
                 class="beneficio-card-icon" loading="lazy">
               <h3 class="beneficio-card-title">Revisión de tareas con IA</h3>
@@ -1134,16 +787,16 @@
               </button>
             </div>
 
-            <!-- Tarjeta Estudiante 2: Retroalimentación de ruta de aprendizaje con IA -->
-            <div class="beneficio-card ia-card-est-ruta" data-ia-modal="est-ruta">
+            <!-- Tarjeta Estudiante 2: Retroalimentación de R.A. con IA -->
+            <div class="beneficio-card ia-card-est-ruta">
               <img src="/assets/beneficios/cards/retroalimentacion.svg"
-                alt="Retroalimentación de ruta de aprendizaje con IA" class="beneficio-card-icon" loading="lazy">
+                alt="Retroalimentación de R.A. con IA" class="beneficio-card-icon" loading="lazy">
               <h3 class="beneficio-card-title">Retroalimentación de R.A. con IA</h3>
               <p class="beneficio-card-text">
                 Retroalimentación formativa para el estudiante para cada reto planteado en las Rutas de Aprendizaje.
               </p>
               <button type="button" class="ia-card-plus-btn" data-ia-modal="est-ruta"
-                aria-label="Ver demo de Retroalimentación de ruta" title="Ver herramienta interactiva">
+                aria-label="Ver demo de Retroalimentación de R.A. con IA" title="Ver video de Retroalimentación de R.A. con IA">
                 <span class="ia-play-icon-wrap">
                   <svg class="ia-play-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                     <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
@@ -1220,112 +873,170 @@
          ========================================================================== -->
     <section id="casos" class="bg-white-surface section-py">
       <div class="container">
-        <div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
+        <div style="max-width: 760px; margin: 0 auto 3.5rem auto; text-align: center;">
           <h2 class="section-title">Experiencias reales de instituciones en transformación</h2>
-          <p class="section-subtitle">Casos estructurados: Problema ➔ Implementación ➔ Resultado observado.</p>
+          <p class="section-subtitle">Casos reales con resultados medibles: Problema ➔ Implementación ➔ Resultado observado.</p>
         </div>
 
-        <div
-          style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1240px; margin: 0 auto;">
-          <!-- Caso 1 -->
-          <div class="card">
-            <div style="display: flex; items-center; justify-content: space-between; margin-bottom: 1rem;">
-              <span class="badge badge-purple">Colegio San Agustín (1,400 alumnos)</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Secundaria</span>
+        <div class="casos-grid">
+          <!-- Caso 1: Colegio San Agustín -->
+          <div class="caso-card card-purple">
+            <img src="/assets/casos/maria-elena-cordoba.jpg" alt="Prof. María Elena Córdoba"
+              class="caso-avatar-floating" width="72" height="72" loading="lazy">
+            <div class="caso-header-box">
+              <span class="caso-school-badge badge-school-purple">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                </svg>
+                Col. San Agustín · 1,400 alumnos
+              </span>
+              <h3 class="caso-author-name">Prof. María Elena Córdoba</h3>
+              <div class="caso-author-role">Directora Académica</div>
             </div>
 
-            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Problema:</strong> Fragmentación de planificaciones y demora de 15 días en la generación de
-              boletas de evaluación.
-            </div>
-            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Implementación:</strong> Adopción del módulo de Planificación Alineada y Gestión de Evaluaciones
-              en 3
-              semanas.
-            </div>
-            <div
-              style="background: #F8FAFC; border-left: 3px solid var(--mentora-purple); padding: 0.75rem; border-radius: 6px; font-size: 0.875rem; color: var(--text-main); font-weight: 500;">
-              💡 <strong>Resultado:</strong> Emisión de boletas instantánea al cierre de trimestre y unificación del
-              100% de las unidades didácticas.
-            </div>
+            <div class="caso-body-flow">
+              <div class="caso-flow-item">
+                <span class="caso-flow-tag tag-problem">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  Problema
+                </span>
+                <p class="caso-flow-desc">
+                  Fragmentación de planificaciones y demora de 15 días en la generación y entrega de boletas de evaluación.
+                </p>
+              </div>
 
-            <div
-              style="margin-top: 1.25rem; pt: 1rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; gap: 0.75rem;">
-              <div
-                style="width: 40px; height: 40px; background: #E2E8F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #475569;">
-                MC</div>
-              <div>
-                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Prof. Maria Elena Córdoba
-                </div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">Directora Académica</div>
+              <div class="caso-flow-item">
+                <span class="caso-flow-tag tag-solution">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                  Implementación
+                </span>
+                <p class="caso-flow-desc">
+                  Adopción del módulo de Planificación Alineada y Gestión Integral de Evaluaciones en 3 semanas.
+                </p>
+              </div>
+
+              <div class="caso-highlight-result">
+                <span class="caso-result-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
+                  </svg>
+                  Resultado Observado
+                </span>
+                <p class="caso-result-content">
+                  Emisión de boletas instantánea al cierre de trimestre y unificación del 100% de las unidades didácticas.
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- Caso 2 -->
-          <div class="card">
-            <div style="display: flex; items-center; justify-content: space-between; margin-bottom: 1rem;">
-              <span class="badge badge-blue">Santa Maria School (850 alumnos)</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Primaria y Sec.</span>
+          <!-- Caso 2: Santa Maria School -->
+          <div class="caso-card card-blue">
+            <img src="/assets/casos/jorge-ramirez.jpg" alt="Lic. Jorge Ramírez"
+              class="caso-avatar-floating" width="72" height="72" loading="lazy">
+            <div class="caso-header-box">
+              <span class="caso-school-badge badge-school-blue">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                </svg>
+                Santa Maria School · 850 alumnos
+              </span>
+              <h3 class="caso-author-name">Lic. Jorge Ramírez</h3>
+              <div class="caso-author-role">Coordinador de Innovación</div>
             </div>
 
-            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Problema:</strong> Carga horaria docente excesiva en la redacción manual de retroalimentaciones
-              cualitativas.
-            </div>
-            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Implementación:</strong> Asistente de Inteligencia Artificial para el diseño de rúbricas y
-              recomendaciones.
-            </div>
-            <div
-              style="background: #F8FAFC; border-left: 3px solid var(--mentora-blue); padding: 0.75rem; border-radius: 6px; font-size: 0.875rem; color: var(--text-main); font-weight: 500;">
-              💡 <strong>Resultado:</strong> Ahorro estimado de 14 horas mensuales por docente y mejora del 35% en el
-              nivel de respuesta familiar.
-            </div>
+            <div class="caso-body-flow">
+              <div class="caso-flow-item">
+                <span class="caso-flow-tag tag-problem">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  Problema
+                </span>
+                <p class="caso-flow-desc">
+                  Carga horaria docente excesiva en la redacción manual de retroalimentaciones y conclusiones descriptivas.
+                </p>
+              </div>
 
-            <div
-              style="margin-top: 1.25rem; pt: 1rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; gap: 0.75rem;">
-              <div
-                style="width: 40px; height: 40px; background: #E2E8F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #475569;">
-                JR</div>
-              <div>
-                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Lic. Jorge Ramírez</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">Coordinador de Innovación</div>
+              <div class="caso-flow-item">
+                <span class="caso-flow-tag tag-solution">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                  Implementación
+                </span>
+                <p class="caso-flow-desc">
+                  Asistente de Inteligencia Artificial para el diseño de rúbricas y sugerencias pedagógicas formativas.
+                </p>
+              </div>
+
+              <div class="caso-highlight-result">
+                <span class="caso-result-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
+                  </svg>
+                  Resultado Observado
+                </span>
+                <p class="caso-result-content">
+                  Ahorro estimado de 14 horas mensuales por docente y aumento del 35% en la interacción familiar.
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- Caso 3 -->
-          <div class="card">
-            <div style="display: flex; items-center; justify-content: space-between; margin-bottom: 1rem;">
-              <span class="badge badge-purple"
-                style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.25);">Col.
-                Fernando Stahl (1,200 alumnos)</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Primaria y Sec.</span>
+          <!-- Caso 3: Col. Fernando Stahl -->
+          <div class="caso-card card-emerald">
+            <img src="/assets/casos/carlos-quispe.jpg" alt="Prof. Carlos Quispe"
+              class="caso-avatar-floating" width="72" height="72" loading="lazy">
+            <div class="caso-header-box">
+              <span class="caso-school-badge badge-school-emerald">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                </svg>
+                Col. Fernando Stahl · 1,200 alumnos
+              </span>
+              <h3 class="caso-author-name">Prof. Carlos Quispe</h3>
+              <div class="caso-author-role">Coordinador General</div>
             </div>
 
-            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Problema:</strong> Registro manual de asistencia física y demoras en la notificación inmediata a
-              los padres.
-            </div>
-            <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-              <strong>Implementación:</strong> Módulo de Asistencia Digital en tiempo real y Comunicación Institucional
-              con familias.
-            </div>
-            <div
-              style="background: #F8FAFC; border-left: 3px solid #10b981; padding: 0.75rem; border-radius: 6px; font-size: 0.875rem; color: var(--text-main); font-weight: 500;">
-              💡 <strong>Resultado:</strong> 99% de inasistencias notificadas al instante vía WhatsApp y reducción a
-              cero del papeleo de justificaciones.
-            </div>
+            <div class="caso-body-flow">
+              <div class="caso-flow-item">
+                <span class="caso-flow-tag tag-problem">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  Problema
+                </span>
+                <p class="caso-flow-desc">
+                  Registro manual de asistencia física y demoras en la notificación inmediata a los padres de familia.
+                </p>
+              </div>
 
-            <div
-              style="margin-top: 1.25rem; pt: 1rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; gap: 0.75rem;">
-              <div
-                style="width: 40px; height: 40px; background: #E2E8F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #475569;">
-                FS</div>
-              <div>
-                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Prof. Carlos Quispe</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">Coordinador General</div>
+              <div class="caso-flow-item">
+                <span class="caso-flow-tag tag-solution">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                  Implementación
+                </span>
+                <p class="caso-flow-desc">
+                  Módulo de Asistencia Digital en tiempo real y Comunicación Institucional automatizada con familias.
+                </p>
+              </div>
+
+              <div class="caso-highlight-result">
+                <span class="caso-result-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
+                  </svg>
+                  Resultado Observado
+                </span>
+                <p class="caso-result-content">
+                  99% de inasistencias notificadas al instante vía WhatsApp y reducción a cero del papeleo de justificaciones.
+                </p>
               </div>
             </div>
           </div>
