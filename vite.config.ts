@@ -54,6 +54,7 @@ function htmlIncludePlugin(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [htmlIncludePlugin()],
   build: {
     rollupOptions: {
