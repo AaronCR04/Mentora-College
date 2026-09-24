@@ -631,7 +631,7 @@
     <!-- ==========================================================================
          8. INTELIGENCIA ARTIFICIAL QUE POTENCIA AL DOCENTE
          ========================================================================== -->
-    <section id="ia" class="beneficios-section ia-beneficios-section">
+    <section id="ia" class="beneficios-section ia-beneficios-section bg-soft">
       <div class="container beneficios-container">
         <div class="beneficios-header">
           <h2 class="beneficios-title">
@@ -754,58 +754,64 @@
             </button>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- SUBSECCIÓN: APOYO DE LA IA A LOS ESTUDIANTES -->
-        <div class="ia-estudiantes-wrapper" style="margin-top: 5rem;">
-          <div class="beneficios-header" style="text-align: center; margin-bottom: 2.25rem;">
-            <h3 class="beneficios-title" style="font-size: clamp(1.65rem, 2.8vw, 2.15rem); margin-bottom: 0.6rem;">
-              El apoyo de la IA a los estudiantes
-            </h3>
-            <p class="beneficios-subtitle" style="font-size: 1rem; max-width: 680px; margin: 0 auto; color: #64748b;">
-              Tutoría inteligente que orienta el autoaprendizaje y brinda retroalimentación constructiva antes de la
-              entrega final.
+    <!-- ==========================================================================
+         9. EL APOYO DE LA IA A LOS ESTUDIANTES
+         ========================================================================== -->
+    <section id="ia-estudiantes" class="beneficios-section ia-estudiantes-section bg-soft">
+      <div class="container beneficios-container">
+        <div class="beneficios-header">
+          <h2 class="beneficios-title">
+            El apoyo de la IA a los estudiantes
+          </h2>
+          <p class="beneficios-subtitle">
+            Tutoría inteligente que orienta el autoaprendizaje y brinda retroalimentación constructiva antes de la
+            entrega final.
+          </p>
+        </div>
+
+        <div class="ia-estudiantes-grid">
+          <!-- Tarjeta Estudiante 1: Revisión de tareas con IA -->
+          <div class="beneficio-card ia-card-est-tareas">
+            <img src="/assets/beneficios/cards/evaluaciones.svg" alt="Revisión de tareas con IA"
+              class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">Revisión de tareas con IA</h3>
+            <p class="beneficio-card-text">
+              Orientación formativa previa a la entrega final para identificar áreas de mejora sin otorgar respuestas
+              automáticas.
             </p>
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="est-tareas"
+              aria-label="Ver demo de Revisión de tareas" title="Ver herramienta interactiva">
+              <span class="ia-play-icon-wrap">
+                <svg class="ia-play-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
+                </svg>
+              </span>
+            </button>
           </div>
 
-          <div class="ia-estudiantes-grid">
-            <!-- Tarjeta Estudiante 1: Revisión de tareas con IA -->
-            <div class="beneficio-card ia-card-est-tareas">
-              <img src="/assets/beneficios/cards/evaluaciones.svg" alt="Revisión de tareas con IA"
-                class="beneficio-card-icon" loading="lazy">
-              <h3 class="beneficio-card-title">Revisión de tareas con IA</h3>
-              <p class="beneficio-card-text">
-                Orientación formativa previa a la entrega final para identificar áreas de mejora sin otorgar respuestas
-                automáticas.
-              </p>
-              <button type="button" class="ia-card-plus-btn" data-ia-modal="est-tareas"
-                aria-label="Ver demo de Revisión de tareas" title="Ver herramienta interactiva">
-                <span class="ia-play-icon-wrap">
-                  <svg class="ia-play-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-
-            <!-- Tarjeta Estudiante 2: Retroalimentación de R.A. con IA -->
-            <div class="beneficio-card ia-card-est-ruta">
-              <img src="/assets/beneficios/cards/retroalimentacion.svg"
-                alt="Retroalimentación de R.A. con IA" class="beneficio-card-icon" loading="lazy">
-              <h3 class="beneficio-card-title">Retroalimentación de R.A. con IA</h3>
-              <p class="beneficio-card-text">
-                Retroalimentación formativa para el estudiante para cada reto planteado en las Rutas de Aprendizaje.
-              </p>
-              <button type="button" class="ia-card-plus-btn" data-ia-modal="est-ruta"
-                aria-label="Ver demo de Retroalimentación de R.A. con IA" title="Ver video de Retroalimentación de R.A. con IA">
-                <span class="ia-play-icon-wrap">
-                  <svg class="ia-play-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
+          <!-- Tarjeta Estudiante 2: Retroalimentación de R.A. con IA -->
+          <div class="beneficio-card ia-card-est-ruta">
+            <img src="/assets/beneficios/cards/retroalimentacion.svg" alt="Retroalimentación de R.A. con IA"
+              class="beneficio-card-icon" loading="lazy">
+            <h3 class="beneficio-card-title">Retroalimentación de R.A. con IA</h3>
+            <p class="beneficio-card-text">
+              Retroalimentación formativa para el estudiante para cada reto planteado en las Rutas de Aprendizaje.
+            </p>
+            <button type="button" class="ia-card-plus-btn" data-ia-modal="est-ruta"
+              aria-label="Ver demo de Retroalimentación de R.A. con IA"
+              title="Ver video de Retroalimentación de R.A. con IA">
+              <span class="ia-play-icon-wrap">
+                <svg class="ia-play-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
+                </svg>
+              </span>
+            </button>
           </div>
         </div>
+      </div>
 
         <!-- Modal Overlay para Demostración Interactiva de IA -->
         <div id="iaModalOverlay" class="ia-modal-overlay" aria-hidden="true">
@@ -871,11 +877,12 @@
     <!-- ==========================================================================
          12. CASOS DE ÉXITO & TESTIMONIOS
          ========================================================================== -->
-    <section id="casos" class="bg-white-surface section-py">
+    <section id="casos" class="bg-soft section-py">
       <div class="container">
         <div style="max-width: 760px; margin: 0 auto 3.5rem auto; text-align: center;">
           <h2 class="section-title">Experiencias reales de instituciones en transformación</h2>
-          <p class="section-subtitle">Casos reales con resultados medibles: Problema ➔ Implementación ➔ Resultado observado.</p>
+          <p class="section-subtitle">Casos reales con resultados medibles: Problema ➔ Implementación ➔ Resultado
+            observado.</p>
         </div>
 
         <div class="casos-grid">
@@ -886,7 +893,8 @@
             <div class="caso-header-box">
               <span class="caso-school-badge badge-school-purple">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                  <path
+                    d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
                 </svg>
                 Col. San Agustín · 1,400 alumnos
               </span>
@@ -898,19 +906,22 @@
               <div class="caso-flow-item">
                 <span class="caso-flow-tag tag-problem">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
                   Problema
                 </span>
                 <p class="caso-flow-desc">
-                  Fragmentación de planificaciones y demora de 15 días en la generación y entrega de boletas de evaluación.
+                  Fragmentación de planificaciones y demora de 15 días en la generación y entrega de boletas de
+                  evaluación.
                 </p>
               </div>
 
               <div class="caso-flow-item">
                 <span class="caso-flow-tag tag-solution">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                   </svg>
                   Implementación
                 </span>
@@ -922,12 +933,14 @@
               <div class="caso-highlight-result">
                 <span class="caso-result-title">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
+                    <path
+                      d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" />
                   </svg>
                   Resultado Observado
                 </span>
                 <p class="caso-result-content">
-                  Emisión de boletas instantánea al cierre de trimestre y unificación del 100% de las unidades didácticas.
+                  Emisión de boletas instantánea al cierre de trimestre y unificación del 100% de las unidades
+                  didácticas.
                 </p>
               </div>
             </div>
@@ -935,12 +948,13 @@
 
           <!-- Caso 2: Santa Maria School -->
           <div class="caso-card card-blue">
-            <img src="/assets/casos/jorge-ramirez.jpg" alt="Lic. Jorge Ramírez"
-              class="caso-avatar-floating" width="72" height="72" loading="lazy">
+            <img src="/assets/casos/jorge-ramirez.jpg" alt="Lic. Jorge Ramírez" class="caso-avatar-floating" width="72"
+              height="72" loading="lazy">
             <div class="caso-header-box">
               <span class="caso-school-badge badge-school-blue">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                  <path
+                    d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
                 </svg>
                 Santa Maria School · 850 alumnos
               </span>
@@ -952,19 +966,22 @@
               <div class="caso-flow-item">
                 <span class="caso-flow-tag tag-problem">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
                   Problema
                 </span>
                 <p class="caso-flow-desc">
-                  Carga horaria docente excesiva en la redacción manual de retroalimentaciones y conclusiones descriptivas.
+                  Carga horaria docente excesiva en la redacción manual de retroalimentaciones y conclusiones
+                  descriptivas.
                 </p>
               </div>
 
               <div class="caso-flow-item">
                 <span class="caso-flow-tag tag-solution">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                   </svg>
                   Implementación
                 </span>
@@ -976,7 +993,8 @@
               <div class="caso-highlight-result">
                 <span class="caso-result-title">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
+                    <path
+                      d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" />
                   </svg>
                   Resultado Observado
                 </span>
@@ -989,12 +1007,13 @@
 
           <!-- Caso 3: Col. Fernando Stahl -->
           <div class="caso-card card-emerald">
-            <img src="/assets/casos/carlos-quispe.jpg" alt="Prof. Carlos Quispe"
-              class="caso-avatar-floating" width="72" height="72" loading="lazy">
+            <img src="/assets/casos/carlos-quispe.jpg" alt="Prof. Carlos Quispe" class="caso-avatar-floating" width="72"
+              height="72" loading="lazy">
             <div class="caso-header-box">
               <span class="caso-school-badge badge-school-emerald">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                  <path
+                    d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
                 </svg>
                 Col. Fernando Stahl · 1,200 alumnos
               </span>
@@ -1006,7 +1025,9 @@
               <div class="caso-flow-item">
                 <span class="caso-flow-tag tag-problem">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
                   Problema
                 </span>
@@ -1018,7 +1039,7 @@
               <div class="caso-flow-item">
                 <span class="caso-flow-tag tag-solution">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                   </svg>
                   Implementación
                 </span>
@@ -1030,12 +1051,14 @@
               <div class="caso-highlight-result">
                 <span class="caso-result-title">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
+                    <path
+                      d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" />
                   </svg>
                   Resultado Observado
                 </span>
                 <p class="caso-result-content">
-                  99% de inasistencias notificadas al instante vía WhatsApp y reducción a cero del papeleo de justificaciones.
+                  99% de inasistencias notificadas al instante vía WhatsApp y reducción a cero del papeleo de
+                  justificaciones.
                 </p>
               </div>
             </div>
@@ -1094,7 +1117,7 @@
               </svg>
             </button>
             <div class="faq-answer">
-              Permite relacionar actividades pedagógicas con criterios de evaluación y niveles de logro (AD, A, B, C),
+              Permite relacionar actividades pedagógicas con criterios de evaluación y niveles de logro,
               organizar evidencias de aprendizaje y utilizar IA como asistencia en tareas de revisión y análisis de
               datos.
             </div>
@@ -1109,7 +1132,8 @@
               </svg>
             </button>
             <div class="faq-answer">
-              Consolida la información de avances y niveles de logro para que los docentes y coordinadores visualicen el
+              Consolida la información a través de las competencias y niveles de logro alcanzados para que los docentes
+              y coordinadores visualicen el
               progreso real de cada estudiante e identifiquen a tiempo los aspectos que requieren refuerzo.
             </div>
           </div>
@@ -1123,8 +1147,9 @@
               </svg>
             </button>
             <div class="faq-answer">
-              Según los módulos habilitados por el colegio, las familias acceden a comunicados institucionales, alertas
-              de asistencia, justificaciones y boletas de notas digitales con total trazabilidad.
+              Según los módulos habilitados por el colegio, las familias acceden a comunicados institucionales, reportes
+              de asistencia, seguimiento de evaluaciones al estudiante y boletas de notas digitales con total
+              trazabilidad.
             </div>
           </div>
 

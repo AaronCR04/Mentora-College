@@ -247,6 +247,18 @@ h3 {
    CARDS & UTILITIES
    ========================================================================== */
 
+.bg-white-surface {
+  background-color: #ffffff !important;
+}
+
+.bg-soft {
+  background-color: var(--bg-general) !important;
+}
+
+.bg-hero-gradient {
+  background: var(--gradient-hero) !important;
+}
+
 .card {
   background-color: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -270,36 +282,13 @@ h3 {
 .beneficios-section {
   position: relative;
   padding: var(--section-py) 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eff6ff 100%);
+  background-color: var(--bg-general);
   overflow: hidden;
 }
 
-.beneficios-section::before {
-  content: '';
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0) 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(40px);
-  z-index: 0;
-}
-
+.beneficios-section::before,
 .beneficios-section::after {
-  content: '';
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(45px);
-  z-index: 0;
+  display: none !important;
 }
 
 .beneficios-container {
@@ -1246,6 +1235,50 @@ h3 {
   box-shadow: 0 0 0 3px rgba(50, 103, 232, 0.15);
 }
 
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-input.is-invalid,
+.form-select.is-invalid,
+.form-textarea.is-invalid {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.form-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #dc2626;
+  font-size: 0.785rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 0.2rem;
+  animation: formErrorSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-error-msg svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes formErrorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Lead Modal Popup */
 .modal-overlay {
   position: fixed;
@@ -1458,8 +1491,9 @@ h3 {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.875rem;
@@ -2325,33 +2359,16 @@ body>main {
    SECCIÓN QUÉ ES MENTORA COLLEGE - 2-COLUMN SPLIT & STORYTELLING
    ========================================================================== */
 .seccion-que-es {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  background-color: #ffffff;
   padding: var(--section-py) 0;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-.seccion-que-es::before {
-  content: '';
-  position: absolute;
-  top: -150px;
-  right: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(86, 50, 232, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
+.seccion-que-es::before,
 .seccion-que-es::after {
-  content: '';
-  position: absolute;
-  bottom: -150px;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
-  pointer-events: none;
+  display: none !important;
 }
 
 .que-es-split-grid {
@@ -3218,13 +3235,7 @@ body>main {
 .ia-beneficios-section {
   position: relative;
   padding: var(--section-py) 0;
-  background-color: #f7fafe;
-  background-image:
-    radial-gradient(at 8% 18%, rgba(219, 234, 254, 0.85) 0px, transparent 48%),
-    radial-gradient(at 92% 22%, rgba(237, 233, 254, 0.9) 0px, transparent 45%),
-    radial-gradient(at 95% 80%, rgba(238, 232, 255, 0.75) 0px, transparent 45%),
-    radial-gradient(at 5% 75%, rgba(219, 234, 254, 0.7) 0px, transparent 45%),
-    radial-gradient(at 50% 50%, rgba(243, 248, 255, 0.6) 0px, transparent 60%);
+  background-color: var(--bg-general);
   overflow: hidden;
 }
 
