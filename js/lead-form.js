@@ -267,7 +267,6 @@ export function initLeadForm() {
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : 'Enviar';
 
       if (submitBtn) {
         submitBtn.disabled = true;
