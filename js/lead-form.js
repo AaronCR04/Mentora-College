@@ -24,6 +24,16 @@ function closeModal(targetModal) {
 function openModal() {
   const modalOverlay = document.getElementById('leadModalOverlay');
   if (modalOverlay) {
+    // Cerrar drawer de navegación móvil si estuviera abierto
+    const mobileDrawer = document.getElementById('mobileDrawerNav');
+    const drawerToggleBtn = document.getElementById('mobileDrawerToggle');
+    if (mobileDrawer) {
+      mobileDrawer.classList.remove('is-open');
+    }
+    if (drawerToggleBtn) {
+      drawerToggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
     modalOverlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     document.body.classList.add('modal-open');
