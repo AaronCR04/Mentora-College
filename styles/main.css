@@ -3973,8 +3973,8 @@ body>main {
 .ia-video-viewport {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 62vh;
+  aspect-ratio: 16 / 10;
+  min-height: 320px;
   border-radius: 14px;
   overflow: hidden;
   background: #000000;
@@ -3987,6 +3987,7 @@ body>main {
 .ia-modal-iframe {
   width: 100%;
   height: 100%;
+  min-height: 320px;
   border: none;
   display: block;
 }
@@ -4167,10 +4168,18 @@ body>main {
   }
 
   .ia-video-viewport {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: auto;
+    height: 270px;
+    min-height: 260px;
+    max-height: 52vh;
     border-radius: 10px;
     width: 100%;
-    max-height: 48vh;
+  }
+
+  .ia-modal-iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
   }
 
   .ia-video-arrow {
