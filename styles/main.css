@@ -2282,6 +2282,44 @@ body>main {
     padding-top: 56px;
   }
 
+  /* Hero Section Home V2 mobile optimization */
+  .hero-v2-section {
+    padding: 5.5rem 0 2rem 0;
+  }
+
+  .hero-v2-container {
+    padding: 0.5rem 1rem 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .hero-impact-title {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 8.2vw, 2.75rem);
+  }
+
+  .hero-impact-subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+
+  .hero-impact-actions {
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-robot-wrapper {
+    max-width: 240px;
+  }
+
+  .hero-robot-avatar {
+    max-width: 210px;
+  }
+
+  .hero-robot-shadow {
+    width: 140px;
+    height: 16px;
+  }
+
   /* Subpage Hero mobile optimization */
   .bg-hero-gradient {
     padding: 2.75rem 0 2.25rem !important;
@@ -2313,6 +2351,19 @@ body>main {
   .mobile-drawer-toggle {
     width: 36px;
     height: 36px;
+  }
+
+  .hero-robot-wrapper {
+    max-width: 190px;
+  }
+
+  .hero-robot-avatar {
+    max-width: 175px;
+  }
+
+  .hero-robot-shadow {
+    width: 110px;
+    height: 14px;
   }
 }
 
