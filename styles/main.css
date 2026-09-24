@@ -1609,8 +1609,10 @@ h3 {
   -webkit-backdrop-filter: none;
 }
 
-.hero-background .header-v2-wrapper.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
+.hero-background .header-v2-wrapper.scrolled,
+.hero-background .header-v2-wrapper.modal-active,
+body.modal-open .hero-background .header-v2-wrapper {
+  background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.07);

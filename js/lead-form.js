@@ -8,6 +8,16 @@ function closeModal(targetModal) {
   if (modal) {
     modal.classList.remove('is-open');
     document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
+
+    // Restaurar header si está en la parte superior sin scroll
+    const mainHeader = document.getElementById('mainHeader');
+    if (mainHeader) {
+      mainHeader.classList.remove('modal-active');
+      if (window.scrollY <= 20) {
+        mainHeader.classList.remove('scrolled');
+      }
+    }
   }
 }
 
@@ -16,6 +26,14 @@ function openModal() {
   if (modalOverlay) {
     modalOverlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
+
+    // Activar fondo blanco nítido en el navbar al abrir modal
+    const mainHeader = document.getElementById('mainHeader');
+    if (mainHeader) {
+      mainHeader.classList.add('modal-active');
+      mainHeader.classList.add('scrolled');
+    }
   }
 }
 
