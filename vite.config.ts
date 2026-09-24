@@ -17,7 +17,7 @@ function htmlIncludePlugin(): Plugin {
     name: 'html-include-plugin',
     transformIndexHtml: {
       order: 'pre',
-      handler(html: string) {
+      handler(html: string, ctx) {
         const includeRegex = /<include\s+src=["']([^"']+)["']\s*(?:\/>|><\/include>)/gi
         let result = html
         let hasReplaced = true
@@ -38,6 +38,19 @@ function htmlIncludePlugin(): Plugin {
           })
           depth++
         }
+
+        // Determinar prefijo relativo (./ para raíz, ../ para subpáginas) para soporte de GitHub Pages
+        if (ctx && ctx.filename) {
+          const relativeDir = path.relative(__dirname, path.dirname(ctx.filename))
+          const isSubpage = relativeDir && relativeDir !== '.' && relativeDir !== ''
+          const prefix = isSubpage ? '../' : './'
+
+          // Reemplazar href="/..." (evitando // externos)
+          result = result.replace(/href=["']\/(?!\/)([^"']*)["']/gi, (_m, p1) => `href="${prefix}${p1}"`)
+          // Reemplazar src="/..." (evitando // externos)
+          result = result.replace(/src=["']\/(?!\/)([^"']*)["']/gi, (_m, p1) => `src="${prefix}${p1}"`)
+        }
+
         return result
       }
     },
