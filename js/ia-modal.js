@@ -25,12 +25,12 @@ export function initIaModal() {
   let currentVideoIndex = 0;
 
   const iaData = {
-    // 1. DOCENTE: Creación de Recursos con IA (Video Drive)
+    // 1. DOCENTE: Creación de Recursos con IA (YouTube)
     recursos: {
       badge: 'RECURSOS',
       title: 'Creación de Recursos con IA',
       videos: [
-        'https://drive.google.com/file/d/1E9x0QUQxW6qF9boBOAro5GtBpEyQ21zS/preview'
+        'https://www.youtube.com/embed/it08ugia8Zc?autoplay=1&rel=0'
       ],
       descs: [
         'Generación inteligente de fichas didácticas, lecturas adaptadas y materiales pedagógicos alineados al contexto y nivel del aula.'
@@ -45,7 +45,7 @@ export function initIaModal() {
       badge: 'RECURSOS',
       title: 'Creación de Recursos con IA',
       videos: [
-        'https://drive.google.com/file/d/1E9x0QUQxW6qF9boBOAro5GtBpEyQ21zS/preview'
+        'https://www.youtube.com/embed/it08ugia8Zc?autoplay=1&rel=0'
       ],
       descs: [
         'Generación inteligente de fichas didácticas, lecturas adaptadas y materiales pedagógicos alineados al contexto y nivel del aula.'
@@ -56,12 +56,12 @@ export function initIaModal() {
       darkBg: 'rgba(168, 85, 247, 0.16)'
     },
 
-    // 2. DOCENTE: Crear instrumentos de evaluación con IA (Video Drive)
+    // 2. DOCENTE: Crear instrumentos de evaluación con IA (YouTube)
     instrumentos: {
       badge: 'INSTRUMENTOS',
       title: 'Crear instrumentos de evaluación con IA',
       videos: [
-        'https://drive.google.com/file/d/1f4mcaQjEYLIIqpFkAsuCGIMpbwfkdB2q/preview'
+        'https://www.youtube.com/embed/yiUu5AP1d2g?autoplay=1&rel=0'
       ],
       descs: [
         'Construcción de rúbricas por niveles de logro (AD, A, B, C), listas de cotejo y matrices de evaluación por competencias.'
@@ -76,7 +76,7 @@ export function initIaModal() {
       badge: 'INSTRUMENTOS',
       title: 'Crear instrumentos de evaluación con IA',
       videos: [
-        'https://drive.google.com/file/d/1f4mcaQjEYLIIqpFkAsuCGIMpbwfkdB2q/preview'
+        'https://www.youtube.com/embed/yiUu5AP1d2g?autoplay=1&rel=0'
       ],
       descs: [
         'Construcción de rúbricas por niveles de logro (AD, A, B, C), listas de cotejo y matrices de evaluación por competencias.'
@@ -87,12 +87,12 @@ export function initIaModal() {
       darkBg: 'rgba(99, 102, 241, 0.16)'
     },
 
-    // 3. DOCENTE: Revisar evaluaciones con IA (Video Drive)
+    // 3. DOCENTE: Revisar evaluaciones con IA (YouTube)
     evaluaciones: {
       badge: 'EVALUACIONES',
       title: 'Revisar evaluaciones con IA',
       videos: [
-        'https://drive.google.com/file/d/1JzfsY2rBs5UJzI7_OsFsD1_SPzID6gFh/preview'
+        'https://www.youtube.com/embed/kZdhx7r-PdI?autoplay=1&rel=0'
       ],
       descs: [
         'Agiliza la revisión de los entregables de las tareas con criterios pedagógicos objetivos y transparentes.'
@@ -103,12 +103,12 @@ export function initIaModal() {
       darkBg: 'rgba(14, 165, 233, 0.16)'
     },
 
-    // 4. DOCENTE: Foros inteligentes (Video Drive)
+    // 4. DOCENTE: Foros inteligentes (YouTube)
     foros: {
       badge: 'FOROS',
       title: 'Foros inteligentes',
       videos: [
-        'https://drive.google.com/file/d/1i2f28RzZ4R7Q-dULUaHmh6PwrfxcH8Xo/preview'
+        'https://www.youtube.com/embed/5CjyWmlkIYA?autoplay=1&rel=0'
       ],
       descs: [
         'Realiza una evaluación cualitativa y genera feedback a las respuestas del estudiante del foro.'
@@ -119,12 +119,12 @@ export function initIaModal() {
       darkBg: 'rgba(245, 158, 11, 0.16)'
     },
 
-    // 5. DOCENTE: Generar rutas de aprendizaje con IA (Video Drive)
+    // 5. DOCENTE: Generar rutas de aprendizaje con IA (YouTube)
     rutas: {
       badge: 'RUTAS',
       title: 'Generar rutas de aprendizaje con IA',
       videos: [
-        'https://drive.google.com/file/d/1Q5bMkd9A_M4GTLeOW8AlPG-n8m-qlazm/preview'
+        'https://www.youtube.com/embed/i7zjvZnx274?autoplay=1&rel=0'
       ],
       descs: [
         'Estructura secuencias modulares y trayectorias formativas adaptadas a los ritmos y necesidades de cada grupo.'
@@ -138,7 +138,7 @@ export function initIaModal() {
       badge: 'RUTAS',
       title: 'Generar rutas de aprendizaje con IA',
       videos: [
-        'https://drive.google.com/file/d/1Q5bMkd9A_M4GTLeOW8AlPG-n8m-qlazm/preview'
+        'https://www.youtube.com/embed/i7zjvZnx274?autoplay=1&rel=0'
       ],
       descs: [
         'Estructura secuencias modulares y trayectorias formativas adaptadas a los ritmos y necesidades de cada grupo.'
@@ -149,12 +149,12 @@ export function initIaModal() {
       darkBg: 'rgba(217, 70, 239, 0.16)'
     },
 
-    // 6. DOCENTE: Mentor Genesys (Video Drive)
+    // 6. DOCENTE: Mentor Genesys (YouTube)
     'mentor-genesys': {
       badge: 'MENTOR GENESYS',
       title: 'Mentor Genesys',
       videos: [
-        'https://drive.google.com/file/d/14Ldfl0KfgO4Nwz43arCB9ZTj-mn-g1SG/preview'
+        'https://www.youtube.com/embed/OXM0kweS2y4?autoplay=1&rel=0'
       ],
       descs: [
         'Mentor Genesys es un asistente virtual que ayudará a resolver durante todo el ciclo del aprendizaje al usuario.'
@@ -168,7 +168,7 @@ export function initIaModal() {
       badge: 'MENTOR GENESYS',
       title: 'Mentor Genesys',
       videos: [
-        'https://drive.google.com/file/d/14Ldfl0KfgO4Nwz43arCB9ZTj-mn-g1SG/preview'
+        'https://www.youtube.com/embed/OXM0kweS2y4?autoplay=1&rel=0'
       ],
       descs: [
         'Mentor Genesys es un asistente virtual que ayudará a resolver durante todo el ciclo del aprendizaje al usuario.'
@@ -182,7 +182,7 @@ export function initIaModal() {
       badge: 'MENTOR GENESYS',
       title: 'Mentor Genesys',
       videos: [
-        'https://drive.google.com/file/d/14Ldfl0KfgO4Nwz43arCB9ZTj-mn-g1SG/preview'
+        'https://www.youtube.com/embed/OXM0kweS2y4?autoplay=1&rel=0'
       ],
       descs: [
         'Mentor Genesys es un asistente virtual que ayudará a resolver durante todo el ciclo del aprendizaje al usuario.'
@@ -193,12 +193,12 @@ export function initIaModal() {
       darkBg: 'rgba(59, 130, 246, 0.16)'
     },
 
-    // 7. ESTUDIANTE: Revisión de tareas con IA (Video Drive)
+    // 7. ESTUDIANTE: Revisión de tareas con IA (YouTube)
     'est-tareas': {
       badge: 'ESTUDIANTE',
       title: 'Revisión de tareas con IA',
       videos: [
-        'https://drive.google.com/file/d/1q9-RYthoZkay38xDgfzdzxzg91ysRdaj/preview'
+        'https://www.youtube.com/embed/KRRTNGZqgxQ?autoplay=1&rel=0'
       ],
       descs: [
         'Orientación formativa previa a la entrega final para identificar áreas de mejora sin otorgar respuestas automáticas.'
@@ -209,12 +209,12 @@ export function initIaModal() {
       darkBg: 'rgba(16, 185, 129, 0.16)'
     },
 
-    // 7. ESTUDIANTE: Retroalimentación de R.A. con IA (Video Drive)
+    // 8. ESTUDIANTE: Retroalimentación de R.A. con IA (YouTube)
     'est-ruta': {
       badge: 'ESTUDIANTE',
       title: 'Retroalimentación de R.A. con IA',
       videos: [
-        'https://drive.google.com/file/d/1l5FytXhyY04uVsydkQYUBtrq47zDi0Zy/preview'
+        'https://www.youtube.com/embed/0Y5sJxm2Cyo?autoplay=1&rel=0'
       ],
       descs: [
         'Retroalimentación formativa para el estudiante para cada reto planteado en las Rutas de Aprendizaje.'
