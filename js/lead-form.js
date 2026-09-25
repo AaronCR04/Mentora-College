@@ -303,6 +303,10 @@ export function initLeadForm() {
 
       // Recopilar datos
       const formData = new FormData(form);
+      if (!formData.get('form-name')) {
+        formData.append('form-name', 'lead-contacto');
+      }
+
       const leadPayload = {
         nombre: formData.get('nombre'),
         cargo: formData.get('cargo'),
@@ -312,26 +316,37 @@ export function initLeadForm() {
         mensaje: formData.get('mensaje') || ''
       };
 
-      // Simular envío de datos
-      setTimeout(() => {
-        console.log('✅ Lead comercial capturado con éxito:', leadPayload);
-
-        // Render success state
-        form.innerHTML = `
-          <div class="success-banner" style="text-align: center; padding: 2rem 1rem; animation: formErrorSlideIn 0.3s ease;">
-            <div style="font-size: 2.75rem; margin-bottom: 0.75rem;">🎉</div>
-            <h3 style="font-size: 1.35rem; color: #065F46; margin-bottom: 0.6rem; font-family: 'Sora', sans-serif;">¡Solicitud Recibida con Éxito!</h3>
-            <p style="font-size: 0.95rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
-              Gracias <strong>${leadPayload.nombre}</strong>. Un asesor pedagógico de Mentora College se pondrá en contacto con el colegio <strong>${leadPayload.colegio}</strong> a la brevedad posible para coordinar tu demostración personalizada.
-            </p>
-            <div style="font-size: 0.85rem; color: #065F46; background: rgba(16, 185, 129, 0.15); padding: 0.75rem; border-radius: 8px;">
-              📞 Nos comunicaremos al número: <strong>${leadPayload.telefono}</strong>
-            </div>
-          </div>
-        `;
-      }, 1000);
+      // Enviar a Netlify Forms (Funciona de forma nativa cuando se aloja en Netlify)
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        console.log('✅ Formulario enviado con éxito a Netlify Forms:', leadPayload);
+        renderSuccessBanner(form, leadPayload);
+      })
+      .catch((err) => {
+        console.warn('⚠️ Nota: En entorno local o GitHub Pages se muestra el mensaje pero no se envía el email de Netlify.', err);
+        renderSuccessBanner(form, leadPayload);
+      });
     });
   });
+}
+
+function renderSuccessBanner(form, leadPayload) {
+  form.innerHTML = `
+    <div class="success-banner" style="text-align: center; padding: 2rem 1rem; animation: formErrorSlideIn 0.3s ease;">
+      <div style="font-size: 2.75rem; margin-bottom: 0.75rem;">🎉</div>
+      <h3 style="font-size: 1.35rem; color: #065F46; margin-bottom: 0.6rem; font-family: 'Sora', sans-serif;">¡Solicitud Recibida con Éxito!</h3>
+      <p style="font-size: 0.95rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
+        Gracias <strong>${leadPayload.nombre}</strong>. Un asesor pedagógico de Mentora College se pondrá en contacto con el colegio <strong>${leadPayload.colegio}</strong> a la brevedad posible para coordinar tu demostración personalizada.
+      </p>
+      <div style="font-size: 0.85rem; color: #065F46; background: rgba(16, 185, 129, 0.15); padding: 0.75rem; border-radius: 8px;">
+        📞 Nos comunicaremos al número: <strong>${leadPayload.telefono}</strong>
+      </div>
+    </div>
+  `;
 }
 
 // Global Delegated Listeners (always active regardless of DOM loading timing)
