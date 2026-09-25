@@ -3,6 +3,8 @@
    Gestión de la conversión comercial, validación en tiempo real y eventos
    ========================================================================== */
 
+import mensajeEnviadoImg from '../assets/general/mensaje enviado.svg';
+
 function closeModal(targetModal) {
   const modal = targetModal || document.getElementById('leadModalOverlay') || document.querySelector('.modal-overlay.is-open');
   if (modal) {
@@ -338,7 +340,7 @@ function renderSuccessBanner(form, leadPayload) {
   form.innerHTML = `
     <div class="success-banner" style="text-align: center; padding: 2rem 1rem; animation: formErrorSlideIn 0.3s ease;">
       <div style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
-        <img src="/assets/general/mensaje enviado.svg" alt="Mensaje Enviado" style="width: 72px; height: 72px; object-fit: contain;">
+        <img src="${mensajeEnviadoImg}" alt="Mensaje Enviado" style="width: 72px; height: 72px; object-fit: contain;">
       </div>
       <h3 style="font-size: 1.35rem; color: #065F46; margin-bottom: 0.6rem; font-family: 'Sora', sans-serif;">¡Solicitud Recibida con Éxito!</h3>
       <p style="font-size: 0.95rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
