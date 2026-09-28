@@ -362,6 +362,9 @@ export function initLeadForm() {
       if (!formData.get('form-name')) {
         formData.append('form-name', 'lead-contacto');
       }
+      if (!formData.has('bot-field')) {
+        formData.append('bot-field', '');
+      }
 
       // Obtener el número completo internacional con prefijo (ej. +51 987 654 321)
       let fullPhoneNumber = formData.get('telefono') || '';
@@ -378,6 +381,7 @@ export function initLeadForm() {
             fullPhoneNumber = dial + phoneInput.value.trim();
           }
           formData.set('telefono', fullPhoneNumber);
+          phoneInput.value = fullPhoneNumber;
         }
       }
 
@@ -391,12 +395,16 @@ export function initLeadForm() {
       };
 
       // Enviar a Netlify Forms (Funciona de forma nativa cuando se aloja en Netlify)
-      fetch('/', {
+      const submitEndpoint = form.getAttribute('action') || '/';
+      fetch(submitEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
       })
-        .then(() => {
+        .then((response) => {
+          if (!response.ok) {
+            console.warn(`Netlify Forms respondió con estado ${response.status}: ${response.statusText}`);
+          }
           console.log('✅ Formulario enviado con éxito a Netlify Forms:', leadPayload);
           renderSuccessBanner(form, leadPayload);
         })
