@@ -4,6 +4,9 @@
    ========================================================================== */
 
 import mensajeEnviadoImg from '../assets/general/mensaje enviado.svg';
+import 'intl-tel-input/styles';
+import intlTelInput from 'intl-tel-input/intlTelInputWithUtils';
+import esTranslations from 'intl-tel-input/locale/es';
 
 function closeModal(targetModal) {
   const modal = targetModal || document.getElementById('leadModalOverlay') || document.querySelector('.modal-overlay.is-open');
@@ -46,7 +49,45 @@ function openModal() {
       mainHeader.classList.add('modal-active');
       mainHeader.classList.add('scrolled');
     }
+
+    // Asegurar que el input de teléfono del modal esté inicializado
+    const modalPhone = modalOverlay.querySelector('input[type="tel"], input[name="telefono"]');
+    if (modalPhone) {
+      initIntlPhoneInput(modalPhone);
+    }
   }
+}
+
+/**
+ * Inicializa intl-tel-input con bandera, buscador y código internacional.
+ * Por defecto: Perú (+51)
+ */
+export function initIntlPhoneInput(phoneInput) {
+  if (!phoneInput) return null;
+
+  const existingIti = intlTelInput.getInstance(phoneInput);
+  if (existingIti) {
+    return existingIti;
+  }
+
+  const iti = intlTelInput(phoneInput, {
+    initialCountry: 'pe', // Perú (+51) predeterminado
+    countryOrder: ['pe', 'co', 'mx', 'cl', 'ar', 'ec', 'bo', 'es', 'us'],
+    countrySearch: true,
+    separateDialCode: true,
+    formatAsYouType: true,
+    placeholderNumberPolicy: 'aggressive',
+    i18n: esTranslations,
+  });
+
+  phoneInput.addEventListener('countrychange', () => {
+    clearFieldError(phoneInput);
+    if (phoneInput.value.trim()) {
+      validateField(phoneInput);
+    }
+  });
+
+  return iti;
 }
 
 /**
@@ -159,16 +200,28 @@ function validateField(field) {
     return true;
   }
 
-  // Validación Teléfono / WhatsApp
+  // Validación Teléfono / WhatsApp con intl-tel-input
   if (name.includes('telefono') || field.type === 'tel') {
     if (!value) {
       showFieldError(field, 'El teléfono / WhatsApp es obligatorio.');
       return false;
     }
-    const digitsOnly = value.replace(/\D/g, '');
-    if (digitsOnly.length < 7) {
-      showFieldError(field, 'Ingresa un número telefónico válido (mínimo 7 dígitos, solo números).');
-      return false;
+    const iti = intlTelInput.getInstance(field);
+    if (iti) {
+      const isValid = iti.isValidNumber();
+      if (!isValid) {
+        const digitsOnly = value.replace(/\D/g, '');
+        if (digitsOnly.length < 7) {
+          showFieldError(field, 'Ingresa un número telefónico válido para el país seleccionado.');
+          return false;
+        }
+      }
+    } else {
+      const digitsOnly = value.replace(/\D/g, '');
+      if (digitsOnly.length < 7) {
+        showFieldError(field, 'Ingresa un número telefónico válido (mínimo 7 dígitos, solo números).');
+        return false;
+      }
     }
     clearFieldError(field);
     return true;
@@ -190,7 +243,8 @@ function validateField(field) {
  * - Sanitiza pegado de texto con letras y muestra mensaje de advertencia
  */
 function setupPhoneRestrictions(phoneInput) {
-  if (!phoneInput) return;
+  if (!phoneInput || phoneInput.dataset.phoneRestrictionsSet) return;
+  phoneInput.dataset.phoneRestrictionsSet = 'true';
 
   // 1. Evitar escribir letras en el evento keydown / keypress
   phoneInput.addEventListener('keypress', (e) => {
@@ -213,9 +267,8 @@ function setupPhoneRestrictions(phoneInput) {
 
     if (originalVal !== sanitizedVal) {
       phoneInput.value = sanitizedVal;
-      showFieldError(phoneInput, 'Se han filtrado letras. Solo se permiten números.');
-    } else {
-      // Validar si tiene longitud adecuada
+      showFieldError(phoneInput, 'Se han filtrado caracteres inválidos. Solo se permiten números.');
+    } else if (phoneInput.classList.contains('is-invalid')) {
       validateField(phoneInput);
     }
   });
@@ -253,8 +306,9 @@ export function initLeadForm() {
     const inputs = form.querySelectorAll('input, select, textarea');
 
     inputs.forEach(input => {
-      // Si es teléfono, aplicar restricción estricta de letras
+      // Si es teléfono, aplicar inicialización de intl-tel-input y restricción de caracteres
       if (input.type === 'tel' || (input.name && input.name.includes('telefono'))) {
+        initIntlPhoneInput(input);
         setupPhoneRestrictions(input);
       } else {
         // En los demás inputs, validar al salir (blur) y al escribir (input)
@@ -309,12 +363,30 @@ export function initLeadForm() {
         formData.append('form-name', 'lead-contacto');
       }
 
+      // Obtener el número completo internacional con prefijo (ej. +51 987 654 321)
+      let fullPhoneNumber = formData.get('telefono') || '';
+      const phoneInput = form.querySelector('input[type="tel"], input[name="telefono"]');
+      if (phoneInput) {
+        const iti = intlTelInput.getInstance(phoneInput);
+        if (iti) {
+          const numberE164 = iti.getNumber();
+          if (numberE164) {
+            fullPhoneNumber = numberE164;
+          } else if (phoneInput.value) {
+            const countryData = iti.getSelectedCountry();
+            const dial = countryData && countryData.dialCode ? `+${countryData.dialCode} ` : '';
+            fullPhoneNumber = dial + phoneInput.value.trim();
+          }
+          formData.set('telefono', fullPhoneNumber);
+        }
+      }
+
       const leadPayload = {
         nombre: formData.get('nombre'),
         cargo: formData.get('cargo'),
         colegio: formData.get('colegio'),
         email: formData.get('email'),
-        telefono: formData.get('telefono'),
+        telefono: fullPhoneNumber,
         mensaje: formData.get('mensaje') || ''
       };
 

@@ -1332,6 +1332,102 @@ h3 {
   }
 }
 
+/* ==========================================================================
+   INTL-TEL-INPUT CUSTOM THEME FOR MENTORA COLLEGE
+   ========================================================================== */
+.iti {
+  width: 100%;
+  display: block;
+}
+
+.iti--inline-country-selector .iti__country-selector {
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  z-index: 100000 !important;
+}
+
+.iti--detached-country-selector {
+  z-index: 100001 !important;
+}
+
+.iti__selected-country {
+  padding: 0 8px 0 12px;
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.iti__selected-country:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.iti__selected-dial-code {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-left: 6px;
+}
+
+.iti__arrow {
+  border-right-color: #64748B;
+  border-bottom-color: #64748B;
+}
+
+.iti__search-input-wrapper {
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 6px 8px;
+}
+
+.iti__search-input {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem 0.5rem 2.2rem;
+  color: var(--text-main);
+}
+
+.iti__search-input:focus {
+  outline: none;
+  border-color: var(--mentora-blue);
+  box-shadow: 0 0 0 2px rgba(50, 103, 232, 0.15);
+}
+
+.iti__country-list {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.iti__country {
+  padding: 8px 12px;
+  transition: background-color 0.15s ease;
+}
+
+.iti__country.iti__highlight {
+  background-color: #EFF6FF;
+  color: var(--mentora-blue);
+}
+
+.iti__country-name {
+  font-weight: 500;
+}
+
+.iti__dial-code {
+  color: #64748B;
+  font-weight: 400;
+}
+
+.iti input.form-input.is-invalid {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
 /* Lead Modal Popup */
 .modal-overlay {
   position: fixed;
