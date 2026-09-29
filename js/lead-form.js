@@ -3,7 +3,7 @@
    Gestión de la conversión comercial, validación en tiempo real y eventos
    ========================================================================== */
 
-import mensajeEnviadoImg from '../assets/general/mensaje enviado.svg';
+import mensajeEnviadoImg from '../assets/general/mensaje enviado.webp';
 import 'intl-tel-input/styles';
 import intlTelInput from 'intl-tel-input/intlTelInputWithUtils';
 import esTranslations from 'intl-tel-input/locale/es';
